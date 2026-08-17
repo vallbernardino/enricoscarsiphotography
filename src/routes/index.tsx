@@ -89,7 +89,7 @@ function Index() {
                   {t.hero.ctas[2]}
                 </a>
               </div>
-              <dl className="mt-12 grid grid-cols-3 border-t border-stone/40 pt-5">
+              <dl className="mt-12 grid grid-cols-3 gap-4 border-t border-stone/40 pt-5">
                 {t.hero.stats.map((s) => (
                   <div key={s.label}>
                     <dt className="mono-label">{s.label}</dt>
@@ -102,7 +102,7 @@ function Index() {
               <PhotoPlaceholder
                 id="IMG_001"
                 caption={t.hero.caption}
-                aspect="aspect-[3/2] lg:h-[70vh] lg:aspect-auto"
+                aspect="aspect-[3/2] lg:aspect-auto lg:h-[68vh] lg:min-h-[520px]"
                 sprockets
               />
             </div>
