@@ -39,7 +39,9 @@ export function PhotoFrame({
   return (
     <div
       className={`relative w-full overflow-hidden ${aspect} ${
-        tone === "dark" ? "bg-charcoal-soft" : "bg-ink/5"
+        tone === "dark"
+          ? "border border-cream/12 bg-[linear-gradient(135deg,#1a1918_0%,#111010_55%,#1c1a18_100%)]"
+          : "border border-ink/10 bg-[linear-gradient(135deg,#e9e4da_0%,#f3f0ea_55%,#e4ded2_100%)]"
       } ${className}`}
     >
       {src ? (
