@@ -24,7 +24,7 @@ export const Route = createFileRoute("/photographer")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: PhotographerPage;
+  component: PhotographerPage,
 });
 
 function PhotographerPage() {
