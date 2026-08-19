@@ -49,11 +49,11 @@ export type Copy = {
 const it: Copy = {
   htmlLang: "it",
   meta: {
-    title: "Enrico Scarsi Fotografia — Fotografo a Torino",
+    title: "Enrico Capuano Fotografia — Fotografo a Torino",
     description:
       "Studio fotografico a Torino: ritratto, famiglia, eventi aziendali, pubblicitaria e catalogo. Reportage e ritratto in Piemonte, Valle d'Aosta e Liguria.",
   },
-  brand: { name: "Enrico Scarsi — Fotografia", kicker: "Studio fotografico · Torino" },
+  brand: { name: "Enrico Capuano — Fotografia", kicker: "Studio fotografico · Torino" },
   nav: [
     { label: "Chi Siamo", href: "#chi-siamo" },
     { label: "Privati", href: "#privati" },
@@ -236,7 +236,7 @@ const it: Copy = {
     ],
   },
   about: {
-    heading: "Enrico Scarsi, Fotografo a Torino",
+    heading: "Enrico Capuano, Fotografo a Torino",
     caption: "ENRICO SCARSI",
     body: [
       "Fotografo con studio a Torino, specializzato in ritratto e reportage, al lavoro con clienti privati e professionali in tutta la regione.",
@@ -257,18 +257,18 @@ const it: Copy = {
   footer: {
     legal:
       "Questo sito non utilizza alcun tipo di cookie, né cookie tecnici né cookie di profilazione. La navigazione avviene senza la raccolta o il tracciamento di dati personali degli utenti.",
-    copyright: "Enrico Scarsi Fotografia — P.IVA 05529370016",
+    copyright: "Enrico Capuano Fotografia — P.IVA 05529370016",
   },
 };
 
 const en: Copy = {
   htmlLang: "en",
   meta: {
-    title: "Enrico Scarsi Fotografia — Photographer in Turin",
+    title: "Enrico Capuano Fotografia — Photographer in Turin",
     description:
       "Photography studio in Turin: portraits, family, corporate events, advertising and catalog work across Piedmont, Valle d'Aosta and Liguria.",
   },
-  brand: { name: "Enrico Scarsi — Fotografia", kicker: "Photography studio · Turin" },
+  brand: { name: "Enrico Capuano — Fotografia", kicker: "Photography studio · Turin" },
   nav: [
     { label: "About", href: "#chi-siamo" },
     { label: "Private", href: "#privati" },
@@ -451,7 +451,7 @@ const en: Copy = {
     ],
   },
   about: {
-    heading: "Enrico Scarsi, Photographer in Turin",
+    heading: "Enrico Capuano, Photographer in Turin",
     caption: "ENRICO SCARSI",
     body: [
       "A Turin-based photographer specialising in portraiture and reportage, working with both private and professional clients across the region.",
@@ -472,11 +472,12 @@ const en: Copy = {
   footer: {
     legal:
       "This website does not use any type of cookies, including technical or profiling cookies. Browsing takes place without the collection or tracking of users' personal data.",
-    copyright: "Enrico Scarsi Fotografia — VAT 05529370016",
+    copyright: "Enrico Capuano Fotografia — VAT 05529370016",
   },
 };
 
 export const CONTACT = {
+  address: "Via Oropa 54B, 10153 Torino TO",
   phone1: "+39 011 8998291",
   phone2: "+39 348 9229300",
   email: "enrico.scarsi@gmail.com",
