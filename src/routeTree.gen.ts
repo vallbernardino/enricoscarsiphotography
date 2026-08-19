@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ExperiencesRouteImport } from './routes/experiences'
+import { Route as PhotographerRouteImport } from './routes/photographer'
 import { Route as WorkRouteImport } from './routes/work'
 
 const IndexRoute = IndexRouteImport.update({
@@ -23,6 +24,11 @@ const ExperiencesRoute = ExperiencesRouteImport.update({
   path: '/experiences',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PhotographerRoute = PhotographerRouteImport.update({
+  id: '/photographer',
+  path: '/photographer',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WorkRoute = WorkRouteImport.update({
   id: '/work',
   path: '/work',
@@ -32,30 +38,34 @@ const WorkRoute = WorkRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/experiences': typeof ExperiencesRoute
+  '/photographer': typeof PhotographerRoute
   '/work': typeof WorkRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/experiences': typeof ExperiencesRoute
+  '/photographer': typeof PhotographerRoute
   '/work': typeof WorkRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/experiences': typeof ExperiencesRoute
+  '/photographer': typeof PhotographerRoute
   '/work': typeof WorkRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/experiences' | '/work'
+  fullPaths: '/' | '/experiences' | '/photographer' | '/work'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/experiences' | '/work'
-  id: '__root__' | '/' | '/experiences' | '/work'
+  to: '/' | '/experiences' | '/photographer' | '/work'
+  id: '__root__' | '/' | '/experiences' | '/photographer' | '/work'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ExperiencesRoute: typeof ExperiencesRoute
+  PhotographerRoute: typeof PhotographerRoute
   WorkRoute: typeof WorkRoute
 }
 
@@ -75,6 +85,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ExperiencesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/photographer': {
+      id: '/photographer'
+      path: '/photographer'
+      fullPath: '/photographer'
+      preLoaderRoute: typeof PhotographerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/work': {
       id: '/work'
       path: '/work'
@@ -88,6 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ExperiencesRoute: ExperiencesRoute,
+  PhotographerRoute: PhotographerRoute,
   WorkRoute: WorkRoute,
 }
 export const routeTree = rootRouteImport
