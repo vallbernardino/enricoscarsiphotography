@@ -15,7 +15,7 @@ function LensGlyph({ tone }: { tone: "dark" | "light" }) {
     <svg
       viewBox="0 0 48 40"
       aria-hidden="true"
-      className={`h-9 w-11 ${tone === "dark" ? "text-cream/20" : "text-ink/20"}`}
+      className={`h-9 w-11 ${tone === "dark" ? "text-cream/30" : "text-ink/20"}`}
       fill="none"
       stroke="currentColor"
       strokeWidth="1"
@@ -40,7 +40,7 @@ export function PhotoFrame({
     <div
       className={`relative w-full overflow-hidden ${aspect} ${
         tone === "dark"
-          ? "border border-cream/12 bg-[linear-gradient(135deg,#1a1918_0%,#111010_55%,#1c1a18_100%)]"
+          ? "border border-cream/20 bg-[linear-gradient(135deg,#26231f_0%,#1a1817_55%,#2b2723_100%)]"
           : "border border-ink/10 bg-[linear-gradient(135deg,#e9e4da_0%,#f3f0ea_55%,#e4ded2_100%)]"
       } ${className}`}
     >
@@ -56,7 +56,7 @@ export function PhotoFrame({
           <LensGlyph tone={tone} />
           {caption ? (
             <span
-              className={`label-xs ${tone === "dark" ? "text-cream/35" : "text-ink/40"}`}
+              className={`label-xs ${tone === "dark" ? "text-cream/50" : "text-ink/40"}`}
             >
               {caption}
             </span>
