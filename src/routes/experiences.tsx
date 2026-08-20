@@ -9,13 +9,13 @@ import { CONTACT, copyFor } from "@/lib/site-content";
 export const Route = createFileRoute("/experiences")({
   head: () => ({
     meta: [
-      { title: "Esperienze e servizi — Enrico Capuano, Torino" },
+      { title: "Esperienze e servizi — Enrico Scarsi, Torino" },
       {
         name: "description",
         content:
           "Servizi fotografici per privati e aziende a Torino: ritratto, famiglia, maternità, eventi aziendali, pubblicitaria e catalogo.",
       },
-      { property: "og:title", content: "Experiences & services — Enrico Capuano" },
+      { property: "og:title", content: "Experiences & services — Enrico Scarsi" },
       {
         property: "og:description",
         content: "Photography services for private and corporate clients in Turin and Piedmont.",

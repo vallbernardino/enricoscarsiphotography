@@ -9,13 +9,13 @@ import { CONTACT, copyFor } from "@/lib/site-content";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contatti — Enrico Capuano, Fotografo in Torino" },
+      { title: "Contatti — Enrico Scarsi, Fotografo in Torino" },
       {
         name: "description",
         content:
           "Studio fotografico in Via Oropa 54B, Torino. Telefono, email, WhatsApp e richiesta di preventivo per servizi fotografici.",
       },
-      { property: "og:title", content: "Contact — Enrico Capuano, photographer in Turin" },
+      { property: "og:title", content: "Contact — Enrico Scarsi, photographer in Turin" },
       {
         property: "og:description",
         content: "Studio in Via Oropa 54B, Turin. Phone, email, WhatsApp and inquiry form.",
