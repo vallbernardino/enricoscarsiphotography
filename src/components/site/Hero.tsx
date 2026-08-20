@@ -1,25 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 import heroAsset from "@/assets/hero-torino.png.asset.json";
 import { useLang } from "@/lib/lang";
 import { homeCopy } from "@/lib/home-copy";
-
-function Words({ text, base, italic = false }: { text: string; base: number; italic?: boolean }) {
-  return (
-    <>
-      {text.split(" ").map((w, i) => (
-        <span key={`${w}-${i}`} className="word-reveal mr-[0.28em]">
-          <span
-            className={italic ? "italic text-champagne" : undefined}
-            style={{ animationDelay: `${base + i * 110}ms` }}
-          >
-            {w}
-          </span>
-        </span>
-      ))}
-    </>
-  );
-}
 
 export function Hero() {
   const { lang } = useLang();
@@ -47,63 +30,55 @@ export function Hero() {
 
   return (
     <section ref={ref} className="relative h-[100svh] w-full overflow-hidden bg-charcoal">
-      {/* Full-bleed photograph with gentle parallax + entrance scale */}
+      {/* Full-bleed photograph, gentle parallax only */}
       <div
         className="absolute inset-0"
         style={{
-          transform: `translate3d(0, ${p * 12}%, 0) scale(${1.06 - p * 0.02})`,
+          transform: `translate3d(0, ${p * 9}%, 0) scale(1.04)`,
           transition: "transform 120ms linear",
         }}
       >
         <img
           src={heroAsset.url}
           alt={t.alt}
-          className="h-full w-full object-cover object-[62%_center] sm:object-center"
-          style={{ animation: "word-rise 0ms" }}
+          className="h-full w-full object-cover object-[58%_center] sm:object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-charcoal/85 via-charcoal/35 to-charcoal/10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/10 to-charcoal/45" />
+        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/15 to-charcoal/35" />
       </div>
 
-      {/* Headline */}
+      {/* Typography: centred, restrained, static */}
       <div
-        className="relative z-10 mx-auto flex h-full max-w-[1440px] flex-col justify-end px-6 pb-24 lg:justify-center lg:px-10 lg:pb-0"
-        style={{ opacity: 1 - p * 1.15, transform: `translate3d(0, ${p * -6}vh, 0)` }}
+        className="relative z-10 mx-auto flex h-full max-w-[1440px] flex-col items-center justify-end px-6 pb-20 text-center lg:pb-24"
+        style={{ opacity: 1 - p * 1.2 }}
       >
-        <div className="max-w-3xl">
-          <div className="flex items-center gap-4 opacity-0" style={{ animation: "word-rise 900ms cubic-bezier(0.16,1,0.3,1) 200ms forwards" }}>
-            <span className="label-xs text-cream/70">{t.eyebrow}</span>
-            <span className="h-px w-14 bg-champagne/60" />
-          </div>
-
-          <h1 className="display-hero sheen mt-7 text-[2.7rem] text-cream sm:text-[4rem] lg:text-[5.4rem]">
-            <span className="block">
-              <Words text={t.line1} base={500} />
-            </span>
-            <span className="block">
-              <Words text={t.line2} base={700} />
-            </span>
-            <span className="block">
-              <Words text={t.line3} base={950} italic />
-            </span>
-          </h1>
-
-          <p
-            className="mt-8 text-sm text-cream/65 opacity-0"
-            style={{ animation: "word-rise 900ms cubic-bezier(0.16,1,0.3,1) 1500ms forwards" }}
-          >
-            {t.since}
-          </p>
-
-          <a
-            href="#inquiry"
-            className="arrow-link label-xs mt-9 inline-flex border-b border-cream/40 pb-2 text-cream opacity-0 transition-colors hover:border-champagne hover:text-champagne"
-            style={{ animation: "word-rise 900ms cubic-bezier(0.16,1,0.3,1) 1700ms forwards" }}
-          >
-            {t.cta}
-            <ArrowRight className="h-3.5 w-3.5" strokeWidth={1.5} />
-          </a>
+        <div className="soft-in" style={{ animationDelay: "120ms" }}>
+          <span className="label-xs text-cream/70">{t.eyebrow}</span>
         </div>
+
+        <h1
+          className="display-editorial soft-in mt-6 text-[1.55rem] leading-[1.16] text-cream sm:text-[2.1rem] lg:text-[2.9rem]"
+          style={{ animationDelay: "260ms" }}
+        >
+          <span className="block">{t.line1}</span>
+          <span className="block">{t.line2}</span>
+          <span className="block italic">{t.line3}</span>
+        </h1>
+
+        <p
+          className="soft-in mt-7 text-[0.8rem] tracking-wide text-cream/65"
+          style={{ animationDelay: "440ms" }}
+        >
+          {t.since}
+        </p>
+
+        <a
+          href="#inquiry"
+          className="arrow-link label-xs soft-in mt-12 inline-flex text-cream/80 transition-colors hover:text-champagne"
+          style={{ animationDelay: "600ms" }}
+        >
+          {t.cta}
+          <ArrowDown className="h-3.5 w-3.5" strokeWidth={1.5} />
+        </a>
       </div>
     </section>
   );
