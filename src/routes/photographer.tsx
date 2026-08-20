@@ -9,13 +9,13 @@ import { copyFor } from "@/lib/site-content";
 export const Route = createFileRoute("/photographer")({
   head: () => ({
     meta: [
-      { title: "Il fotografo — Enrico Capuano, Torino dal 1989" },
+      { title: "Il fotografo — Enrico Scarsi, Torino dal 1989" },
       {
         name: "description",
         content:
-          "Enrico Capuano fotografa a Torino dal 1989: metodo di lavoro, esperienza e approccio a ritratto, reportage ed eventi.",
+          "Enrico Scarsi fotografa a Torino dal 1989: metodo di lavoro, esperienza e approccio a ritratto, reportage ed eventi.",
       },
-      { property: "og:title", content: "The photographer — Enrico Capuano" },
+      { property: "og:title", content: "The photographer — Enrico Scarsi" },
       {
         property: "og:description",
         content: "35+ years behind the camera in Turin: method, experience and approach.",

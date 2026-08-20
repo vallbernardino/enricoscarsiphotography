@@ -10,13 +10,13 @@ import { copyFor } from "@/lib/site-content";
 export const Route = createFileRoute("/work")({
   head: () => ({
     meta: [
-      { title: "Work — Enrico Capuano, Fotografo in Torino" },
+      { title: "Work — Enrico Scarsi, Fotografo in Torino" },
       {
         name: "description",
         content:
-          "Gallerie fotografiche di Enrico Capuano: proposte, matrimoni, coppie, ritratti, eventi e fotografia business a Torino.",
+          "Gallerie fotografiche di Enrico Scarsi: proposte, matrimoni, coppie, ritratti, eventi e fotografia business a Torino.",
       },
-      { property: "og:title", content: "Work — Enrico Capuano" },
+      { property: "og:title", content: "Work — Enrico Scarsi" },
       {
         property: "og:description",
         content: "Photography galleries: proposals, weddings, couples, portraits, events, business.",

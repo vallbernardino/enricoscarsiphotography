@@ -18,13 +18,13 @@ const OG_IMAGE =
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Enrico Capuano — Fotografo in Torino | Photography That Matters" },
+      { title: "Enrico Scarsi — Fotografo in Torino | Photography That Matters" },
       {
         name: "description",
         content:
-          "Enrico Capuano, fotografo in Torino dal 1989. Proposte, matrimoni, coppie, ritratti, eventi e business. Oltre 35 anni dietro la macchina fotografica.",
+          "Enrico Scarsi, fotografo in Torino dal 1989. Proposte, matrimoni, coppie, ritratti, eventi e business. Oltre 35 anni dietro la macchina fotografica.",
       },
-      { property: "og:title", content: "Enrico Capuano — Fotografo in Torino" },
+      { property: "og:title", content: "Enrico Scarsi — Fotografo in Torino" },
       {
         property: "og:description",
         content:

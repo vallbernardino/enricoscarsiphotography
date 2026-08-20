@@ -1,7 +1,7 @@
 import type { Lang } from "./lang";
 
 export const BRAND = {
-  name: "Enrico Capuano",
+  name: "Enrico Scarsi",
   kicker: "Fotografo in Torino",
   since: "1989",
 };
