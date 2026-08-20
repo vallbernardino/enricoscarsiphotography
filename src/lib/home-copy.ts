@@ -2,7 +2,8 @@ import type { Lang } from "./lang";
 
 export const BRAND = {
   name: "Enrico Scarsi",
-  kicker: "Fotografo in Torino",
+  kicker: "Fotografo professionista a Torino",
+  kickerEn: "Professional Photographer in Turin",
   since: "1989",
 };
 
@@ -60,14 +61,26 @@ type HomeCopy = {
     caption: string;
     mapLabel: string;
   };
-  stories: { label: string; heading: string };
+  stories: { label: string; heading: string; read: string; sourceNote: string };
+  studio: {
+    label: string;
+    heading: string;
+    lines: string[];
+    openMaps: string;
+    directions: string;
+    phoneLabel: string;
+    mobileLabel: string;
+    emailLabel: string;
+  };
   final: { heading: string[]; support: string; cta: string; caption: string };
   sticky: string;
+  legalLinks: { privacy: string; legal: string; contact: string };
   pages: {
     work: { title: string; intro: string };
     experiences: { title: string; intro: string };
     photographer: { title: string; intro: string };
     contact: { title: string; intro: string };
+    privacy: { title: string; intro: string };
   };
 };
 
@@ -83,18 +96,14 @@ const it: HomeCopy = {
     line1: "Fotografia",
     line2: "per i momenti",
     line3: "che contano.",
-    since: "Dal 1989 · oltre 35 anni di mestiere",
+    since: "Dal 1989 · oltre 35 anni dietro la macchina fotografica",
     cta: "Scopri le storie",
     alt: "Coppia sul lungo Po a Torino con la Mole Antonelliana sullo sfondo",
   },
   inquiry: {
     label: "Raccontaci il tuo progetto",
     heading: ["Dicci cosa", "stai organizzando."],
-    support: [
-      "Ogni storia è unica.",
-      "Lasciaci qualche dettaglio e ti",
-      "risponderemo personalmente.",
-    ],
+    support: ["Ogni storia è unica.", "Lasciaci qualche dettaglio: risponderemo personalmente."],
     typeLabel: "Tipo di servizio",
     types: [
       "Proposta di matrimonio",
@@ -140,6 +149,7 @@ const it: HomeCopy = {
     heading: ["Oltre 35 anni", "dietro la macchina."],
     body: [
       "L'esperienza insegna ad anticipare i momenti, a capire le persone e a restare discreti quando serve.",
+      "Significa anche saper lavorare in situazioni diverse — una piazza affollata, una luce difficile, una famiglia intimidita dall'obiettivo — con la calma di chi lo ha già fatto molte volte.",
       "Il risultato non è una posa perfetta: è una fotografia che continua a significare qualcosa anche molti anni dopo.",
     ],
     cta: "Conosci il fotografo",
@@ -153,14 +163,33 @@ const it: HomeCopy = {
     caption: "Torino, veduta",
     mapLabel: "Lo studio",
   },
-  stories: { label: "Storie vere", heading: "Cosa dicono i clienti" },
+  stories: {
+    label: "Storie vere",
+    heading: "Cosa ricordano i clienti",
+    read: "Leggi la recensione",
+    sourceNote: "Recensioni verificate pubblicate dai clienti dello studio.",
+  },
+  studio: {
+    label: "Visita lo studio",
+    heading: "Ci trovi a Torino.",
+    lines: [
+      "Via Oropa 54B, Vanchiglietta / Vanchiglia",
+      "A pochi passi da Corso Belgio e Corso Casale.",
+    ],
+    openMaps: "Apri in Google Maps",
+    directions: "Indicazioni stradali",
+    phoneLabel: "Telefono",
+    mobileLabel: "Cellulare / WhatsApp",
+    emailLabel: "Email",
+  },
   final: {
     heading: ["Cosa", "ricorderai?"],
     support: "Fotografiamolo insieme.",
     cta: "Inizia la tua storia",
     caption: "Torino al tramonto",
   },
-  sticky: "Inizia la tua storia",
+  sticky: "Richiedi informazioni",
+  legalLinks: { privacy: "Privacy", legal: "Informazioni legali", contact: "Contatti" },
   pages: {
     work: {
       title: "Lavori",
@@ -175,6 +204,10 @@ const it: HomeCopy = {
       intro: "Metodo, esperienza e approccio al lavoro.",
     },
     contact: { title: "Contatti", intro: "Studio, telefono, email e area di lavoro." },
+    privacy: {
+      title: "Privacy e informazioni legali",
+      intro: "Come questo sito tratta i dati di navigazione e quali servizi esterni utilizza.",
+    },
   },
 };
 
@@ -190,14 +223,14 @@ const en: HomeCopy = {
     line1: "Photography",
     line2: "for moments",
     line3: "that matter.",
-    since: "Since 1989 · 35+ years in business",
+    since: "Since 1989 · 35+ years behind the camera",
     cta: "Explore the stories",
     alt: "Couple on the Po riverside in Turin with the Mole Antonelliana behind them",
   },
   inquiry: {
     label: "Let's plan your story",
     heading: ["Tell us what", "you're planning."],
-    support: ["Every story is unique.", "Share a few details and we'll", "get back to you personally."],
+    support: ["Every story is unique.", "Share a few details and we'll reply personally."],
     typeLabel: "Type of photoshoot",
     types: [
       "Proposal",
@@ -243,6 +276,7 @@ const en: HomeCopy = {
     heading: ["35+ years behind", "the camera."],
     body: [
       "Experience teaches you to anticipate moments, to understand people, and to stay discreet when it counts.",
+      "It also means working calmly in very different situations — a crowded square, difficult light, a family made shy by the lens — because you have done it many times before.",
       "The result is not a perfect pose: it is a photograph that still means something many years later.",
     ],
     cta: "Meet the photographer",
@@ -256,14 +290,33 @@ const en: HomeCopy = {
     caption: "Torino, city view",
     mapLabel: "The studio",
   },
-  stories: { label: "Real stories", heading: "What my clients say" },
+  stories: {
+    label: "Real stories",
+    heading: "What clients remember",
+    read: "Read review",
+    sourceNote: "Verified reviews published by the studio's clients.",
+  },
+  studio: {
+    label: "Visit the studio",
+    heading: "Find us in Torino.",
+    lines: [
+      "Via Oropa 54B, Vanchiglietta / Vanchiglia",
+      "Close to Corso Belgio and Corso Casale.",
+    ],
+    openMaps: "Open in Google Maps",
+    directions: "Get directions",
+    phoneLabel: "Telephone",
+    mobileLabel: "Mobile / WhatsApp",
+    emailLabel: "Email",
+  },
   final: {
     heading: ["What will you", "remember?"],
     support: "Let's capture it together.",
     cta: "Start your story",
     caption: "Torino at dusk",
   },
-  sticky: "Start your story",
+  sticky: "Inquire",
+  legalLinks: { privacy: "Privacy", legal: "Legal information", contact: "Contact" },
   pages: {
     work: {
       title: "Work",
@@ -275,6 +328,10 @@ const en: HomeCopy = {
     },
     photographer: { title: "The photographer", intro: "Method, experience and approach." },
     contact: { title: "Contact", intro: "Studio, phone, email and coverage area." },
+    privacy: {
+      title: "Privacy & legal information",
+      intro: "How this website handles browsing data and which external services it uses.",
+    },
   },
 };
 
