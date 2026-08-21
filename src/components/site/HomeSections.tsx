@@ -4,7 +4,10 @@ import { Link } from "@tanstack/react-router";
 import { useLang } from "@/lib/lang";
 import { homeCopy } from "@/lib/home-copy";
 import { CONTACT } from "@/lib/site-content";
-import { getReviews, REVIEW_SOURCE } from "@/lib/reviews";
+import { getReviews, REVIEW_PLATFORMS, REVIEW_SOURCE } from "@/lib/reviews";
+import { SERVICE_IMAGES } from "@/lib/hero-slides";
+import trustpilotLogo from "@/assets/trustpilot.svg";
+import googleLogo from "@/assets/google-g.png";
 import { PhotoFrame } from "./PhotoFrame";
 import { Reveal } from "./Reveal";
 import { MapEmbed, STUDIO_DIRECTIONS_URL, STUDIO_MAPS_URL } from "./MapEmbed";
@@ -17,7 +20,7 @@ function ArrowCta({
   external = false,
 }: {
   children: string;
-  to?: string;
+  to?: "/" | "/services" | "/photographer" | "/contact" | "/privacy";
   href?: string;
   tone?: "dark" | "light";
   external?: boolean;
@@ -54,47 +57,89 @@ function ArrowCta({
   );
 }
 
-/* 03 — WORK / PORTFOLIO: warm white, photography dominates */
-export function WorkSection() {
+/* 02 — SERVICES: light, spacious, editorial catalogue */
+export function ServicesSection() {
   const { lang } = useLang();
-  const t = homeCopy(lang).work;
+  const t = homeCopy(lang).services;
+  const alts = homeCopy(lang).hero.slideAlts;
+
   return (
-    <section className="relative z-20 bg-paper text-ink">
-      <div className="mx-auto max-w-[1440px] px-6 pt-28 lg:px-10 lg:pt-40">
-        <Reveal className="flex flex-wrap items-end justify-between gap-8">
-          <div>
+    <section id="services" className="relative z-20 bg-paper text-ink">
+      <div className="mx-auto max-w-[1440px] px-6 pt-28 lg:px-10 lg:pt-44">
+        <Reveal className="grid gap-10 lg:grid-cols-12">
+          <div className="lg:col-span-5">
             <span className="label-xs text-ink/45">{t.label}</span>
-            <h2 className="mt-7 font-display text-[1.6rem] leading-[1.2] sm:text-[2rem]">
+            <h2 className="mt-8 font-display text-[1.6rem] leading-[1.2] sm:text-[2rem]">
               {t.heading}
             </h2>
           </div>
-          <p className="max-w-xs text-sm leading-relaxed text-ink/55">{t.intro}</p>
+          <p className="max-w-xl text-[0.95rem] leading-[1.95] text-ink/60 lg:col-span-6 lg:col-start-7">
+            {t.intro}
+          </p>
         </Reveal>
       </div>
 
-      <div className="mt-20 grid grid-cols-1 gap-px bg-ink/10 sm:grid-cols-2 lg:grid-cols-3 lg:mt-24">
-        {t.categories.map((c, i) => (
-          <Reveal key={c.key} variant="mask" delay={i * 80}>
-            <Link to="/work" className="group relative block overflow-hidden bg-paper">
-              <PhotoFrame aspect="aspect-[4/5] lg:aspect-[3/2]" tone="light" caption={c.title} />
-              <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/10 to-transparent transition-opacity duration-700 group-hover:opacity-90" />
-              <span className="absolute inset-x-0 bottom-0 p-7 lg:p-9">
-                <span className="label-xs block text-cream">{c.title}</span>
-                <span className="arrow-link label-xs mt-3 inline-flex text-cream/55 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                  {t.view}
-                  <ArrowRight className="h-3 w-3" strokeWidth={1.5} />
-                </span>
-              </span>
-            </Link>
-          </Reveal>
-        ))}
+      {/* Photography carries the weight: large images, hairline dividers, no cards */}
+      <div className="mx-auto mt-20 max-w-[1440px] px-6 lg:mt-32 lg:px-10">
+        <div className="grid gap-x-14 gap-y-20 sm:grid-cols-2 lg:grid-cols-3 lg:gap-y-28">
+          {t.categories.map((c, i) => (
+            <Reveal key={c.key} delay={(i % 3) * 90}>
+              <Link to="/services" className="group block">
+                <div className="relative overflow-hidden">
+                  <img
+                    src={SERVICE_IMAGES[c.key]}
+                    alt={alts[c.key] ?? c.title}
+                    loading="lazy"
+                    className="aspect-[4/5] w-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.03]"
+                  />
+                </div>
+                <div className="mt-6 flex items-baseline justify-between border-t border-ink/15 pt-5">
+                  <span className="display-editorial text-[0.95rem] tracking-[0.12em] text-ink">
+                    {c.title}
+                  </span>
+                  <span className="arrow-link label-xs text-ink/35 transition-colors group-hover:text-ink">
+                    <ArrowRight className="h-3 w-3" strokeWidth={1.5} />
+                  </span>
+                </div>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
       </div>
-      <div className="h-24 bg-paper lg:h-32" />
+
+      {/* Complete service index — typographic, never narrowed */}
+      <div className="mx-auto mt-28 max-w-[1440px] px-6 pb-28 lg:mt-40 lg:px-10 lg:pb-44">
+        <Reveal className="border-t border-ink/15 pt-12">
+          <span className="label-xs text-ink/45">{t.indexLabel}</span>
+          <p className="mt-6 max-w-xl text-[0.95rem] leading-[1.95] text-ink/60">{t.indexIntro}</p>
+        </Reveal>
+
+        <div className="mt-16 grid gap-x-14 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
+          {t.groups.map((g, i) => (
+            <Reveal key={g.title} delay={i * 90}>
+              <h3 className="label-xs border-b border-ink/15 pb-4 text-ink/70">{g.title}</h3>
+              <ul className="mt-6 space-y-4">
+                {g.items.map((item) => (
+                  <li key={item} className="text-[0.95rem] leading-relaxed text-ink/75">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          ))}
+        </div>
+
+        <div className="mt-16">
+          <ArrowCta tone="light" to="/services">
+            {t.view}
+          </ArrowCta>
+        </div>
+      </div>
     </section>
   );
 }
 
-/* 04 — 35+ YEARS: one photograph, concise editorial copy */
+/* 04 — 35+ YEARS: one photograph, concise editorial copy (unchanged treatment) */
 export function ExperienceSection() {
   const { lang } = useLang();
   const t = homeCopy(lang).experience;
@@ -175,7 +220,7 @@ export function TorinoSection() {
             </h2>
             <p className="mt-9 max-w-md text-sm leading-[1.9] text-cream/65">{t.body}</p>
             <div className="mt-11">
-              <ArrowCta to="/experiences">{t.cta}</ArrowCta>
+              <ArrowCta to="/services">{t.cta}</ArrowCta>
             </div>
           </Reveal>
         </div>
@@ -184,44 +229,85 @@ export function TorinoSection() {
   );
 }
 
-/* 06 — REAL CLIENT REVIEWS: warm white, editorial, clickable to the real source */
+/* 06 — TRUST: real platforms (Google, Trustpilot) + real client reviews */
 export function ReviewsSection() {
   const { lang } = useLang();
-  const t = homeCopy(lang).stories;
+  const copy = homeCopy(lang);
+  const t = copy.stories;
+  const trust = copy.trust;
   const reviews = getReviews(lang);
 
   return (
     <section id="reviews" className="relative z-20 bg-paper text-ink">
       <div className="mx-auto max-w-[1440px] px-6 py-28 lg:px-10 lg:py-40">
-        <Reveal>
-          <span className="label-xs text-ink/45">{t.label}</span>
-          <h2 className="mt-7 font-display text-[1.6rem] leading-[1.2] sm:text-[2rem]">
-            {t.heading}
-          </h2>
-          <p className="mt-5 max-w-md text-sm leading-relaxed text-ink/50">{t.sourceNote}</p>
+        <Reveal className="grid gap-10 lg:grid-cols-12">
+          <div className="lg:col-span-5">
+            <span className="label-xs text-ink/45">{t.label}</span>
+            <h2 className="mt-8 font-display text-[1.6rem] leading-[1.2] sm:text-[2rem]">
+              {t.heading}
+            </h2>
+          </div>
+          <p className="max-w-md text-sm leading-[1.9] text-ink/50 lg:col-span-5 lg:col-start-8">
+            {t.sourceNote}
+          </p>
+        </Reveal>
+
+        {/* Platform links — understated, no invented scores */}
+        <Reveal className="mt-16 grid gap-px border-y border-ink/15 sm:grid-cols-2">
+          <a
+            href={REVIEW_PLATFORMS.google}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center gap-5 px-2 py-8 transition-colors hover:bg-ink/[0.03] sm:px-8"
+          >
+            <img src={googleLogo} alt="Google" width={22} height={22} className="h-[22px] w-[22px]" />
+            <span className="flex-1">
+              <span className="block text-sm text-ink/85">{trust.google}</span>
+              <span className="label-xs mt-2 block text-ink/35">{trust.visit}</span>
+            </span>
+            <ArrowUpRight
+              className="h-4 w-4 text-ink/30 transition-colors group-hover:text-ink"
+              strokeWidth={1.5}
+            />
+          </a>
+          <a
+            href={REVIEW_PLATFORMS.trustpilot}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center gap-5 border-t border-ink/15 px-2 py-8 transition-colors hover:bg-ink/[0.03] sm:border-l sm:border-t-0 sm:px-8"
+          >
+            <img src={trustpilotLogo} alt="Trustpilot" width={116} height={28} className="h-6 w-auto" />
+            <span className="flex-1" />
+            <ArrowUpRight
+              className="h-4 w-4 text-ink/30 transition-colors group-hover:text-ink"
+              strokeWidth={1.5}
+            />
+          </a>
         </Reveal>
 
         <div className="mt-20 grid gap-x-16 gap-y-16 md:grid-cols-2 lg:grid-cols-3">
           {reviews.map((r, i) => (
-            <Reveal key={r.name} as="figure" delay={(i % 3) * 90} className="border-t border-ink/12 pt-8">
+            <Reveal
+              key={r.name}
+              as="figure"
+              delay={(i % 3) * 90}
+              className="border-t border-ink/12 pt-8"
+            >
               <blockquote className="text-[0.95rem] leading-[1.9] text-ink/80">{r.text}</blockquote>
               <figcaption className="mt-7">
                 <span className="label-xs block text-ink">{r.name}</span>
                 <span className="mt-2 block text-xs text-ink/45">
                   {r.source} · {REVIEW_SOURCE.platform}
                 </span>
-                <a
-                  href={r.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="arrow-link label-xs mt-5 inline-flex text-ink/60 transition-colors hover:text-ink"
-                >
-                  {t.read}
-                  <ArrowUpRight className="h-3 w-3" strokeWidth={1.5} />
-                </a>
               </figcaption>
             </Reveal>
           ))}
+        </div>
+
+        <div className="mt-16">
+          <ArrowCta tone="light" href={REVIEW_PLATFORMS.google} external>
+            {t.read}
+          </ArrowCta>
         </div>
       </div>
     </section>
@@ -236,11 +322,11 @@ export function StudioSection() {
 
   return (
     <section id="studio" className="relative z-20 border-t border-ink/10 bg-paper text-ink">
-      <div className="mx-auto max-w-[1440px] px-6 py-24 lg:px-10 lg:py-32">
+      <div className="mx-auto max-w-[1440px] px-6 py-24 lg:px-10 lg:py-36">
         <Reveal className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <span className="label-xs text-ink/45">{t.label}</span>
-            <h2 className="mt-7 font-display text-[1.6rem] leading-[1.2] sm:text-[2rem]">
+            <h2 className="mt-8 font-display text-[1.6rem] leading-[1.2] sm:text-[2rem]">
               {t.heading}
             </h2>
           </div>

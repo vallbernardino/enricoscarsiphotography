@@ -5,9 +5,9 @@ import {
   ExperienceSection,
   FinalCta,
   ReviewsSection,
+  ServicesSection,
   StudioSection,
   TorinoSection,
-  WorkSection,
 } from "@/components/site/HomeSections";
 import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
@@ -19,17 +19,17 @@ const OG_IMAGE =
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Enrico Scarsi — Fotografo in Torino | Photography That Matters" },
+      { title: "Enrico Scarsi — Fotografo professionista a Torino dal 1989" },
       {
         name: "description",
         content:
-          "Enrico Scarsi, fotografo in Torino dal 1989. Proposte, matrimoni, coppie, ritratti, eventi e business. Oltre 35 anni dietro la macchina fotografica.",
+          "Studio fotografico a Torino dal 1989: ritratto, famiglia, matrimonio, eventi, fotografia aziendale, pubblicitaria e architettura. Oltre 35 anni dietro la macchina fotografica.",
       },
-      { property: "og:title", content: "Enrico Scarsi — Fotografo in Torino" },
+      { property: "og:title", content: "Enrico Scarsi — Professional Photographer in Turin" },
       {
         property: "og:description",
         content:
-          "Photography for moments that matter. Turin-based photographer since 1989: proposals, weddings, couples, portraits, events and business.",
+          "Photography for moments that matter. Turin studio since 1989: portraits, families, weddings, events, business and advertising photography.",
       },
       { property: "og:type", content: "website" },
       { property: "og:image", content: OG_IMAGE },
@@ -45,8 +45,8 @@ function Index() {
     <div id="top" className="min-h-screen bg-charcoal">
       <SiteNav overlay />
       <Hero />
+      <ServicesSection />
       <InquiryForm />
-      <WorkSection />
       <ExperienceSection />
       <TorinoSection />
       <ReviewsSection />
