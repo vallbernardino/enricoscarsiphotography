@@ -20,7 +20,6 @@ export function MapEmbed({ className = "" }: { className?: string }) {
       <iframe
         title={`Google Maps — ${CONTACT.address}`}
         src={`https://www.google.com/maps?q=${query}&z=16&output=embed`}
-        loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
         className="h-full w-full"
         style={{ border: 0, minHeight: "100%" }}

@@ -256,7 +256,7 @@ const it: Copy = {
   },
   footer: {
     legal:
-      "Questo sito non utilizza alcun tipo di cookie, né cookie tecnici né cookie di profilazione. La navigazione avviene senza la raccolta o il tracciamento di dati personali degli utenti.",
+      "Questo sito non utilizza cookie di profilazione e non raccoglie né traccia dati personali degli utenti. La mappa dello studio e i caratteri tipografici sono forniti da Google, che può impostare propri cookie tecnici: i dettagli sono nella pagina Privacy.",
     copyright: "Enrico Scarsi Fotografia — P.IVA 05529370016",
   },
 };
@@ -471,7 +471,7 @@ const en: Copy = {
   },
   footer: {
     legal:
-      "This website does not use any type of cookies, including technical or profiling cookies. Browsing takes place without the collection or tracking of users' personal data.",
+      "This website uses no profiling cookies and neither collects nor tracks users' personal data. The studio map and the typefaces are served by Google, which may set its own technical cookies — details on the Privacy page.",
     copyright: "Enrico Scarsi Fotografia — VAT 05529370016",
   },
 };

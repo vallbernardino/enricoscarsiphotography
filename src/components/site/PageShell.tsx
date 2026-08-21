@@ -16,10 +16,10 @@ export function PageShell({
   return (
     <div className="min-h-screen bg-charcoal">
       <SiteNav />
-      <header className="border-b border-cream/10 pt-36 lg:pt-44">
-        <div className="mx-auto max-w-[1440px] px-6 pb-16 lg:px-10 lg:pb-20">
+      <header className="border-b border-cream/10 pt-40 lg:pt-52">
+        <div className="mx-auto max-w-[1440px] px-6 pb-20 lg:px-10 lg:pb-28">
           <Reveal>
-            <h1 className="display-hero text-[2.4rem] text-cream sm:text-5xl lg:text-[4rem]">
+            <h1 className="display-editorial text-[1.6rem] text-cream sm:text-[2rem] lg:text-[2.4rem]">
               {title}
             </h1>
             <p className="mt-6 max-w-xl text-sm leading-relaxed text-muted-warm">{intro}</p>
@@ -50,7 +50,7 @@ export function PageSection({
         tone === "light" ? "border-ink/10 bg-paper text-ink" : "border-cream/10 bg-charcoal"
       }`}
     >
-      <div className="mx-auto max-w-[1440px] px-6 py-20 lg:px-10 lg:py-24">
+      <div className="mx-auto max-w-[1440px] px-6 py-24 lg:px-10 lg:py-32">
         {label && (
           <span className={`label-xs ${tone === "light" ? "text-ink/45" : "text-champagne"}`}>
             {label}
@@ -58,7 +58,7 @@ export function PageSection({
         )}
         {heading && (
           <h2
-            className={`mt-6 max-w-2xl font-display text-3xl leading-tight sm:text-4xl ${
+            className={`mt-7 max-w-2xl font-display text-[1.5rem] leading-[1.22] sm:text-[1.8rem] ${
               tone === "light" ? "text-ink" : "text-cream"
             }`}
           >

@@ -4,7 +4,8 @@ import { InquiryForm } from "@/components/site/InquiryForm";
 import {
   ExperienceSection,
   FinalCta,
-  StoriesSection,
+  ReviewsSection,
+  StudioSection,
   TorinoSection,
   WorkSection,
 } from "@/components/site/HomeSections";
@@ -48,7 +49,8 @@ function Index() {
       <WorkSection />
       <ExperienceSection />
       <TorinoSection />
-      <StoriesSection />
+      <ReviewsSection />
+      <StudioSection />
       <FinalCta />
       <SiteFooter />
       <StickyCTA />

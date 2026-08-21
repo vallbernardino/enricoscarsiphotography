@@ -6,7 +6,7 @@ import { CONTACT } from "@/lib/site-content";
 import { Reveal } from "./Reveal";
 
 const fieldClass =
-  "w-full border border-cream/15 bg-cream/[0.03] px-4 py-3 text-sm text-cream placeholder:text-cream/30 outline-none transition-colors focus:border-champagne/70";
+  "w-full border border-cream/15 bg-cream/[0.03] px-4 py-3.5 text-sm text-cream placeholder:text-cream/30 outline-none transition-colors focus:border-champagne/70";
 
 function Radio({
   checked,
@@ -73,17 +73,17 @@ export function InquiryForm() {
 
   return (
     <section id="inquiry" className="relative z-20 bg-charcoal">
-      <div className="mx-auto grid max-w-[1440px] gap-14 px-6 py-24 lg:grid-cols-12 lg:gap-16 lg:px-10 lg:py-32">
+      <div className="mx-auto grid max-w-[1440px] gap-16 px-6 py-28 lg:grid-cols-12 lg:gap-24 lg:px-10 lg:py-44">
         <Reveal className="lg:col-span-4">
           <span className="label-xs text-champagne">{t.label}</span>
-          <h2 className="mt-7 font-display text-4xl leading-[1.08] text-cream sm:text-5xl">
+          <h2 className="mt-8 font-display text-[1.6rem] leading-[1.22] text-cream sm:text-[2rem]">
             {t.heading.map((l) => (
               <span key={l} className="block">
                 {l}
               </span>
             ))}
           </h2>
-          <p className="mt-7 text-sm leading-relaxed text-muted-warm">
+          <p className="mt-8 text-sm leading-[1.9] text-muted-warm">
             {t.support.map((l) => (
               <span key={l} className="block">
                 {l}
@@ -93,17 +93,18 @@ export function InquiryForm() {
         </Reveal>
 
         <Reveal className="lg:col-span-8" delay={120}>
-          <form onSubmit={submit} className="space-y-10">
+          <form onSubmit={submit} className="space-y-14">
+
             <fieldset>
               <legend className="label-xs text-cream/45">{t.typeLabel}</legend>
-              <div className="mt-5 grid gap-x-8 gap-y-3.5 sm:grid-cols-2">
+              <div className="mt-6 grid gap-x-10 gap-y-4 sm:grid-cols-2">
                 {t.types.map((opt) => (
                   <Radio key={opt} label={opt} checked={type === opt} onChange={() => setType(opt)} />
                 ))}
               </div>
             </fieldset>
 
-            <div className="grid gap-6 sm:grid-cols-3">
+            <div className="grid gap-8 sm:grid-cols-3">
               <label className="block">
                 <span className="label-xs block text-cream/45">{t.name}</span>
                 <input
@@ -141,7 +142,7 @@ export function InquiryForm() {
             <label className="block">
               <span className="label-xs block text-cream/45">{t.tell}</span>
               <textarea
-                rows={5}
+                rows={6}
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder={t.tellPlaceholder}
@@ -166,7 +167,7 @@ export function InquiryForm() {
 
               <button
                 type="submit"
-                className="arrow-link label-xs bg-champagne px-8 py-4 text-charcoal transition-colors hover:bg-cream"
+                className="arrow-link label-xs border border-champagne bg-champagne px-9 py-4 text-charcoal transition-colors hover:bg-transparent hover:text-champagne"
               >
                 {t.submit}
                 <ArrowRight className="h-3.5 w-3.5" strokeWidth={1.75} />

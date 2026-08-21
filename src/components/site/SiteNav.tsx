@@ -51,7 +51,7 @@ export function SiteNav({ overlay = false }: { overlay?: boolean }) {
     >
       <div className="mx-auto flex max-w-[1440px] items-center gap-8 px-6 py-5 lg:px-10">
         <Link to="/" className="mr-auto block leading-none">
-          <span className="font-display text-[1.05rem] uppercase tracking-[0.22em] text-cream">
+          <span className="display-editorial text-[0.9rem] tracking-[0.2em] text-cream">
             {BRAND.name}
           </span>
           <span className="label-xs mt-1.5 block text-cream/45">{BRAND.kicker}</span>
@@ -94,7 +94,7 @@ export function SiteNav({ overlay = false }: { overlay?: boolean }) {
                 key={n.to}
                 to={n.to}
                 onClick={() => setOpen(false)}
-                className="font-display text-2xl uppercase tracking-[0.1em] text-cream"
+                className="display-editorial text-lg tracking-[0.14em] text-cream"
               >
                 {n.label}
               </Link>

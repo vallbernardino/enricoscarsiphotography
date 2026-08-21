@@ -1,51 +1,80 @@
 import { Link } from "@tanstack/react-router";
 import { useLang } from "@/lib/lang";
 import { BRAND, homeCopy } from "@/lib/home-copy";
-import { CONTACT, copyFor } from "@/lib/site-content";
+import { CONTACT } from "@/lib/site-content";
 import { LangToggle } from "./SiteNav";
 
 export function SiteFooter() {
   const { lang } = useLang();
   const t = homeCopy(lang);
-  const c = copyFor(lang);
+  const kicker = lang === "it" ? BRAND.kicker : BRAND.kickerEn;
 
   return (
     <footer className="relative z-20 border-t border-cream/10 bg-charcoal">
-      <div className="mx-auto grid max-w-[1440px] gap-12 px-6 py-16 lg:grid-cols-12 lg:px-10">
+      <div className="mx-auto grid max-w-[1440px] gap-14 px-6 py-20 lg:grid-cols-12 lg:px-10 lg:py-24">
         <div className="lg:col-span-4">
-          <span className="font-display text-lg uppercase tracking-[0.2em] text-cream">
+          <span className="display-editorial block text-base tracking-[0.16em] text-cream">
             {BRAND.name}
           </span>
-          <p className="label-xs mt-3 text-cream/45">{BRAND.kicker}</p>
-          <p className="mt-6 text-sm text-muted-warm">
+          <p className="label-xs mt-4 text-cream/45">{kicker}</p>
+          <p className="mt-8 text-sm text-muted-warm">
             {lang === "it" ? "Dal" : "Since"} {BRAND.since}
           </p>
         </div>
 
-        <nav className="flex flex-col gap-3 lg:col-span-3">
-          <span className="label-xs text-cream/40">{lang === "it" ? "Pagine" : "Pages"}</span>
+        <nav className="flex flex-col gap-4 lg:col-span-3">
+          <span className="label-xs text-cream/35">{lang === "it" ? "Pagine" : "Pages"}</span>
           {t.nav.map((n) => (
-            <Link key={n.to} to={n.to} className="link-draw w-fit text-sm text-cream/75">
+            <Link key={n.to} to={n.to} className="link-draw w-fit text-sm text-cream/70">
               {n.label}
             </Link>
           ))}
+          <Link to="/privacy" className="link-draw mt-2 w-fit text-sm text-cream/70">
+            {t.legalLinks.privacy}
+          </Link>
         </nav>
 
-        <div className="flex flex-col gap-3 lg:col-span-5">
-          <span className="label-xs text-cream/40">{c.contact.addressLabel}</span>
-          <p className="text-sm text-cream/75">{c.contact.address}</p>
-          <a href={`tel:${CONTACT.phone1.replace(/\s/g, "")}`} className="link-draw w-fit text-sm text-cream/75">
+        <address className="flex flex-col gap-3 not-italic lg:col-span-5">
+          <span className="label-xs text-cream/35">{t.studio.label}</span>
+          <p className="text-sm leading-relaxed text-cream/70">
+            Via Oropa 54B
+            <span className="block">Vanchiglietta / Vanchiglia</span>
+            <span className="block">10153 Torino, Italia</span>
+          </p>
+          <a
+            href={`tel:${CONTACT.phone1.replace(/\s/g, "")}`}
+            className="link-draw mt-3 w-fit text-sm text-cream/70"
+          >
             {CONTACT.phone1}
           </a>
-          <a href={`mailto:${CONTACT.email}`} className="link-draw w-fit text-sm text-cream/75">
+          <a
+            href={`https://wa.me/${CONTACT.whatsapp.replace(/\D/g, "")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="link-draw w-fit text-sm text-cream/70"
+          >
+            {CONTACT.phone2}
+          </a>
+          <a href={`mailto:${CONTACT.email}`} className="link-draw w-fit text-sm text-cream/70">
             {CONTACT.email}
           </a>
-        </div>
+          <span className="mt-3 text-xs text-cream/35">P.IVA {CONTACT.vat}</span>
+        </address>
       </div>
 
       <div className="mx-auto flex max-w-[1440px] flex-wrap items-center justify-between gap-4 border-t border-cream/10 px-6 py-6 lg:px-10">
-        <span className="label-xs text-cream/35">{c.footer.copyright}</span>
-        <LangToggle />
+        <span className="label-xs text-cream/30">
+          © {new Date().getFullYear()} {BRAND.name} — P.IVA {CONTACT.vat}
+        </span>
+        <div className="flex items-center gap-7">
+          <Link to="/privacy" className="label-xs text-cream/40 transition-colors hover:text-cream">
+            {t.legalLinks.legal}
+          </Link>
+          <Link to="/contact" className="label-xs text-cream/40 transition-colors hover:text-cream">
+            {t.legalLinks.contact}
+          </Link>
+          <LangToggle />
+        </div>
       </div>
     </footer>
   );
