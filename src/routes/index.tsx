@@ -49,7 +49,8 @@ function Index() {
       <WorkSection />
       <ExperienceSection />
       <TorinoSection />
-      <StoriesSection />
+      <ReviewsSection />
+      <StudioSection />
       <FinalCta />
       <SiteFooter />
       <StickyCTA />
