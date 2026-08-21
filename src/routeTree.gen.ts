@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as PhotographerRouteImport } from './routes/photographer'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as ServicesRouteImport } from './routes/services'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -34,18 +35,25 @@ const PrivacyRoute = PrivacyRouteImport.update({
   path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/photographer': typeof PhotographerRoute
   '/privacy': typeof PrivacyRoute
+  '/services': typeof ServicesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/photographer': typeof PhotographerRoute
   '/privacy': typeof PrivacyRoute
+  '/services': typeof ServicesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,13 +61,14 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/photographer': typeof PhotographerRoute
   '/privacy': typeof PrivacyRoute
+  '/services': typeof ServicesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/contact' | '/photographer' | '/privacy'
+  fullPaths: '/' | '/contact' | '/photographer' | '/privacy' | '/services'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contact' | '/photographer' | '/privacy'
-  id: '__root__' | '/' | '/contact' | '/photographer' | '/privacy'
+  to: '/' | '/contact' | '/photographer' | '/privacy' | '/services'
+  id: '__root__' | '/' | '/contact' | '/photographer' | '/privacy' | '/services'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -67,6 +76,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   PhotographerRoute: typeof PhotographerRoute
   PrivacyRoute: typeof PrivacyRoute
+  ServicesRoute: typeof ServicesRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -99,6 +109,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -107,6 +124,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   PhotographerRoute: PhotographerRoute,
   PrivacyRoute: PrivacyRoute,
+  ServicesRoute: ServicesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

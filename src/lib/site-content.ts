@@ -120,6 +120,16 @@ const it: Copy = {
         title: "L'Esperienza Durante lo Shooting",
         body: "Con famiglie e ritratti conta l'empatia e un clima rilassato, in cui nessuno si senta osservato. Con i clienti professionali la stessa cura diventa precisione, discrezione e affidabilità: sapere quando essere presenti e quando restare invisibili.",
       },
+      {
+        n: "04",
+        title: "Flessibilità, Cura del Dettaglio e Attenzione al Cliente",
+        body: "Puntualità, comunicazione chiara, gestione ordinata dei file e flussi di lavoro trasparenti. Nessun approccio standardizzato: ogni richiesta viene adattata alle esigenze reali del cliente, con la disponibilità a rivedere tempi e modalità quando serve.",
+      },
+      {
+        n: "05",
+        title: "Consegna e Relazione: un Valore che Resta",
+        body: "La selezione delle immagini è semplice e guidata, la consegna organizzata e ordinata. Il rapporto non si chiude con la consegna: molti clienti, privati e aziende, tornano nel tempo e questo è il modo in cui lo studio lavora da sempre.",
+      },
     ],
   },
   services: {
