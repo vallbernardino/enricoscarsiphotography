@@ -11,10 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as ExperiencesRouteImport } from './routes/experiences'
 import { Route as PhotographerRouteImport } from './routes/photographer'
 import { Route as PrivacyRouteImport } from './routes/privacy'
-import { Route as WorkRouteImport } from './routes/work'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -24,11 +22,6 @@ const IndexRoute = IndexRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ExperiencesRoute = ExperiencesRouteImport.update({
-  id: '/experiences',
-  path: '/experiences',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PhotographerRoute = PhotographerRouteImport.update({
@@ -41,60 +34,39 @@ const PrivacyRoute = PrivacyRouteImport.update({
   path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
-const WorkRoute = WorkRouteImport.update({
-  id: '/work',
-  path: '/work',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
-  '/experiences': typeof ExperiencesRoute
   '/photographer': typeof PhotographerRoute
   '/privacy': typeof PrivacyRoute
-  '/work': typeof WorkRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
-  '/experiences': typeof ExperiencesRoute
   '/photographer': typeof PhotographerRoute
   '/privacy': typeof PrivacyRoute
-  '/work': typeof WorkRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
-  '/experiences': typeof ExperiencesRoute
   '/photographer': typeof PhotographerRoute
   '/privacy': typeof PrivacyRoute
-  '/work': typeof WorkRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    '/' | '/contact' | '/experiences' | '/photographer' | '/privacy' | '/work'
+  fullPaths: '/' | '/contact' | '/photographer' | '/privacy'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contact' | '/experiences' | '/photographer' | '/privacy' | '/work'
-  id:
-    | '__root__'
-    | '/'
-    | '/contact'
-    | '/experiences'
-    | '/photographer'
-    | '/privacy'
-    | '/work'
+  to: '/' | '/contact' | '/photographer' | '/privacy'
+  id: '__root__' | '/' | '/contact' | '/photographer' | '/privacy'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactRoute: typeof ContactRoute
-  ExperiencesRoute: typeof ExperiencesRoute
   PhotographerRoute: typeof PhotographerRoute
   PrivacyRoute: typeof PrivacyRoute
-  WorkRoute: typeof WorkRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -113,13 +85,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/experiences': {
-      id: '/experiences'
-      path: '/experiences'
-      fullPath: '/experiences'
-      preLoaderRoute: typeof ExperiencesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/photographer': {
       id: '/photographer'
       path: '/photographer'
@@ -134,23 +99,14 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/work': {
-      id: '/work'
-      path: '/work'
-      fullPath: '/work'
-      preLoaderRoute: typeof WorkRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactRoute: ContactRoute,
-  ExperiencesRoute: ExperiencesRoute,
   PhotographerRoute: PhotographerRoute,
   PrivacyRoute: PrivacyRoute,
-  WorkRoute: WorkRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
