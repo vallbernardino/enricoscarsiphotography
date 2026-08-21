@@ -6,7 +6,7 @@ import { CONTACT } from "@/lib/site-content";
 import { Reveal } from "./Reveal";
 
 const fieldClass =
-  "w-full border border-cream/15 bg-cream/[0.03] px-4 py-3 text-sm text-cream placeholder:text-cream/30 outline-none transition-colors focus:border-champagne/70";
+  "w-full border border-cream/15 bg-cream/[0.03] px-4 py-3.5 text-sm text-cream placeholder:text-cream/30 outline-none transition-colors focus:border-champagne/70";
 
 function Radio({
   checked,
@@ -97,14 +97,14 @@ export function InquiryForm() {
 
             <fieldset>
               <legend className="label-xs text-cream/45">{t.typeLabel}</legend>
-              <div className="mt-5 grid gap-x-8 gap-y-3.5 sm:grid-cols-2">
+              <div className="mt-6 grid gap-x-10 gap-y-4 sm:grid-cols-2">
                 {t.types.map((opt) => (
                   <Radio key={opt} label={opt} checked={type === opt} onChange={() => setType(opt)} />
                 ))}
               </div>
             </fieldset>
 
-            <div className="grid gap-6 sm:grid-cols-3">
+            <div className="grid gap-8 sm:grid-cols-3">
               <label className="block">
                 <span className="label-xs block text-cream/45">{t.name}</span>
                 <input
@@ -142,7 +142,7 @@ export function InquiryForm() {
             <label className="block">
               <span className="label-xs block text-cream/45">{t.tell}</span>
               <textarea
-                rows={5}
+                rows={6}
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder={t.tellPlaceholder}
@@ -167,7 +167,7 @@ export function InquiryForm() {
 
               <button
                 type="submit"
-                className="arrow-link label-xs bg-champagne px-8 py-4 text-charcoal transition-colors hover:bg-cream"
+                className="arrow-link label-xs border border-champagne bg-champagne px-9 py-4 text-charcoal transition-colors hover:bg-transparent hover:text-champagne"
               >
                 {t.submit}
                 <ArrowRight className="h-3.5 w-3.5" strokeWidth={1.75} />
