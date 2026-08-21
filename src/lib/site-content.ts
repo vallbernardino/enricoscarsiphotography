@@ -345,6 +345,16 @@ const en: Copy = {
         title: "The Experience During the Shoot",
         body: "With families and portraits what matters is empathy and a relaxed atmosphere in which nobody feels watched. With professional clients the same care becomes precision, discretion and reliability: knowing when to be present and when to stay invisible.",
       },
+      {
+        n: "04",
+        title: "Flexibility, Detail and Client Care",
+        body: "Punctuality, clear communication, organised file management and transparent workflows. No standardised approach: every request is adapted to the client's real needs, with the willingness to revise timing and method when it helps.",
+      },
+      {
+        n: "05",
+        title: "Delivery and Relationship: Lasting Value",
+        body: "Image selection is simple and guided, delivery organised and orderly. The relationship does not end with delivery: many clients, private and corporate, come back over the years, and that is how the studio has always worked.",
+      },
     ],
   },
   services: {
