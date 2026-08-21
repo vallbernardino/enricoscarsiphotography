@@ -255,7 +255,7 @@ export function StudioSection() {
           </div>
         </Reveal>
 
-        <Reveal variant="mask" className="mt-16 border border-ink/12">
+        <Reveal className="mt-16 border border-ink/12">
           <MapEmbed className="h-[420px] lg:h-[540px]" />
         </Reveal>
 
