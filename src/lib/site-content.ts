@@ -120,6 +120,16 @@ const it: Copy = {
         title: "L'Esperienza Durante lo Shooting",
         body: "Con famiglie e ritratti conta l'empatia e un clima rilassato, in cui nessuno si senta osservato. Con i clienti professionali la stessa cura diventa precisione, discrezione e affidabilità: sapere quando essere presenti e quando restare invisibili.",
       },
+      {
+        n: "04",
+        title: "Flessibilità, Cura del Dettaglio e Attenzione al Cliente",
+        body: "Puntualità, comunicazione chiara, gestione ordinata dei file e flussi di lavoro trasparenti. Nessun approccio standardizzato: ogni richiesta viene adattata alle esigenze reali del cliente, con la disponibilità a rivedere tempi e modalità quando serve.",
+      },
+      {
+        n: "05",
+        title: "Consegna e Relazione: un Valore che Resta",
+        body: "La selezione delle immagini è semplice e guidata, la consegna organizzata e ordinata. Il rapporto non si chiude con la consegna: molti clienti, privati e aziende, tornano nel tempo e questo è il modo in cui lo studio lavora da sempre.",
+      },
     ],
   },
   services: {
@@ -334,6 +344,16 @@ const en: Copy = {
         n: "03",
         title: "The Experience During the Shoot",
         body: "With families and portraits what matters is empathy and a relaxed atmosphere in which nobody feels watched. With professional clients the same care becomes precision, discretion and reliability: knowing when to be present and when to stay invisible.",
+      },
+      {
+        n: "04",
+        title: "Flexibility, Detail and Client Care",
+        body: "Punctuality, clear communication, organised file management and transparent workflows. No standardised approach: every request is adapted to the client's real needs, with the willingness to revise timing and method when it helps.",
+      },
+      {
+        n: "05",
+        title: "Delivery and Relationship: Lasting Value",
+        body: "Image selection is simple and guided, delivery organised and orderly. The relationship does not end with delivery: many clients, private and corporate, come back over the years, and that is how the studio has always worked.",
       },
     ],
   },

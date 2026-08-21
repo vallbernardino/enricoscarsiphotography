@@ -54,7 +54,9 @@ export function SiteNav({ overlay = false }: { overlay?: boolean }) {
           <span className="display-editorial text-[0.9rem] tracking-[0.2em] text-cream">
             {BRAND.name}
           </span>
-          <span className="label-xs mt-1.5 block text-cream/45">{BRAND.kicker}</span>
+          <span className="label-xs mt-1.5 block text-cream/45">
+            {lang === "it" ? BRAND.kicker : BRAND.kickerEn}
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-9 lg:flex">

@@ -62,6 +62,16 @@ export function SiteFooter() {
         </address>
       </div>
 
+      <div className="mx-auto max-w-[1440px] border-t border-cream/10 px-6 py-10 lg:px-10">
+        <p className="max-w-3xl text-xs leading-relaxed text-cream/40">
+          {t.cookieNotice.map((l) => (
+            <span key={l} className="mt-2 block first:mt-0">
+              {l}
+            </span>
+          ))}
+        </p>
+      </div>
+
       <div className="mx-auto flex max-w-[1440px] flex-wrap items-center justify-between gap-4 border-t border-cream/10 px-6 py-6 lg:px-10">
         <span className="label-xs text-cream/30">
           © {new Date().getFullYear()} {BRAND.name} — P.IVA {CONTACT.vat}

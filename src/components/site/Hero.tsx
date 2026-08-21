@@ -1,15 +1,19 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowDown } from "lucide-react";
-import heroAsset from "@/assets/hero-torino.png.asset.json";
 import { useLang } from "@/lib/lang";
 import { homeCopy } from "@/lib/home-copy";
+import { HERO_SLIDES } from "@/lib/hero-slides";
+
+const HOLD_MS = 7000;
 
 export function Hero() {
   const { lang } = useLang();
   const t = homeCopy(lang).hero;
   const ref = useRef<HTMLDivElement | null>(null);
   const [p, setP] = useState(0);
+  const [index, setIndex] = useState(0);
 
+  /* Gentle parallax only — the typography itself never animates. */
   useEffect(() => {
     let frame = 0;
     const onScroll = () => {
@@ -28,9 +32,18 @@ export function Hero() {
     };
   }, []);
 
+  /* Slow cinematic cross-fade through the studio's breadth of work. */
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const id = window.setInterval(() => {
+      setIndex((i) => (i + 1) % HERO_SLIDES.length);
+    }, HOLD_MS);
+    return () => window.clearInterval(id);
+  }, []);
+
   return (
     <section ref={ref} className="relative h-[100svh] w-full overflow-hidden bg-charcoal">
-      {/* Full-bleed photograph, gentle parallax only */}
+      {/* Full-bleed photography, slow cross-fade, gentle parallax */}
       <div
         className="absolute inset-0"
         style={{
@@ -38,12 +51,22 @@ export function Hero() {
           transition: "transform 120ms linear",
         }}
       >
-        <img
-          src={heroAsset.url}
-          alt={t.alt}
-          className="h-full w-full object-cover object-[58%_center] sm:object-center"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/15 to-charcoal/35" />
+        {HERO_SLIDES.map((s, i) => (
+          <img
+            key={s.key}
+            src={s.src}
+            alt={i === 0 ? t.alt : (t.slideAlts[s.key] ?? "")}
+            {...(i === 0 ? { fetchPriority: "high" as const } : { loading: "lazy" as const })}
+            className="absolute inset-0 h-full w-full object-cover"
+            style={{
+              objectPosition: s.position,
+              opacity: index === i ? 1 : 0,
+              transform: index === i ? "scale(1.03)" : "scale(1)",
+              transition: "opacity 2600ms ease-in-out, transform 9000ms linear",
+            }}
+          />
+        ))}
+        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/20 to-charcoal/35" />
       </div>
 
       {/* Typography: centred, restrained, static */}
@@ -56,23 +79,23 @@ export function Hero() {
         </div>
 
         <h1
-          className="display-editorial soft-in mt-6 text-[1.55rem] leading-[1.16] text-cream sm:text-[2.1rem] lg:text-[2.9rem]"
+          className="display-editorial soft-in mt-6 text-[1.45rem] leading-[1.16] text-cream sm:text-[1.95rem] lg:text-[2.6rem]"
           style={{ animationDelay: "260ms" }}
         >
           <span className="block">{t.line1}</span>
           <span className="block">{t.line2}</span>
-          <span className="block italic">{t.line3}</span>
+          <span className="block italic normal-case">{t.line3}</span>
         </h1>
 
         <p
-          className="soft-in mt-7 text-[0.8rem] tracking-wide text-cream/65"
+          className="soft-in mt-7 text-[0.8rem] tracking-wide text-cream/70"
           style={{ animationDelay: "440ms" }}
         >
           {t.since}
         </p>
 
         <a
-          href="#inquiry"
+          href="#services"
           className="arrow-link label-xs soft-in mt-12 inline-flex text-cream/80 transition-colors hover:text-champagne"
           style={{ animationDelay: "600ms" }}
         >

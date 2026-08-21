@@ -19,6 +19,7 @@ type HomeCopy = {
     since: string;
     cta: string;
     alt: string;
+    slideAlts: Record<string, string>;
   };
   inquiry: {
     label: string;
@@ -40,12 +41,16 @@ type HomeCopy = {
     submit: string;
     sent: string;
   };
-  work: {
+  services: {
     label: string;
     heading: string;
     intro: string;
     view: string;
     categories: { key: string; title: string }[];
+    indexLabel: string;
+    indexIntro: string;
+    groups: { title: string; items: string[] }[];
+    soon: string;
   };
   experience: {
     label: string;
@@ -62,6 +67,7 @@ type HomeCopy = {
     mapLabel: string;
   };
   stories: { label: string; heading: string; read: string; sourceNote: string };
+  trust: { google: string; trustpilot: string; visit: string };
   studio: {
     label: string;
     heading: string;
@@ -74,10 +80,11 @@ type HomeCopy = {
   };
   final: { heading: string[]; support: string; cta: string; caption: string };
   sticky: string;
+  back: string;
   legalLinks: { privacy: string; legal: string; contact: string };
+  cookieNotice: string[];
   pages: {
-    work: { title: string; intro: string };
-    experiences: { title: string; intro: string };
+    services: { title: string; intro: string };
     photographer: { title: string; intro: string };
     contact: { title: string; intro: string };
     privacy: { title: string; intro: string };
@@ -86,8 +93,7 @@ type HomeCopy = {
 
 const it: HomeCopy = {
   nav: [
-    { label: "Lavori", to: "/work" },
-    { label: "Esperienze", to: "/experiences" },
+    { label: "Servizi", to: "/services" },
     { label: "Il Fotografo", to: "/photographer" },
     { label: "Contatti", to: "/contact" },
   ],
@@ -97,8 +103,16 @@ const it: HomeCopy = {
     line2: "per i momenti",
     line3: "che contano.",
     since: "Dal 1989 · oltre 35 anni dietro la macchina fotografica",
-    cta: "Scopri le storie",
+    cta: "Scopri i servizi",
     alt: "Coppia sul lungo Po a Torino con la Mole Antonelliana sullo sfondo",
+    slideAlts: {
+      weddings: "Sposi sotto i portici di Torino",
+      families: "Famiglia fotografata all'aperto in città",
+      portraits: "Ritratto in studio con luce naturale",
+      events: "Reportage di un evento in un palazzo storico",
+      business: "Fotografia aziendale in ufficio",
+      studio: "Interno dello studio fotografico",
+    },
   },
   inquiry: {
     label: "Raccontaci il tuo progetto",
@@ -106,20 +120,28 @@ const it: HomeCopy = {
     support: ["Ogni storia è unica.", "Lasciaci qualche dettaglio: risponderemo personalmente."],
     typeLabel: "Tipo di servizio",
     types: [
-      "Proposta di matrimonio",
-      "Matrimonio",
-      "Coppia / Fidanzamento",
       "Ritratto",
       "Famiglia",
+      "Matrimonio / Proposta",
+      "Coppia",
       "Evento",
-      "Business / Commerciale",
+      "Ritratto corporate",
+      "Pubblicitaria / Catalogo",
+      "Industriale",
+      "Architettura / Interni",
+      "Case vacanza",
+      "Luxury Photo Tour a Torino",
+      "Fototessere per visti",
+      "Buono regalo",
+      "Riprese video",
+      "Corso di fotografia",
       "Altro",
     ],
     name: "Nome",
     namePlaceholder: "es. Marco Rossi",
     email: "Email",
     emailPlaceholder: "es. marco@esempio.it",
-    whatsapp: "WhatsApp",
+    whatsapp: "WhatsApp / Telefono",
     whatsappPlaceholder: "Numero di telefono",
     optional: "facoltativo",
     tell: "Raccontaci",
@@ -130,19 +152,53 @@ const it: HomeCopy = {
     submit: "Invia richiesta",
     sent: "Grazie. Apri il tuo client per completare l'invio del messaggio.",
   },
-  work: {
-    label: "Lavori",
-    heading: "Sei modi di guardare",
-    intro: "Ogni galleria raccoglie un tipo di storia diverso.",
-    view: "Vedi la galleria",
+  services: {
+    label: "Servizi",
+    heading: "Cosa fotografiamo",
+    intro:
+      "Uno studio fotografico a Torino aperto a esigenze molto diverse: persone, famiglie, eventi, imprese, prodotti e architettura. Ogni servizio nasce da un ascolto iniziale e da una pianificazione condivisa.",
+    view: "Scopri di più",
     categories: [
-      { key: "proposals", title: "Proposte" },
-      { key: "weddings", title: "Matrimoni" },
-      { key: "couples", title: "Coppie" },
+      { key: "weddings", title: "Matrimoni / Proposte" },
+      { key: "families", title: "Famiglie" },
       { key: "portraits", title: "Ritratti" },
       { key: "events", title: "Eventi" },
       { key: "business", title: "Business" },
+      { key: "studio", title: "Studio" },
     ],
+    indexLabel: "Tutti i servizi",
+    indexIntro: "L'offerta completa dello studio, per clienti privati e professionali.",
+    groups: [
+      {
+        title: "Privati",
+        items: [
+          "Ritratto",
+          "Famiglia",
+          "Matrimonio",
+          "Fotografia di coppia",
+          "Luxury Photo Tour a Torino",
+          "Fototessere per visti e passaporti",
+          "Buoni regalo",
+        ],
+      },
+      {
+        title: "Aziende e professionisti",
+        items: [
+          "Fotografia pubblicitaria",
+          "Ritratto corporate",
+          "Fotografia di eventi",
+          "Fotografia industriale",
+          "Architettura e interni",
+          "Case vacanza",
+          "Prodotto e catalogo",
+        ],
+      },
+      {
+        title: "Inoltre",
+        items: ["Riprese video", "Corsi di fotografia"],
+      },
+    ],
+    soon: "Pagina di servizio in arrivo — nel frattempo scrivici o telefona allo studio.",
   },
   experience: {
     label: "Dal 1989",
@@ -158,16 +214,22 @@ const it: HomeCopy = {
   torino: {
     heading: ["Torino,", "con un altro", "sguardo."],
     body:
-      "Le strade, i portici, il fiume e le colline non sono uno sfondo: diventano parte della storia che stiamo raccontando.",
-    cta: "Scopri Torino",
+      "Le strade, i portici, il fiume e le colline non sono uno sfondo: diventano parte della storia che stiamo raccontando — per una famiglia, un ritratto, un evento o un'azienda.",
+    cta: "Vedi i servizi",
     caption: "Torino, veduta",
     mapLabel: "Lo studio",
   },
   stories: {
-    label: "Storie vere",
+    label: "Fiducia",
     heading: "Cosa ricordano i clienti",
-    read: "Leggi la recensione",
-    sourceNote: "Recensioni verificate pubblicate dai clienti dello studio.",
+    read: "Leggi le recensioni",
+    sourceNote:
+      "Le recensioni sono pubblicate dai clienti sulle piattaforme verificate dello studio.",
+  },
+  trust: {
+    google: "Recensioni Google",
+    trustpilot: "Trustpilot",
+    visit: "Apri il profilo",
   },
   studio: {
     label: "Visita lo studio",
@@ -185,19 +247,21 @@ const it: HomeCopy = {
   final: {
     heading: ["Cosa", "ricorderai?"],
     support: "Fotografiamolo insieme.",
-    cta: "Inizia la tua storia",
+    cta: "Dicci cosa stai organizzando",
     caption: "Torino al tramonto",
   },
   sticky: "Richiedi informazioni",
+  back: "Servizi",
   legalLinks: { privacy: "Privacy", legal: "Informazioni legali", contact: "Contatti" },
+  cookieNotice: [
+    "Questo sito non utilizza alcun tipo di cookie, né tecnici né di profilazione.",
+    "La navigazione avviene senza raccolta né tracciamento dei dati personali degli utenti.",
+  ],
   pages: {
-    work: {
-      title: "Lavori",
-      intro: "Portfolio e categorie fotografiche: ritratto, eventi, corporate, prodotto, matrimoni.",
-    },
-    experiences: {
-      title: "Esperienze e servizi",
-      intro: "Tutti i servizi dello studio, per clienti privati e per aziende.",
+    services: {
+      title: "Servizi",
+      intro:
+        "Tutti i servizi dello studio, per clienti privati e per aziende: ritratto, famiglia, matrimonio, eventi, pubblicitaria, industriale, architettura, video e corsi.",
     },
     photographer: {
       title: "Il fotografo",
@@ -213,9 +277,8 @@ const it: HomeCopy = {
 
 const en: HomeCopy = {
   nav: [
-    { label: "Work", to: "/work" },
-    { label: "Experiences", to: "/experiences" },
-    { label: "The Photographer", to: "/photographer" },
+    { label: "Services", to: "/services" },
+    { label: "Photographer", to: "/photographer" },
     { label: "Contact", to: "/contact" },
   ],
   hero: {
@@ -224,8 +287,16 @@ const en: HomeCopy = {
     line2: "for moments",
     line3: "that matter.",
     since: "Since 1989 · 35+ years behind the camera",
-    cta: "Explore the stories",
+    cta: "Explore the services",
     alt: "Couple on the Po riverside in Turin with the Mole Antonelliana behind them",
+    slideAlts: {
+      weddings: "Bride and groom under the arcades of Turin",
+      families: "Family photographed outdoors in the city",
+      portraits: "Studio portrait in natural light",
+      events: "Event reportage in a historic Italian palazzo",
+      business: "Corporate photography in an office",
+      studio: "Interior of the photography studio",
+    },
   },
   inquiry: {
     label: "Let's plan your story",
@@ -233,20 +304,28 @@ const en: HomeCopy = {
     support: ["Every story is unique.", "Share a few details and we'll reply personally."],
     typeLabel: "Type of photoshoot",
     types: [
-      "Proposal",
-      "Wedding",
-      "Couple / Engagement",
       "Portrait",
       "Family",
+      "Wedding / Proposal",
+      "Couple",
       "Event",
-      "Business / Commercial",
+      "Corporate portrait",
+      "Advertising / Catalogue",
+      "Industrial",
+      "Architecture / Interiors",
+      "Vacation property",
+      "Luxury Photo Tour in Turin",
+      "Visa photography",
+      "Gift voucher",
+      "Video / filming",
+      "Photography course",
       "Other",
     ],
     name: "Your name",
     namePlaceholder: "e.g. John Doe",
     email: "Email",
     emailPlaceholder: "e.g. john@example.com",
-    whatsapp: "WhatsApp",
+    whatsapp: "WhatsApp / Phone",
     whatsappPlaceholder: "Phone number",
     optional: "optional",
     tell: "Tell us about it",
@@ -257,19 +336,53 @@ const en: HomeCopy = {
     submit: "Send inquiry",
     sent: "Thank you. Your message app will open to finish sending.",
   },
-  work: {
-    label: "Work",
-    heading: "Six ways of looking",
-    intro: "Each gallery holds a different kind of story.",
-    view: "View gallery",
+  services: {
+    label: "Services",
+    heading: "What we photograph",
+    intro:
+      "A photography studio in Turin working across very different needs: people, families, events, companies, products and architecture. Every commission starts with listening and shared planning.",
+    view: "Find out more",
     categories: [
-      { key: "proposals", title: "Proposals" },
-      { key: "weddings", title: "Weddings" },
-      { key: "couples", title: "Couples" },
+      { key: "weddings", title: "Weddings / Proposals" },
+      { key: "families", title: "Families" },
       { key: "portraits", title: "Portraits" },
       { key: "events", title: "Events" },
       { key: "business", title: "Business" },
+      { key: "studio", title: "Studio" },
     ],
+    indexLabel: "All services",
+    indexIntro: "The studio's complete offering, for private and professional clients.",
+    groups: [
+      {
+        title: "Private",
+        items: [
+          "Portrait",
+          "Family",
+          "Wedding",
+          "Couple photography",
+          "City Tour photography",
+          "Visa photography",
+          "Gift voucher",
+        ],
+      },
+      {
+        title: "Business & professional",
+        items: [
+          "Advertising photography",
+          "Corporate portrait",
+          "Event photography",
+          "Industrial photography",
+          "Architecture / interiors",
+          "Vacation property photography",
+          "Product / commercial photography",
+        ],
+      },
+      {
+        title: "Additional",
+        items: ["Video / filming", "Photography courses"],
+      },
+    ],
+    soon: "Service page coming soon — in the meantime write to us or call the studio.",
   },
   experience: {
     label: "Since 1989",
@@ -285,24 +398,26 @@ const en: HomeCopy = {
   torino: {
     heading: ["Torino,", "through a", "different lens."],
     body:
-      "The streets, the arcades, the river and the hills are not a backdrop: they become part of the story being told.",
-    cta: "Discover Torino",
+      "The streets, the arcades, the river and the hills are not a backdrop: they become part of the story being told — for a family, a portrait, an event or a company.",
+    cta: "See the services",
     caption: "Torino, city view",
     mapLabel: "The studio",
   },
   stories: {
-    label: "Real stories",
+    label: "Trust",
     heading: "What clients remember",
-    read: "Read review",
-    sourceNote: "Verified reviews published by the studio's clients.",
+    read: "Read the reviews",
+    sourceNote: "Reviews are published by clients on the studio's verified review platforms.",
+  },
+  trust: {
+    google: "Google Reviews",
+    trustpilot: "Trustpilot",
+    visit: "Open profile",
   },
   studio: {
     label: "Visit the studio",
     heading: "Find us in Torino.",
-    lines: [
-      "Via Oropa 54B, Vanchiglietta / Vanchiglia",
-      "Close to Corso Belgio and Corso Casale.",
-    ],
+    lines: ["Via Oropa 54B, Vanchiglietta / Vanchiglia", "Close to Corso Belgio and Corso Casale."],
     openMaps: "Open in Google Maps",
     directions: "Get directions",
     phoneLabel: "Telephone",
@@ -312,19 +427,21 @@ const en: HomeCopy = {
   final: {
     heading: ["What will you", "remember?"],
     support: "Let's capture it together.",
-    cta: "Start your story",
+    cta: "Tell us what you're planning",
     caption: "Torino at dusk",
   },
   sticky: "Inquire",
+  back: "Services",
   legalLinks: { privacy: "Privacy", legal: "Legal information", contact: "Contact" },
+  cookieNotice: [
+    "This website does not use any type of cookies, including technical cookies or profiling cookies.",
+    "Browsing takes place without the collection or tracking of users' personal data.",
+  ],
   pages: {
-    work: {
-      title: "Work",
-      intro: "Portfolio and photography categories: portrait, events, corporate, product, weddings.",
-    },
-    experiences: {
-      title: "Experiences & services",
-      intro: "Every service offered by the studio, for private and corporate clients.",
+    services: {
+      title: "Services",
+      intro:
+        "Every service offered by the studio, for private and business clients: portrait, family, wedding, events, advertising, industrial, architecture, video and courses.",
     },
     photographer: { title: "The photographer", intro: "Method, experience and approach." },
     contact: { title: "Contact", intro: "Studio, phone, email and coverage area." },
