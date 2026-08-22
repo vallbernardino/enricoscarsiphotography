@@ -7,6 +7,10 @@ export const BRAND = {
   since: "1989",
 };
 
+/** The studio's existing blog, hosted separately. */
+export const BLOG_URL = "https://www.fotografico.it/blog.html";
+
+
 export type NavItem = { label: string; to: string };
 
 type HomeCopy = {
