@@ -149,6 +149,29 @@
     }
   }
 
+  /* Barely perceptible breathing on the call button — no pulse, no glow */
+  .breathe {
+    animation: breathe 5200ms ease-in-out infinite;
+  }
+
+  @keyframes breathe {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.9;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .breathe {
+      animation: none;
+    }
+  }
+
+
+
   .fade-up {
     opacity: 0;
     transform: translateY(22px);
