@@ -4,7 +4,13 @@ import { useLang } from "@/lib/lang";
 import { homeCopy } from "@/lib/home-copy";
 import { HERO_SLIDES } from "@/lib/hero-slides";
 
-const HOLD_MS = 7000;
+/**
+ * Pacing: the first two photographs change reasonably quickly so the opening
+ * never feels stuck, then the sequence slows down and alternates so each
+ * photograph has time to be looked at.
+ */
+const HOLD_MS = [3400, 4200, 8000, 9500, 8000, 9500, 8000];
+
 
 export function Hero() {
   const { lang } = useLang();
@@ -35,11 +41,13 @@ export function Hero() {
   /* Slow cinematic cross-fade through the studio's breadth of work. */
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const id = window.setInterval(() => {
-      setIndex((i) => (i + 1) % HERO_SLIDES.length);
-    }, HOLD_MS);
-    return () => window.clearInterval(id);
-  }, []);
+    const id = window.setTimeout(
+      () => setIndex((i) => (i + 1) % HERO_SLIDES.length),
+      HOLD_MS[index] ?? 8000,
+    );
+    return () => window.clearTimeout(id);
+  }, [index]);
+
 
   return (
     <section ref={ref} className="relative h-[100svh] w-full overflow-hidden bg-charcoal">

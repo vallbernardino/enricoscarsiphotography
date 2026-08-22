@@ -42,7 +42,7 @@ export function PageShell({
       </header>
       <main>{children}</main>
       <SiteFooter />
-      <StickyCTA href="/contact" />
+      <StickyCTA />
     </div>
   );
 }

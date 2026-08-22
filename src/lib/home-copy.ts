@@ -7,6 +7,10 @@ export const BRAND = {
   since: "1989",
 };
 
+/** The studio's existing blog, hosted separately. */
+export const BLOG_URL = "https://www.fotografico.it/blog.html";
+
+
 export type NavItem = { label: string; to: string };
 
 type HomeCopy = {
@@ -60,6 +64,7 @@ type HomeCopy = {
     caption: string;
   };
   torino: {
+    title: string;
     heading: string[];
     body: string;
     cta: string;
@@ -78,10 +83,11 @@ type HomeCopy = {
     mobileLabel: string;
     emailLabel: string;
   };
-  final: { heading: string[]; support: string; cta: string; caption: string };
+  final: { heading: string[]; strong?: string; support: string; cta: string; caption: string };
   sticky: string;
+  call: string;
   back: string;
-  legalLinks: { privacy: string; legal: string; contact: string };
+  legalLinks: { privacy: string; legal: string; contact: string; blog: string; home: string };
   cookieNotice: string[];
   pages: {
     services: { title: string; intro: string };
@@ -93,6 +99,7 @@ type HomeCopy = {
 
 const it: HomeCopy = {
   nav: [
+    { label: "Home", to: "/" },
     { label: "Servizi", to: "/services" },
     { label: "Il Fotografo", to: "/photographer" },
     { label: "Contatti", to: "/contact" },
@@ -212,7 +219,8 @@ const it: HomeCopy = {
     caption: "Il fotografo al lavoro",
   },
   torino: {
-    heading: ["Torino,", "con un altro", "sguardo."],
+    title: "Torino",
+    heading: ["con un altro sguardo."],
     body:
       "Le strade, i portici, il fiume e le colline non sono uno sfondo: diventano parte della storia che stiamo raccontando — per una famiglia, un ritratto, un evento o un'azienda.",
     cta: "Vedi i servizi",
@@ -246,13 +254,21 @@ const it: HomeCopy = {
   },
   final: {
     heading: ["Cosa", "ricorderai?"],
+    strong: "Cosa",
     support: "Fotografiamolo insieme.",
     cta: "Dicci cosa stai organizzando",
     caption: "Torino al tramonto",
   },
   sticky: "Richiedi informazioni",
+  call: "Chiama lo studio",
   back: "Servizi",
-  legalLinks: { privacy: "Privacy", legal: "Informazioni legali", contact: "Contatti" },
+  legalLinks: {
+    privacy: "Privacy",
+    legal: "Informazioni legali",
+    contact: "Contatti",
+    blog: "Blog",
+    home: "Home",
+  },
   cookieNotice: [
     "Questo sito non utilizza alcun tipo di cookie, né tecnici né di profilazione.",
     "La navigazione avviene senza raccolta né tracciamento dei dati personali degli utenti.",
@@ -277,8 +293,9 @@ const it: HomeCopy = {
 
 const en: HomeCopy = {
   nav: [
+    { label: "Home", to: "/" },
     { label: "Services", to: "/services" },
-    { label: "Photographer", to: "/photographer" },
+    { label: "The Photographer", to: "/photographer" },
     { label: "Contact", to: "/contact" },
   ],
   hero: {
@@ -396,7 +413,8 @@ const en: HomeCopy = {
     caption: "The photographer at work",
   },
   torino: {
-    heading: ["Torino,", "through a", "different lens."],
+    title: "Torino",
+    heading: ["through a different lens."],
     body:
       "The streets, the arcades, the river and the hills are not a backdrop: they become part of the story being told — for a family, a portrait, an event or a company.",
     cta: "See the services",
@@ -426,13 +444,21 @@ const en: HomeCopy = {
   },
   final: {
     heading: ["What will you", "remember?"],
+    strong: "you",
     support: "Let's capture it together.",
     cta: "Tell us what you're planning",
     caption: "Torino at dusk",
   },
   sticky: "Inquire",
+  call: "Call the studio",
   back: "Services",
-  legalLinks: { privacy: "Privacy", legal: "Legal information", contact: "Contact" },
+  legalLinks: {
+    privacy: "Privacy",
+    legal: "Legal information",
+    contact: "Contact",
+    blog: "Blog",
+    home: "Home",
+  },
   cookieNotice: [
     "This website does not use any type of cookies, including technical cookies or profiling cookies.",
     "Browsing takes place without the collection or tracking of users' personal data.",

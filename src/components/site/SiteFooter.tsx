@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useLang } from "@/lib/lang";
-import { BRAND, homeCopy } from "@/lib/home-copy";
+import { BLOG_URL, BRAND, homeCopy } from "@/lib/home-copy";
 import { CONTACT } from "@/lib/site-content";
 import { LangToggle } from "./SiteNav";
 
@@ -29,6 +29,14 @@ export function SiteFooter() {
               {n.label}
             </Link>
           ))}
+          <a
+            href={BLOG_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="link-draw w-fit text-sm text-cream/70"
+          >
+            {t.legalLinks.blog}
+          </a>
           <Link to="/privacy" className="link-draw mt-2 w-fit text-sm text-cream/70">
             {t.legalLinks.privacy}
           </Link>
