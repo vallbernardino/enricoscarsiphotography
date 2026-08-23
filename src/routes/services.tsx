@@ -1,4 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowRight } from "lucide-react";
 import { PageSection, PageShell } from "@/components/site/PageShell";
 import { Reveal } from "@/components/site/Reveal";
 import { useLang } from "@/lib/lang";
@@ -71,6 +72,15 @@ function ServicesPage() {
               </ul>
             </Reveal>
           ))}
+        </div>
+        <div className="mt-16">
+          <Link
+            to="/services/advertising"
+            className="arrow-link label-xs border-b border-ink/25 pb-2 text-ink transition-colors hover:text-ink/60"
+          >
+            {h.advertising.view}
+            <ArrowRight className="h-3.5 w-3.5" strokeWidth={1.5} />
+          </Link>
         </div>
         <p className="mt-16 max-w-xl text-sm leading-relaxed text-ink/45">{t.soon}</p>
       </PageSection>
