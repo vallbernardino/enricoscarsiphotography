@@ -42,12 +42,19 @@ function AdvertisingPage() {
       back={{ label: h.back, to: "/services" }}
     >
       <PageSection label={adv.label} tone="light">
-        <div className="max-w-2xl space-y-6">
-          {adv.page.intro.map((p) => (
-            <p key={p} className="text-[0.95rem] leading-[1.95] text-ink/65">
-              {p}
-            </p>
-          ))}
+        <div className="py-16 lg:py-28">
+          <div className="max-w-3xl">
+            <h2 className="font-sans text-[0.82rem] font-semibold uppercase tracking-[0.28em] text-ink sm:text-[0.92rem]">
+              {adv.page.heading}
+            </h2>
+            <div className="mt-8 max-w-2xl space-y-6">
+              {adv.page.intro.map((p) => (
+                <p key={p} className="text-[1.05rem] leading-[1.8] text-ink/70">
+                  {p}
+                </p>
+              ))}
+            </div>
+          </div>
         </div>
 
         <div className="mt-20 grid gap-x-14 gap-y-16 sm:grid-cols-2">
