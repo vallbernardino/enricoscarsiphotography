@@ -1,5 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type MouseEvent } from "react";
 import { useLang } from "@/lib/lang";
 import { BRAND, homeCopy } from "@/lib/home-copy";
 
@@ -45,7 +45,7 @@ export function SiteNav({ overlay = false }: { overlay?: boolean }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   /** HOME always lands at the top of the homepage hero. */
-  const homeScroll = (e: React.MouseEvent) => {
+  const homeScroll = (e: MouseEvent) => {
     if (pathname === "/") {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
