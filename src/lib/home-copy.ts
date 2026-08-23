@@ -83,7 +83,13 @@ type HomeCopy = {
     mobileLabel: string;
     emailLabel: string;
   };
-  final: { heading: string[]; strong?: string; support: string; cta: string; caption: string };
+  advertising: {
+    label: string;
+    view: string;
+    items: { key: string; title: string }[];
+    page: { title: string; heading: string; intro: string[] };
+  };
+  final: { heading: string; strong?: string; support: string; cta: string; caption: string };
   sticky: string;
   call: string;
   back: string;
@@ -252,9 +258,27 @@ const it: HomeCopy = {
     mobileLabel: "Cellulare / WhatsApp",
     emailLabel: "Email",
   },
+  advertising: {
+    label: "Fotografia pubblicitaria",
+    view: "Vedi la fotografia pubblicitaria",
+    items: [
+      { key: "industrial", title: "Fotografia industriale" },
+      { key: "architecture", title: "Architettura / Interni" },
+      { key: "vacation", title: "Case vacanza" },
+      { key: "product", title: "Prodotto / Commerciale" },
+    ],
+    page: {
+      title: "Fotografia pubblicitaria",
+      heading: "Fotografia pubblicitaria: come rendere visibile il tuo brand?",
+      intro: [
+        "Un'immagine costruita con cura può attrarre, coinvolgere e aumentare la visibilità del tuo brand.",
+        "Lavoriamo con aziende, agenzie di comunicazione e liberi professionisti per creare fotografie che raccontano prodotti e servizi con una narrazione visiva forte ed efficace.",
+      ],
+    },
+  },
   final: {
-    heading: ["Cosa", "ricorderai?"],
-    strong: "Cosa",
+    heading: "Cosa ricorderai?",
+    strong: "ricorderai",
     support: "Fotografiamolo insieme.",
     cta: "Dicci cosa stai organizzando",
     caption: "Torino al tramonto",
@@ -442,8 +466,26 @@ const en: HomeCopy = {
     mobileLabel: "Mobile / WhatsApp",
     emailLabel: "Email",
   },
+  advertising: {
+    label: "Advertising photography",
+    view: "See advertising photography",
+    items: [
+      { key: "industrial", title: "Industrial photography" },
+      { key: "architecture", title: "Architecture / Interiors" },
+      { key: "vacation", title: "Vacation property photography" },
+      { key: "product", title: "Product / Commercial photography" },
+    ],
+    page: {
+      title: "Advertising photography",
+      heading: "Advertising photography: how to make your brand visible?",
+      intro: [
+        "A well-crafted image can attract, engage, and boost your brand's visibility.",
+        "We work with companies, communications agencies, and freelancers to create photographs that showcase products and services through strong, effective visual storytelling.",
+      ],
+    },
+  },
   final: {
-    heading: ["What will you", "remember?"],
+    heading: "What will you remember?",
     strong: "you",
     support: "Let's capture it together.",
     cta: "Tell us what you're planning",
