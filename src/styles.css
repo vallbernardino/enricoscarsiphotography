@@ -51,8 +51,15 @@
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
 }
 
+@property --blog-ang {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
 :root {
   --radius: 0px;
+
 
   --charcoal: #151515;
   --charcoal-soft: #1c1b1a;
@@ -151,16 +158,55 @@
 
   /* Barely perceptible breathing on the call button — no pulse, no glow */
   .breathe {
-    animation: breathe 5200ms ease-in-out infinite;
+    animation: breathe 5200ms cubic-bezier(0.37, 0, 0.63, 1) infinite;
+    will-change: transform, opacity;
   }
 
   @keyframes breathe {
     0%,
     100% {
       opacity: 1;
+      transform: scale(1);
     }
     50% {
       opacity: 0.9;
+      transform: scale(1.028);
+    }
+  }
+
+  /* Quiet hairline that travels around the Blog link's perimeter */
+  .blog-trace {
+    position: relative;
+    display: inline-block;
+  }
+
+  .blog-trace::after {
+    content: "";
+    position: absolute;
+    inset: -0.5rem -0.7rem;
+    padding: 1px;
+    background: conic-gradient(
+      from var(--blog-ang),
+      transparent 0turn,
+      transparent 0.58turn,
+      color-mix(in oklab, var(--champagne) 85%, transparent) 0.76turn,
+      transparent 0.9turn
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: blog-trace 5600ms linear infinite;
+    pointer-events: none;
+  }
+
+  @keyframes blog-trace {
+    to {
+      --blog-ang: 360deg;
     }
   }
 
@@ -168,7 +214,12 @@
     .breathe {
       animation: none;
     }
+    .blog-trace::after {
+      animation: none;
+      opacity: 0.25;
+    }
   }
+
 
 
 

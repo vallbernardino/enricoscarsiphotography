@@ -29,14 +29,17 @@ export function SiteFooter() {
               {n.label}
             </Link>
           ))}
-          <a
-            href={BLOG_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="link-draw w-fit text-sm text-cream/70"
-          >
-            {t.legalLinks.blog}
-          </a>
+          <span className="blog-trace mt-1 w-fit">
+            <a
+              href={BLOG_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link-draw w-fit text-sm text-cream/70"
+            >
+              {t.legalLinks.blog}
+            </a>
+          </span>
+
           <Link to="/privacy" className="link-draw mt-2 w-fit text-sm text-cream/70">
             {t.legalLinks.privacy}
           </Link>
