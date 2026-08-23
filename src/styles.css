@@ -51,8 +51,15 @@
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
 }
 
+@property --blog-ang {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
 :root {
   --radius: 0px;
+
 
   --charcoal: #151515;
   --charcoal-soft: #1c1b1a;
