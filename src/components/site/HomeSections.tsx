@@ -5,7 +5,7 @@ import { useLang } from "@/lib/lang";
 import { homeCopy } from "@/lib/home-copy";
 import { CONTACT } from "@/lib/site-content";
 import { getReviews, REVIEW_PLATFORMS, REVIEW_SOURCE } from "@/lib/reviews";
-import { SERVICE_IMAGES } from "@/lib/hero-slides";
+import { ADVERTISING_IMAGES, SERVICE_IMAGES } from "@/lib/hero-slides";
 import trustpilotLogo from "@/assets/trustpilot.svg";
 import googleLogo from "@/assets/google-g.png";
 import enricoPortrait from "@/assets/enrico-portrait.png.asset.json";
@@ -63,6 +63,7 @@ function ArrowCta({
 export function ServicesSection() {
   const { lang } = useLang();
   const t = homeCopy(lang).services;
+  const adv = homeCopy(lang).advertising;
   const alts = homeCopy(lang).hero.slideAlts;
 
   return (
@@ -117,6 +118,37 @@ export function ServicesSection() {
             </Reveal>
           ))}
         </div>
+      </div>
+
+      {/* Secondary, quieter extension of the same section */}
+      <div className="mx-auto mt-24 max-w-[1440px] px-6 lg:mt-36 lg:px-10">
+        <Reveal className="border-t border-ink/15 pt-8">
+          <div className="flex flex-wrap items-baseline justify-between gap-6">
+            <span className="label-xs text-ink/45">{adv.label}</span>
+            <Link
+              to="/services/advertising"
+              className="arrow-link label-xs text-ink/60 transition-colors hover:text-ink"
+            >
+              {adv.view}
+              <ArrowRight className="h-3 w-3" strokeWidth={1.5} />
+            </Link>
+          </div>
+          <div className="mt-10 grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4 lg:gap-x-10">
+            {adv.items.map((c) => (
+              <div key={c.key}>
+                <img
+                  src={ADVERTISING_IMAGES[c.key]}
+                  alt={c.title}
+                  loading="lazy"
+                  className="aspect-[4/3] w-full object-cover"
+                />
+                <span className="mt-4 block text-[0.78rem] leading-relaxed tracking-[0.06em] text-ink/60">
+                  {c.title}
+                </span>
+              </div>
+            ))}
+          </div>
+        </Reveal>
       </div>
 
       {/* Complete service index — typographic, never narrowed */}
@@ -525,20 +557,16 @@ export function FinalCta() {
       </div>
       <div className="relative mx-auto flex min-h-[86svh] max-w-[1440px] flex-col justify-center px-6 lg:px-10">
         <Reveal>
-          <h2 className="display-editorial text-[1.6rem] leading-[1.22] text-cream sm:text-[2.1rem] lg:text-[2.6rem]">
-            {t.heading.map((l, i) => (
-              <span key={l} className={`block ${i === 1 ? "italic normal-case" : ""}`}>
-                {strong && l.includes(strong) ? (
-                  <>
-                    {l.split(strong)[0]}
-                    <em className="not-italic text-champagne">{strong}</em>
-                    {l.split(strong)[1]}
-                  </>
-                ) : (
-                  l
-                )}
-              </span>
-            ))}
+          <h2 className="font-display text-[1.6rem] leading-[1.22] tracking-[0.01em] text-cream sm:text-[2.1rem] lg:text-[2.6rem]">
+            {strong && t.heading.includes(strong) ? (
+              <>
+                {t.heading.split(strong)[0]}
+                <em className="not-italic text-champagne">{strong}</em>
+                {t.heading.split(strong)[1]}
+              </>
+            ) : (
+              t.heading
+            )}
           </h2>
           <p className="mt-8 text-sm text-cream/65">{t.support}</p>
           <div className="mt-11">

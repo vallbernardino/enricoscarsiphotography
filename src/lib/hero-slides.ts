@@ -28,3 +28,16 @@ export const SERVICE_IMAGES: Record<string, string> = {
   business: slideBusiness,
   studio: slideStudio,
 };
+
+import advIndustrial from "@/assets/adv-industrial.jpg";
+import advArchitecture from "@/assets/adv-architecture.jpg";
+import advVacation from "@/assets/adv-vacation.jpg";
+import advProduct from "@/assets/adv-product.jpg";
+
+/** Secondary advertising-photography frames shown under the main categories. */
+export const ADVERTISING_IMAGES: Record<string, string> = {
+  industrial: advIndustrial,
+  architecture: advArchitecture,
+  vacation: advVacation,
+  product: advProduct,
+};
