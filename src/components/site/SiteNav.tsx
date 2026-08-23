@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { useLang } from "@/lib/lang";
 import { BRAND, homeCopy } from "@/lib/home-copy";
@@ -42,6 +42,17 @@ export function SiteNav({ overlay = false }: { overlay?: boolean }) {
   }, []);
 
   const solid = !overlay || scrolled;
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+
+  /** HOME always lands at the top of the homepage hero. */
+  const homeScroll = (e: React.MouseEvent) => {
+    if (pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      window.scrollTo({ top: 0 });
+    }
+  };
 
   return (
     <header
@@ -64,6 +75,8 @@ export function SiteNav({ overlay = false }: { overlay?: boolean }) {
             <Link
               key={n.to}
               to={n.to}
+              resetScroll
+              {...(n.to === "/" ? { onClick: homeScroll } : {})}
               className="label-xs link-draw text-cream/70 transition-colors hover:text-cream"
               activeProps={{ className: "label-xs link-draw text-cream" }}
             >
@@ -95,7 +108,11 @@ export function SiteNav({ overlay = false }: { overlay?: boolean }) {
               <Link
                 key={n.to}
                 to={n.to}
-                onClick={() => setOpen(false)}
+                resetScroll
+                onClick={(e) => {
+                  setOpen(false);
+                  if (n.to === "/") homeScroll(e);
+                }}
                 className="display-editorial text-lg tracking-[0.14em] text-cream"
               >
                 {n.label}
