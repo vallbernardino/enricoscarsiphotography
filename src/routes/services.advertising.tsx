@@ -41,15 +41,15 @@ function AdvertisingPage() {
       intro={adv.page.heading}
       back={{ label: h.back, to: "/services" }}
     >
-      <PageSection label={adv.label} tone="light">
-        <div className="py-16 lg:py-28">
+      <PageSection tone="light">
+        <div className="py-28 lg:py-44">
           <div className="max-w-3xl">
-            <h2 className="font-sans text-[0.82rem] font-semibold uppercase tracking-[0.28em] text-ink sm:text-[0.92rem]">
+            <h2 className="font-sans text-[1rem] font-semibold uppercase tracking-[0.24em] text-ink sm:text-[1.15rem]">
               {adv.page.heading}
             </h2>
-            <div className="mt-8 max-w-2xl space-y-6">
+            <div className="mt-10 max-w-2xl space-y-7">
               {adv.page.intro.map((p) => (
-                <p key={p} className="text-[1.05rem] leading-[1.8] text-ink/70">
+                <p key={p} className="text-[1.05rem] leading-[1.85] text-ink/70">
                   {p}
                 </p>
               ))}
