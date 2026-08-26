@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageSection, PageShell } from "@/components/site/PageShell";
-import { PhotoFrame } from "@/components/site/PhotoFrame";
+
 import { Reveal } from "@/components/site/Reveal";
 import { useLang } from "@/lib/lang";
 import { BRAND, homeCopy } from "@/lib/home-copy";

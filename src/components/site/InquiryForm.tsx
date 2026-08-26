@@ -45,9 +45,12 @@ export function InquiryForm() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (status === "sending") return;
+    setStatus("sending");
     const body = [
       `${t.typeLabel}: ${type}`,
       `${t.name}: ${name}`,
