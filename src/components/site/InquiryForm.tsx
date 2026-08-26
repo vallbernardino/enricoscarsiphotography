@@ -193,12 +193,19 @@ export function InquiryForm() {
 
               <button
                 type="submit"
-                className="arrow-link label-xs border border-champagne bg-champagne px-9 py-4 text-charcoal transition-colors hover:bg-transparent hover:text-champagne"
+                disabled={status === "sending"}
+                aria-busy={status === "sending"}
+                className="arrow-link label-xs border border-champagne bg-champagne px-9 py-4 text-charcoal transition-colors hover:bg-transparent hover:text-champagne disabled:pointer-events-none disabled:opacity-60"
               >
                 {t.submit}
                 <ArrowRight className="h-3.5 w-3.5" strokeWidth={1.75} />
               </button>
             </div>
+
+            <p aria-live="polite" className="min-h-[1.25rem] text-sm leading-relaxed">
+              {status === "sent" && <span className="text-champagne">{statusCopy.sent}</span>}
+              {status === "error" && <span className="text-cream/80">{statusCopy.error}</span>}
+            </p>
           </form>
         </Reveal>
       </div>
