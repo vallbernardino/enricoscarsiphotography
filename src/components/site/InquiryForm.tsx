@@ -61,18 +61,41 @@ export function InquiryForm() {
       message,
     ].join("\n");
 
-    if (channel === 1) {
-      window.open(
-        `https://wa.me/${CONTACT.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(body)}`,
-        "_blank",
-        "noopener",
-      );
-    } else {
-      window.location.href = `mailto:${CONTACT.email}?subject=${encodeURIComponent(
-        `${t.label} — ${type}`,
-      )}&body=${encodeURIComponent(body)}`;
+    try {
+      if (channel === 1) {
+        const win = window.open(
+          `https://wa.me/${CONTACT.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(body)}`,
+          "_blank",
+          "noopener",
+        );
+        if (!win) throw new Error("popup blocked");
+      } else {
+        window.location.href = `mailto:${CONTACT.email}?subject=${encodeURIComponent(
+          `${t.label} — ${type}`,
+        )}&body=${encodeURIComponent(body)}`;
+      }
+      setStatus("sent");
+    } catch {
+      setStatus("error");
     }
   };
+
+  const statusCopy =
+    lang === "it"
+      ? {
+          sent:
+            channel === 1
+              ? "WhatsApp è stato aperto con il messaggio pronto: premi invio per completare la richiesta."
+              : "Il tuo programma di posta è stato aperto con il messaggio pronto: premi invio per completare la richiesta.",
+          error: `Non è stato possibile aprire il messaggio. Scrivi direttamente a ${CONTACT.email} o chiama ${CONTACT.phone1}.`,
+        }
+      : {
+          sent:
+            channel === 1
+              ? "WhatsApp opened with your message ready — press send to complete the inquiry."
+              : "Your email client opened with the message ready — press send to complete the inquiry.",
+          error: `We couldn't open the message. Please write to ${CONTACT.email} or call ${CONTACT.phone1}.`,
+        };
 
   return (
     <section id="inquiry" className="relative z-20 bg-charcoal">
