@@ -59,12 +59,13 @@ export function Hero() {
           transition: "transform 120ms linear",
         }}
       >
-        {HERO_SLIDES.map((s, i) => (
+        {HERO_SLIDES.slice(0, Math.max(2, index + 2)).map((s, i) => (
           <img
             key={s.key}
             src={s.src}
             alt={i === 0 ? t.alt : (t.slideAlts[s.key] ?? "")}
-            {...(i === 0 ? { fetchPriority: "high" as const } : { loading: "lazy" as const })}
+            decoding={i === 0 ? "sync" : "async"}
+            {...(i === 0 ? { fetchPriority: "high" as const } : { fetchPriority: "low" as const })}
             className="absolute inset-0 h-full w-full object-cover"
             style={{
               objectPosition: s.position,
