@@ -176,7 +176,6 @@
 
   /* One quiet ripple leaving the call button, so it reads as pressable */
   .call-ripple {
-    position: relative;
     isolation: isolate;
   }
 
