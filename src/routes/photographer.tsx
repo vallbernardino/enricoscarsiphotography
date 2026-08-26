@@ -1,10 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageSection, PageShell } from "@/components/site/PageShell";
-import { PhotoFrame } from "@/components/site/PhotoFrame";
+
 import { Reveal } from "@/components/site/Reveal";
 import { useLang } from "@/lib/lang";
 import { BRAND, homeCopy } from "@/lib/home-copy";
 import { copyFor } from "@/lib/site-content";
+import enricoCircle from "@/assets/enrico-circle.png.asset.json";
 
 export const Route = createFileRoute("/photographer")({
   head: () => ({
@@ -37,7 +38,20 @@ function PhotographerPage() {
       <PageSection label={h.experience.label} heading={c.about.heading}>
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <PhotoFrame aspect="aspect-[4/5]" caption={c.about.caption} />
+            <div className="relative aspect-[4/5] w-full overflow-hidden border border-cream/20 bg-[linear-gradient(135deg,#26231f_0%,#1a1817_55%,#2b2723_100%)]">
+              <div className="absolute inset-0 flex flex-col items-center justify-center gap-9 px-8">
+                <img
+                  src={enricoCircle.url}
+                  alt={c.about.caption}
+                  width={520}
+                  height={520}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-[72%] max-w-[300px] object-cover [clip-path:circle(50%)]"
+                />
+                <span className="label-xs text-center text-cream/50">{c.about.caption}</span>
+              </div>
+            </div>
           </div>
           <div className="lg:col-span-7">
             <div className="space-y-5 text-[0.95rem] leading-relaxed text-muted-warm">

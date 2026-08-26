@@ -36,7 +36,9 @@ export function PageShell({
             <h1 className="display-editorial text-[1.6rem] text-cream sm:text-[2rem] lg:text-[2.4rem]">
               {title}
             </h1>
-            <p className="mt-6 max-w-xl text-sm leading-relaxed text-muted-warm">{intro}</p>
+            {intro ? (
+              <p className="mt-6 max-w-xl text-sm leading-relaxed text-muted-warm">{intro}</p>
+            ) : null}
           </Reveal>
         </div>
       </header>

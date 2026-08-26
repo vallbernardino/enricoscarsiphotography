@@ -36,11 +36,7 @@ function AdvertisingPage() {
   const adv = h.advertising;
 
   return (
-    <PageShell
-      title={adv.page.title}
-      intro={adv.page.heading}
-      back={{ label: h.back, to: "/services" }}
-    >
+    <PageShell title={adv.page.title} intro="" back={{ label: h.back, to: "/services" }}>
       <PageSection tone="light">
         <div className="py-28 lg:py-44">
           <div className="max-w-3xl">

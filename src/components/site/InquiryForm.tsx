@@ -45,9 +45,12 @@ export function InquiryForm() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (status === "sending") return;
+    setStatus("sending");
     const body = [
       `${t.typeLabel}: ${type}`,
       `${t.name}: ${name}`,
@@ -58,18 +61,41 @@ export function InquiryForm() {
       message,
     ].join("\n");
 
-    if (channel === 1) {
-      window.open(
-        `https://wa.me/${CONTACT.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(body)}`,
-        "_blank",
-        "noopener",
-      );
-    } else {
-      window.location.href = `mailto:${CONTACT.email}?subject=${encodeURIComponent(
-        `${t.label} — ${type}`,
-      )}&body=${encodeURIComponent(body)}`;
+    try {
+      if (channel === 1) {
+        const win = window.open(
+          `https://wa.me/${CONTACT.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(body)}`,
+          "_blank",
+          "noopener",
+        );
+        if (!win) throw new Error("popup blocked");
+      } else {
+        window.location.href = `mailto:${CONTACT.email}?subject=${encodeURIComponent(
+          `${t.label} — ${type}`,
+        )}&body=${encodeURIComponent(body)}`;
+      }
+      setStatus("sent");
+    } catch {
+      setStatus("error");
     }
   };
+
+  const statusCopy =
+    lang === "it"
+      ? {
+          sent:
+            channel === 1
+              ? "WhatsApp è stato aperto con il messaggio pronto: premi invio per completare la richiesta."
+              : "Il tuo programma di posta è stato aperto con il messaggio pronto: premi invio per completare la richiesta.",
+          error: `Non è stato possibile aprire il messaggio. Scrivi direttamente a ${CONTACT.email} o chiama ${CONTACT.phone1}.`,
+        }
+      : {
+          sent:
+            channel === 1
+              ? "WhatsApp opened with your message ready — press send to complete the inquiry."
+              : "Your email client opened with the message ready — press send to complete the inquiry.",
+          error: `We couldn't open the message. Please write to ${CONTACT.email} or call ${CONTACT.phone1}.`,
+        };
 
   return (
     <section id="inquiry" className="relative z-20 bg-charcoal">
@@ -167,12 +193,19 @@ export function InquiryForm() {
 
               <button
                 type="submit"
-                className="arrow-link label-xs border border-champagne bg-champagne px-9 py-4 text-charcoal transition-colors hover:bg-transparent hover:text-champagne"
+                disabled={status === "sending"}
+                aria-busy={status === "sending"}
+                className="arrow-link label-xs border border-champagne bg-champagne px-9 py-4 text-charcoal transition-colors hover:bg-transparent hover:text-champagne disabled:pointer-events-none disabled:opacity-60"
               >
                 {t.submit}
                 <ArrowRight className="h-3.5 w-3.5" strokeWidth={1.75} />
               </button>
             </div>
+
+            <p aria-live="polite" className="min-h-[1.25rem] text-sm leading-relaxed">
+              {status === "sent" && <span className="text-champagne">{statusCopy.sent}</span>}
+              {status === "error" && <span className="text-cream/80">{statusCopy.error}</span>}
+            </p>
           </form>
         </Reveal>
       </div>
