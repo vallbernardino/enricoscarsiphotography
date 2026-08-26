@@ -32,7 +32,7 @@ export function StickyCTA() {
     <a
       href={`tel:${CONTACT.phone1.replace(/\s/g, "")}`}
       aria-label={`${t.call} ${CONTACT.phone1}`}
-      className={`label-xs breathe call-ripple fixed bottom-5 right-5 z-40 flex items-center gap-3 border border-champagne bg-champagne px-6 py-4 text-[0.62rem] text-charcoal transition-all duration-700 hover:bg-cream ${
+      className={`label-xs breathe call-ripple fixed bottom-5 right-5 z-40 inline-flex items-center gap-3 border border-champagne bg-champagne px-6 py-4 text-[0.62rem] text-charcoal transition-all duration-700 hover:bg-cream ${
         show ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-4 opacity-0"
       }`}
     >
