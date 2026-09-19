@@ -1,7 +1,9 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { useEffect, useState, type MouseEvent } from "react";
+import { Search } from "lucide-react";
+import { useCallback, useEffect, useState, type MouseEvent } from "react";
 import { useLang } from "@/lib/lang";
 import { BRAND, homeCopy } from "@/lib/home-copy";
+import { SearchDialog } from "./SearchDialog";
 
 export function LangToggle({ tone = "dark" }: { tone?: "dark" | "light" }) {
   const { lang, setLang } = useLang();
@@ -33,6 +35,8 @@ export function SiteNav({ overlay = false }: { overlay?: boolean }) {
   const t = homeCopy(lang);
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const closeSearch = useCallback(() => setSearchOpen(false), []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -91,10 +95,19 @@ export function SiteNav({ overlay = false }: { overlay?: boolean }) {
 
         <button
           type="button"
+          onClick={() => setSearchOpen(true)}
+          aria-label={lang === "it" ? "Cerca nel sito" : "Search the site"}
+          className="hidden p-2 text-cream/70 transition-colors hover:text-cream lg:block"
+        >
+          <Search className="h-4 w-4" strokeWidth={1.5} />
+        </button>
+
+        <button
+          type="button"
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-label="Menu"
-          className="flex flex-col gap-[5px] p-2 lg:hidden"
+          className="ml-1 flex flex-col gap-[5px] p-2 lg:hidden"
         >
           <span className="block h-px w-6 bg-cream" />
           <span className="block h-px w-6 bg-cream" />
@@ -122,8 +135,20 @@ export function SiteNav({ overlay = false }: { overlay?: boolean }) {
           <div className="mt-7">
             <LangToggle />
           </div>
+          <button
+            type="button"
+            onClick={() => {
+              setOpen(false);
+              setSearchOpen(true);
+            }}
+            className="label-xs mt-7 flex items-center gap-3 text-cream/70"
+          >
+            <Search className="h-4 w-4" strokeWidth={1.5} />
+            {lang === "it" ? "Cerca" : "Search"}
+          </button>
         </div>
       )}
+      <SearchDialog open={searchOpen} onClose={closeSearch} />
     </header>
   );
 }

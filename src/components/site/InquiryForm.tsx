@@ -39,17 +39,20 @@ function Radio({
 export function InquiryForm() {
   const { lang } = useLang();
   const t = homeCopy(lang).inquiry;
-  const [type, setType] = useState(t.types[0]!);
+  const [type, setType] = useState(t.types[0] ?? "");
   const [channel, setChannel] = useState(0);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const resumeEditing = () => {
+    if (status === "sent" || status === "error") setStatus("idle");
+  };
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (status === "sending") return;
+    if (status === "sending" || status === "sent") return;
     setStatus("sending");
     const body = [
       `${t.typeLabel}: ${type}`,
@@ -136,7 +139,7 @@ export function InquiryForm() {
                 <input
                   required
                   value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  onChange={(e) => { resumeEditing(); setName(e.target.value); }}
                   placeholder={t.namePlaceholder}
                   className={`${fieldClass} mt-3`}
                 />
@@ -147,7 +150,7 @@ export function InquiryForm() {
                   required
                   type="email"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => { resumeEditing(); setEmail(e.target.value); }}
                   placeholder={t.emailPlaceholder}
                   className={`${fieldClass} mt-3`}
                 />
@@ -158,7 +161,7 @@ export function InquiryForm() {
                 </span>
                 <input
                   value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
+                  onChange={(e) => { resumeEditing(); setPhone(e.target.value); }}
                   placeholder={t.whatsappPlaceholder}
                   className={`${fieldClass} mt-3`}
                 />
@@ -170,7 +173,7 @@ export function InquiryForm() {
               <textarea
                 rows={6}
                 value={message}
-                onChange={(e) => setMessage(e.target.value)}
+                onChange={(e) => { resumeEditing(); setMessage(e.target.value); }}
                 placeholder={t.tellPlaceholder}
                 className={`${fieldClass} mt-3 resize-none`}
               />
@@ -193,7 +196,7 @@ export function InquiryForm() {
 
               <button
                 type="submit"
-                disabled={status === "sending"}
+                disabled={status === "sending" || status === "sent"}
                 aria-busy={status === "sending"}
                 className="arrow-link label-xs border border-champagne bg-champagne px-9 py-4 text-charcoal transition-colors hover:bg-transparent hover:text-champagne disabled:pointer-events-none disabled:opacity-60"
               >
