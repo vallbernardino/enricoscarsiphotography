@@ -14,9 +14,6 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 import { StickyCTA } from "@/components/site/StickyCTA";
 import { SelectedWork } from "@/components/site/SelectedWork";
 
-const OG_IMAGE =
-  "https://id-preview--692bc463-6724-49fe-af4f-41ba6a16bf06.lovable.app/__l5e/assets-v1/270ee54f-f303-4ef2-ae41-b2ca85521503/hero-torino.png";
-
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -33,9 +30,7 @@ export const Route = createFileRoute("/")({
           "Photography for moments that matter. Turin studio since 1989: portraits, families, weddings, events, business and advertising photography.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: OG_IMAGE },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: OG_IMAGE },
     ],
   }),
   component: Index,
