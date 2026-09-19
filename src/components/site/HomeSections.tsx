@@ -5,7 +5,6 @@ import { useLang } from "@/lib/lang";
 import { homeCopy } from "@/lib/home-copy";
 import { CONTACT } from "@/lib/site-content";
 import { getReviews, REVIEW_PLATFORMS, REVIEW_SOURCE } from "@/lib/reviews";
-import { ADVERTISING_IMAGES, SERVICE_IMAGES } from "@/lib/hero-slides";
 import trustpilotLogo from "@/assets/trustpilot.svg";
 import googleLogo from "@/assets/google-g.png";
 import enricoPortrait from "@/assets/enrico-portrait.png.asset.json";

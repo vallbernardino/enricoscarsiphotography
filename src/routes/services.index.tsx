@@ -4,7 +4,6 @@ import { PageSection, PageShell } from "@/components/site/PageShell";
 import { Reveal } from "@/components/site/Reveal";
 import { useLang } from "@/lib/lang";
 import { homeCopy } from "@/lib/home-copy";
-import { SERVICE_IMAGES } from "@/lib/hero-slides";
 
 export const Route = createFileRoute("/services/")({
   head: () => ({
@@ -32,55 +31,30 @@ function ServicesIndexPage() {
   const { lang } = useLang();
   const h = homeCopy(lang);
   const t = h.services;
-  const alts = h.hero.slideAlts;
 
   return (
     <PageShell title={h.pages.services.title} intro={h.pages.services.intro}>
       <PageSection label={t.label} heading={t.heading} tone="light">
         <p className="max-w-2xl text-[0.95rem] leading-[1.95] text-ink/60">{t.intro}</p>
-
-        <div className="mt-20 grid gap-x-14 gap-y-20 sm:grid-cols-2 lg:grid-cols-3">
-          {t.categories.map((c, i) => (
-            <Reveal key={c.key} delay={(i % 3) * 90}>
-              <img
-                src={SERVICE_IMAGES[c.key]}
-                alt={alts[c.key] ?? c.title}
-                loading="lazy"
-                className="aspect-[4/5] w-full object-cover"
-              />
-              <div className="mt-6 border-t border-ink/15 pt-5">
-                <span className="display-editorial text-[0.95rem] tracking-[0.12em] text-ink">
-                  {c.title}
-                </span>
-              </div>
-            </Reveal>
-          ))}
-        </div>
       </PageSection>
 
       <PageSection label={t.indexLabel} heading={t.indexIntro} tone="light">
-        <div className="grid gap-x-14 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid items-start gap-x-12 gap-y-16 lg:grid-cols-3">
           {t.groups.map((g, i) => (
             <Reveal key={g.title} delay={i * 90}>
-              <h3 className="label-xs border-b border-ink/15 pb-4 text-ink/70">{g.title}</h3>
-              <ul className="mt-6 space-y-4">
+              <div className="service-category-rule relative border-b border-ink/20 pb-5"><h3 className="label-xs text-ink/70">{g.title}</h3></div>
+              <ul>
                 {g.items.map((item) => (
-                  <li key={item} className="text-[0.95rem] leading-relaxed text-ink/75">
-                    {item}
+                  <li key={item}>
+                    <Link to={item === t.advertisingItem ? "/services/advertising" : "/contact"} className="group flex min-h-16 items-center justify-between gap-4 border-b border-ink/12 py-4 text-[0.9rem] leading-snug text-ink/75 transition-colors hover:text-ink">
+                      <span className="transition-transform duration-300 group-hover:translate-x-1">{item}</span>
+                      <ArrowRight className="h-3.5 w-3.5 shrink-0 text-ink/30 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-ink" strokeWidth={1.5} />
+                    </Link>
                   </li>
                 ))}
               </ul>
             </Reveal>
           ))}
-        </div>
-        <div className="mt-16">
-          <Link
-            to="/services/advertising"
-            className="arrow-link label-xs border-b border-ink/25 pb-2 text-ink transition-colors hover:text-ink/60"
-          >
-            {h.advertising.view}
-            <ArrowRight className="h-3.5 w-3.5" strokeWidth={1.5} />
-          </Link>
         </div>
         <p className="mt-16 max-w-xl text-sm leading-relaxed text-ink/45">{t.soon}</p>
       </PageSection>

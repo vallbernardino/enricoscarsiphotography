@@ -39,7 +39,7 @@ function Radio({
 export function InquiryForm() {
   const { lang } = useLang();
   const t = homeCopy(lang).inquiry;
-  const [type, setType] = useState(t.types[0]!);
+  const [type, setType] = useState(t.types[0] ?? "");
   const [channel, setChannel] = useState(0);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");

@@ -44,8 +44,7 @@ export function SelectedWork() {
     <section ref={sectionRef} className="relative z-10 h-[310svh] bg-charcoal text-cream">
       <div className="sticky top-0 h-[100svh] overflow-hidden">
         <div className="absolute inset-0 bg-charcoal" style={{ visibility: filmVisible ? "visible" : "hidden", opacity: filmVisible ? 1 : 0, transition: motion.reduced ? "none" : "opacity 900ms ease" }}>
-          <picture><source media="(max-width: 700px)" srcSet="/media/selected-work-mobile.mp4" /></picture>
-          <video className="h-full w-full object-cover" autoPlay muted loop playsInline preload="metadata" poster="/media/selected-work-poster.jpg" aria-label={lang === "it" ? "Film di un matrimonio all'aperto" : "Film of an outdoor wedding"}>
+          <video className="h-full w-full object-cover" autoPlay={!motion.reduced} muted loop playsInline preload="metadata" poster="/media/selected-work-poster.jpg" aria-label={lang === "it" ? "Film di un matrimonio all'aperto" : "Film of an outdoor wedding"}>
             <source media="(max-width: 700px)" src="/media/selected-work-mobile.mp4" type="video/mp4" />
             <source src="/media/selected-work-1080.mp4" type="video/mp4" />
           </video>
