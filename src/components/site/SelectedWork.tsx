@@ -75,7 +75,7 @@ export function SelectedWork() {
               <div className="lg:col-span-5 lg:col-start-8"><p className="text-sm leading-[1.9] text-ink/60">{copy.body}</p><Link to="/services" className="arrow-link label-xs mt-7 inline-flex border-b border-ink/25 pb-2 text-ink">{copy.view}<ArrowRight className="h-3.5 w-3.5" strokeWidth={1.5} /></Link></div>
             </Reveal>
           </div>
-          <div className="absolute inset-x-0 top-[43svh] mx-auto h-[112svh] max-w-[1440px] overflow-hidden px-3 sm:px-6 lg:top-[38svh] lg:px-10">
+          <div className="absolute inset-x-0 top-[55svh] mx-auto h-[112svh] max-w-[1440px] overflow-hidden px-3 sm:px-6 lg:top-[38svh] lg:px-10">
             <div className="grid h-[190svh] grid-cols-12 auto-rows-[4.8svh] gap-2.5 sm:gap-4 lg:h-[205svh] lg:auto-rows-[6svh] lg:gap-5" style={{ transform: `translate3d(0, ${-bentoProgress * 46}%, 0)`, willChange: "transform" }}>
               {SELECTED_WORK.map((item) => <figure key={item.key} className={`${item.className} overflow-hidden bg-charcoal-soft`}><img src={item.src} alt={SELECTED_WORK_ALTS[lang][item.key]} width={item.width} height={item.height} loading="lazy" decoding="async" className="h-full w-full object-cover" style={{ objectPosition: item.position }} /></figure>)}
             </div>
