@@ -8,7 +8,8 @@ import { Reveal } from "./Reveal";
 export function SelectedWork() {
   const { lang } = useLang();
   const sectionRef = useRef<HTMLElement | null>(null);
-  const [motion, setMotion] = useState({ progress: 0, reduced: true });
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const [motion, setMotion] = useState({ progress: 0, reduced: false });
   const copy = lang === "it"
     ? { label: "Lavori selezionati", heading: "Storie, persone, luoghi.", body: "Una selezione che attraversa il ritratto, la famiglia, gli eventi e il lavoro per aziende: fotografie diverse, unite dallo stesso sguardo.", view: "Vedi tutti i servizi", filmA: "Un film", filmB: "di momenti veri", filmBody: "Più che fotografie.", filmWords: "Persone. Luoghi. Emozioni." }
     : { label: "Selected work", heading: "Stories, people, places.", body: "A selection spanning portraiture, family, events and commissioned work for businesses: different photographs, connected by the same way of seeing.", view: "View all services", filmA: "A film", filmB: "of real moments", filmBody: "More than photographs.", filmWords: "People. Places. Emotions." };
@@ -26,7 +27,7 @@ export function SelectedWork() {
         const range = Math.max(1, rect.height - window.innerHeight);
         const scrollProgress = Math.max(0, Math.min(1, -rect.top / range));
         const active = rect.top <= 0 && rect.bottom >= window.innerHeight && scrollProgress < 0.92;
-        if (active) drift = Math.min(0.075, drift + Math.min(32, now - last) * 0.0000025);
+        if (active) drift = Math.min(1, drift + Math.min(32, now - last) * 0.000012);
         setMotion({ progress: Math.min(1, scrollProgress + drift), reduced: false });
       }
       last = now;
@@ -40,11 +41,21 @@ export function SelectedWork() {
   const filmVisible = motion.reduced || motion.progress >= 0.82;
   const bentoOpacity = motion.reduced ? 0 : Math.max(0, 1 - Math.max(0, motion.progress - 0.72) / 0.1);
 
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (filmVisible && !motion.reduced) {
+      void video.play().catch(() => undefined);
+    } else {
+      video.pause();
+    }
+  }, [filmVisible, motion.reduced]);
+
   return (
     <section ref={sectionRef} className="relative z-10 h-[310svh] bg-charcoal text-cream">
       <div className="sticky top-0 h-[100svh] overflow-hidden">
         <div className="absolute inset-0 bg-charcoal" style={{ visibility: filmVisible ? "visible" : "hidden", opacity: filmVisible ? 1 : 0, transition: motion.reduced ? "none" : "opacity 900ms ease" }}>
-          <video className="h-full w-full object-cover" autoPlay={!motion.reduced} muted loop playsInline preload="metadata" poster="/media/selected-work-poster.jpg" aria-label={lang === "it" ? "Film di un matrimonio all'aperto" : "Film of an outdoor wedding"}>
+          <video ref={videoRef} className="h-full w-full object-cover" muted loop playsInline preload="metadata" poster="/media/selected-work-poster.jpg" aria-label={lang === "it" ? "Film di un matrimonio all'aperto" : "Film of an outdoor wedding"}>
             <source media="(max-width: 700px)" src="/media/selected-work-mobile.mp4" type="video/mp4" />
             <source src="/media/selected-work-1080.mp4" type="video/mp4" />
           </video>
