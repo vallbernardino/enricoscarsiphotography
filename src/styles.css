@@ -258,9 +258,40 @@
   }
 
   @keyframes blog-trace {
-    to {
-      --blog-ang: 360deg;
+    0%, 18% {
+      --blog-ang: 0deg;
+      opacity: 0;
     }
+    24% {
+      opacity: 1;
+    }
+    62% {
+      --blog-ang: 360deg;
+      opacity: 1;
+    }
+    78%, 100% {
+      --blog-ang: 360deg;
+      opacity: 0;
+    }
+  }
+
+  .service-category-rule::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 24%;
+    height: 1px;
+    background: var(--champagne);
+    opacity: 0.7;
+    animation: service-rule-travel 5600ms cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  }
+
+  @keyframes service-rule-travel {
+    0% { transform: translateX(-105%); opacity: 0; }
+    14% { opacity: 0.7; }
+    78% { opacity: 0.7; }
+    100% { transform: translateX(420%); opacity: 0; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -272,6 +303,11 @@
     .blog-trace::after {
       animation: none;
       opacity: 0.25;
+    }
+    .service-category-rule::after {
+      animation: none;
+      opacity: 0.35;
+      transform: none;
     }
   }
 

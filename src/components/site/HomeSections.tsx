@@ -63,115 +63,31 @@ function ArrowCta({
 export function ServicesSection() {
   const { lang } = useLang();
   const t = homeCopy(lang).services;
-  const adv = homeCopy(lang).advertising;
-  const alts = homeCopy(lang).hero.slideAlts;
 
   return (
-    <section id="services" className="relative z-20 bg-paper text-ink">
-      <div className="mx-auto max-w-[1440px] px-6 pt-32 lg:px-10 lg:pt-52">
-        <Reveal className="grid gap-10 lg:grid-cols-12">
-          <div className="lg:col-span-5">
-            <span className="label-xs text-ink/45">{t.label}</span>
-            <h2 className="mt-8 font-display text-[1.6rem] leading-[1.2] sm:text-[2rem]">
-              {t.heading}
-            </h2>
-          </div>
-          <p className="max-w-xl text-[0.95rem] leading-[1.95] text-ink/60 lg:col-span-6 lg:col-start-7">
-            {t.intro}
-          </p>
-        </Reveal>
-      </div>
+    <section id="services" className="relative z-20 -mt-px bg-paper text-ink">
+      <div className="mx-auto max-w-[1440px] px-6 py-28 lg:px-10 lg:py-48">
+        <Reveal><span className="label-xs text-ink/45">{t.label}</span></Reveal>
+        <Reveal delay={60}><h2 className="mt-7 max-w-2xl font-display text-[2rem] leading-[1.12] sm:text-[3rem]">{t.heading}</h2></Reveal>
+        <Reveal delay={120}><p className="mt-8 max-w-2xl text-[0.95rem] leading-[1.95] text-ink/60">{t.intro}</p></Reveal>
+        <Reveal delay={180} className="mt-10"><ArrowCta tone="light" to="/services">{t.view}</ArrowCta></Reveal>
 
-      {/* ALL SERVICES reads as the section heading above the categories */}
-      <div className="mx-auto mt-24 max-w-[1440px] px-6 lg:mt-36 lg:px-10">
-        <Reveal className="border-t border-ink/20 pt-10">
-          <h3 className="font-sans text-[0.82rem] font-semibold uppercase tracking-[0.28em] text-ink sm:text-[0.92rem]">
-            {t.indexLabel}
-          </h3>
-          <p className="mt-7 max-w-xl text-[0.95rem] leading-[1.95] text-ink/60">{t.indexIntro}</p>
-        </Reveal>
-      </div>
-
-      {/* Photography carries the weight: large images, hairline dividers, no cards */}
-      <div className="mx-auto mt-16 max-w-[1440px] px-6 lg:mt-24 lg:px-10">
-        <div className="grid gap-x-14 gap-y-12 sm:grid-cols-2 sm:gap-y-20 lg:grid-cols-3 lg:gap-y-28">
-          {t.categories.map((c, i) => (
-            <Reveal key={c.key} delay={(i % 3) * 90}>
-              <Link to="/services" className="group block">
-                <div className="relative overflow-hidden">
-                  <img
-                    src={SERVICE_IMAGES[c.key]}
-                    alt={alts[c.key] ?? c.title}
-                    loading="lazy"
-                    className="aspect-[5/4] w-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.03] sm:aspect-[4/5]"
-                  />
-                </div>
-                <div className="mt-5 flex items-baseline justify-between border-t border-ink/15 pt-4 sm:mt-6 sm:pt-5">
-                  <span className="display-editorial text-[0.95rem] tracking-[0.12em] text-ink">
-                    {c.title}
-                  </span>
-                  <span className="arrow-link label-xs text-ink/35 transition-colors group-hover:text-ink">
-                    <ArrowRight className="h-3 w-3" strokeWidth={1.5} />
-                  </span>
-                </div>
-              </Link>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-
-      {/* Secondary, quieter extension of the same section */}
-      <div className="mx-auto mt-24 max-w-[1440px] px-6 lg:mt-36 lg:px-10">
-        <Reveal className="border-t border-ink/15 pt-8">
-          <div className="flex flex-wrap items-baseline justify-between gap-6">
-            <span className="label-xs text-ink/45">{adv.label}</span>
-            <Link
-              to="/services/advertising"
-              className="arrow-link label-xs text-ink/60 transition-colors hover:text-ink"
-            >
-              {adv.view}
-              <ArrowRight className="h-3 w-3" strokeWidth={1.5} />
-            </Link>
-          </div>
-          <div className="mt-10 grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4 lg:gap-x-10">
-            {adv.items.map((c) => (
-              <div key={c.key}>
-                <img
-                  src={ADVERTISING_IMAGES[c.key]}
-                  alt={c.title}
-                  loading="lazy"
-                  className="aspect-[4/3] w-full object-cover"
-                />
-                <span className="mt-4 block text-[0.78rem] leading-relaxed tracking-[0.06em] text-ink/60">
-                  {c.title}
-                </span>
-              </div>
-            ))}
-          </div>
-        </Reveal>
-      </div>
-
-      {/* Complete service index — typographic, never narrowed */}
-      <div className="mx-auto mt-28 max-w-[1440px] px-6 pb-32 lg:mt-44 lg:px-10 lg:pb-52">
-        <div className="grid gap-x-14 gap-y-16 border-t border-ink/15 pt-16 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-24 grid items-start gap-x-12 gap-y-16 lg:mt-36 lg:grid-cols-3">
           {t.groups.map((g, i) => (
-            <Reveal key={g.title} delay={i * 90}>
-              <h4 className="label-xs border-b border-ink/15 pb-4 text-ink/70">{g.title}</h4>
-              <ul className="mt-7 space-y-4">
+            <Reveal key={g.title} delay={240 + i * 70}>
+              <div className="service-category-rule relative border-b border-ink/20 pb-5"><h3 className="label-xs text-ink/70">{g.title}</h3></div>
+              <ul>
                 {g.items.map((item) => (
-                  <li key={item} className="text-[0.95rem] leading-relaxed text-ink/75">
-                    {item}
+                  <li key={item}>
+                    <Link to={item === t.advertisingItem ? "/services/advertising" : "/services"} className="group flex min-h-16 items-center justify-between gap-4 border-b border-ink/12 py-4 text-[0.9rem] leading-snug text-ink/75 transition-colors hover:text-ink">
+                      <span className="transition-transform duration-300 group-hover:translate-x-1">{item}</span>
+                      <ArrowRight className="h-3.5 w-3.5 shrink-0 text-ink/30 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-ink" strokeWidth={1.5} />
+                    </Link>
                   </li>
                 ))}
               </ul>
             </Reveal>
           ))}
-        </div>
-
-        <div className="mt-20">
-          <ArrowCta tone="light" to="/services">
-            {t.view}
-          </ArrowCta>
         </div>
       </div>
     </section>

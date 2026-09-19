@@ -54,6 +54,7 @@ type HomeCopy = {
     indexLabel: string;
     indexIntro: string;
     groups: { title: string; items: string[] }[];
+    advertisingItem: string;
     soon: string;
   };
   experience: {
@@ -166,11 +167,11 @@ const it: HomeCopy = {
     sent: "Grazie. Apri il tuo client per completare l'invio del messaggio.",
   },
   services: {
-    label: "Servizi",
-    heading: "Cosa fotografiamo",
+    label: "I miei servizi",
+    heading: "Fotografia per ogni storia.",
     intro:
       "Uno studio fotografico a Torino aperto a esigenze molto diverse: persone, famiglie, eventi, imprese, prodotti e architettura. Ogni servizio nasce da un ascolto iniziale e da una pianificazione condivisa.",
-    view: "Scopri di più",
+    view: "Scopri tutti i servizi",
     categories: [
       { key: "weddings", title: "Matrimoni / Proposte" },
       { key: "families", title: "Famiglie" },
@@ -211,6 +212,7 @@ const it: HomeCopy = {
         items: ["Riprese video", "Corsi di fotografia"],
       },
     ],
+    advertisingItem: "Fotografia pubblicitaria",
     soon: "Pagina di servizio in arrivo — nel frattempo scrivici o telefona allo studio.",
   },
   experience: {
@@ -270,10 +272,7 @@ const it: HomeCopy = {
     page: {
       title: "Fotografia pubblicitaria",
       heading: "Fotografia pubblicitaria: come rendere visibile il tuo brand?",
-      intro: [
-        "Un'immagine costruita con cura può attrarre, coinvolgere e aumentare la visibilità del tuo brand.",
-        "Lavoriamo con aziende, agenzie di comunicazione e liberi professionisti per creare fotografie che raccontano prodotti e servizi con una narrazione visiva forte ed efficace.",
-      ],
+      intro: ["Un'immagine costruita con cura può attrarre, coinvolgere e aumentare la visibilità del tuo brand. Lavoriamo con aziende, agenzie di comunicazione e liberi professionisti per creare fotografie che raccontano prodotti e servizi con una narrazione visiva forte ed efficace."],
     },
   },
   final: {
@@ -378,11 +377,11 @@ const en: HomeCopy = {
     sent: "Thank you. Your message app will open to finish sending.",
   },
   services: {
-    label: "Services",
-    heading: "What we photograph",
+    label: "My services",
+    heading: "Photography for every story.",
     intro:
       "A photography studio in Turin working across very different needs: people, families, events, companies, products and architecture. Every commission starts with listening and shared planning.",
-    view: "Find out more",
+    view: "Explore all services",
     categories: [
       { key: "weddings", title: "Weddings / Proposals" },
       { key: "families", title: "Families" },
@@ -395,34 +394,35 @@ const en: HomeCopy = {
     indexIntro: "The studio's complete offering, for private and professional clients.",
     groups: [
       {
-        title: "Private",
+        title: "Private individuals",
         items: [
           "Portrait",
           "Family",
-          "Wedding",
+          "Marriage",
           "Couple photography",
-          "City Tour photography",
-          "Visa photography",
-          "Gift voucher",
+          "Luxury Photo Tour in Turin",
+          "Passport and visa photos",
+          "Gift vouchers",
         ],
       },
       {
-        title: "Business & professional",
+        title: "Companies and professionals",
         items: [
           "Advertising photography",
           "Corporate portrait",
           "Event photography",
           "Industrial photography",
-          "Architecture / interiors",
-          "Vacation property photography",
-          "Product / commercial photography",
+          "Architecture and interiors",
+          "Holiday homes",
+          "Product and catalog",
         ],
       },
       {
-        title: "Additional",
-        items: ["Video / filming", "Photography courses"],
+        title: "Furthermore",
+        items: ["Video footage", "Photography courses"],
       },
     ],
+    advertisingItem: "Advertising photography",
     soon: "Service page coming soon — in the meantime write to us or call the studio.",
   },
   experience: {
@@ -478,10 +478,7 @@ const en: HomeCopy = {
     page: {
       title: "Advertising photography",
       heading: "Advertising photography: how to make your brand visible?",
-      intro: [
-        "A well-crafted image can attract, engage, and boost your brand's visibility.",
-        "We work with companies, communications agencies, and freelancers to create photographs that showcase products and services through strong, effective visual storytelling.",
-      ],
+      intro: ["A well-crafted image can attract, engage, and boost your brand's visibility. We work with companies, communications agencies, and freelancers to create photographs that showcase products and services through strong, effective visual storytelling."],
     },
   },
   final: {
