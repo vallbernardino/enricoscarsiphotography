@@ -10,17 +10,17 @@ Preserve the approved hero, navigation styling, homepage photographer section, i
 - Build an asymmetric, sharp-corner bento from replaceable project assets representing the studio’s full range: people, weddings, Turin/travel, business, events, industrial, architecture/interiors, property, products, and education.
 - Give the bento a bounded internal vertical track. Scroll position advances it; while the section remains active, a very slow time-based drift continues without moving the webpage.
 - Clamp the movement to a finite endpoint. Keep the film layer fully concealed until that endpoint is reached, then clear the bento and reveal the film.
-- Add the supplied 15-second H.264 film as a project asset, with autoplay, muted, loop, playsInline, no controls, fixed aspect handling, and a restrained bilingual editorial overlay.
+- Preserve the supplied 15-second H.264 film as the source of truth and create only local, project-relative web renditions/poster from it, with autoplay, muted, loop, playsInline, no controls, fixed aspect handling, and a restrained bilingual editorial overlay.
 - Make the cream Services section layer above and cover the film as normal page scrolling continues.
 - Disable autonomous motion and use a simple static progression for reduced-motion users.
 
 ## 2. Services presentation and content
 
 - Replace only the homepage Services presentation with the specified bilingual “MY SERVICES” introduction and three precisely aligned typographic columns.
-- Preserve the exact service inventory. Advertising Photography is one linked service; industrial, architecture/interiors, vacation property, and product/catalog remain examples within that offering and link to the same dedicated advertising page where appropriate.
+- Preserve the exact service inventory and exact requested English names: Private Individuals (Portrait, Family, Marriage, Couple photography, Luxury Photo Tour in Turin, Passport and visa photos, Gift vouchers); Companies and Professionals (Advertising photography, Corporate portrait, Event photography, Industrial photography, Architecture and interiors, Holiday homes, Product and catalog); Furthermore (Video footage, Photography courses). Advertising Photography is one linked service; industrial, architecture/interiors, vacation property, and product/catalog remain examples within that offering and link to the same dedicated advertising page where appropriate.
 - Use consistent horizontal rows, right-aligned arrows, static hairline dividers, subtle row interaction, and a slow secondary line traveling left-to-right beneath each category heading.
 - Add a small staged reveal for label, heading, copy, CTA, then columns. Adapt the layout intentionally for mobile without horizontal card scrolling.
-- Keep the dedicated Services page aligned with the same inventory and direct Advertising Photography link, without changing its approved overall page shell.
+- Keep the dedicated Services page aligned with the same inventory and direct Advertising Photography link, without changing its approved overall page shell. Render the approved advertising heading and paragraph exactly once in one responsive block.
 
 ## 3. Local search in the existing navigation
 
@@ -41,7 +41,7 @@ Preserve the approved hero, navigation styling, homepage photographer section, i
 - Keep Google Reviews, recognizable Trustpilot branding, and the single-review sharp-switch behavior.
 - Refine the existing Blog outline timing to trace, hold, fade, pause, repeat without changing its placement or styling.
 - Keep the Call CTA’s exact dimensions, placement, typography, colors, and layout; only tune its current ripple/breathing visibility. Preserve the existing no-animation reduced-motion rule.
-- Review all newly introduced Italian copy for natural professional usage rather than literal translation.
+- Review all newly introduced and existing bilingual copy for natural, contextual professional Italian usage rather than literal translation, without inventing claims or changing meaning.
 - Keep the Advertising Photography introduction rendered exactly once.
 
 ## 6. Performance, privacy, and verification
@@ -49,6 +49,7 @@ Preserve the approved hero, navigation styling, homepage photographer section, i
 - Use transform-based, requestAnimationFrame-coordinated motion with bounded observers/listeners and no page auto-scroll.
 - Optimize the supplied 4K presentation film into portable local web renditions/poster while preserving the attached source as the sole visual source; choose responsive playback without relying on preview URLs.
 - Confirm no trackers, analytics, profiling, new cookies, secrets, database, authentication, CMS, or paid services are introduced.
+- Verify the existing inquiry required-field and email validation, successful/error states, accidental duplicate prevention, and direct phone/email behavior.
 - Verify desktop, tablet, and mobile for: unchanged Hero; persistent navigation; HOME top return; Search; bento movement/pause drift/end; complete film concealment before reveal; film playback; Services cover; exact service links; advertising copy uniqueness; reviews; Blog animation; Call CTA reduced motion; inquiry states; and all internal routes/assets.
 - Check browser console/network and production build output. Any legal, production hosting, external Blog, or third-party availability item that cannot be proven locally will be reported as **REQUIRES PRODUCTION/EXTERNAL VERIFICATION**.
 

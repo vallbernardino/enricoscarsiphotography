@@ -8,4 +8,6 @@
 - [ ] Refine homepage and Services-page service rows/content
 - [ ] Preserve locked sections and tune only approved animations
 - [ ] Audit translations, privacy, links, assets, forms, and routes
+- [ ] Verify required fields, email validity, duplicate prevention, success/error states, and phone/email links
+- [ ] Preserve dedicated circular portrait and single advertising-copy instance
 - [ ] Verify desktop, tablet, mobile, reduced motion, console, and production build
