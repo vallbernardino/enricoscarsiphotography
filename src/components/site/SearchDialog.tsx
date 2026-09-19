@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, Search, X } from "lucide-react";
 import { useDeferredValue, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { useLang } from "@/lib/lang";
 import { searchSite } from "@/lib/search-index";
 
@@ -31,7 +32,7 @@ export function SearchDialog({ open, onClose }: { open: boolean; onClose: () => 
   }, [open, onClose]);
 
   if (!open) return null;
-  return (
+  return createPortal(
     <div className="fixed inset-0 z-[80] bg-charcoal/95 backdrop-blur-md" role="dialog" aria-modal="true" aria-labelledby="search-title">
       <div className="mx-auto flex h-full max-w-[1100px] flex-col px-6 pb-10 pt-24 lg:px-10 lg:pt-32">
         <div className="flex items-center justify-between border-b border-cream/15 pb-6">
@@ -63,6 +64,7 @@ export function SearchDialog({ open, onClose }: { open: boolean; onClose: () => 
           </ul>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }
