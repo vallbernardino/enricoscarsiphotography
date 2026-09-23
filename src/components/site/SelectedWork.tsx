@@ -21,13 +21,13 @@ function WorkFrame({ itemKey, className }: { itemKey: SelectedWorkKey; className
   const item = SELECTED_WORK_ITEMS[itemKey];
 
   return (
-    <figure className={`w-full shrink-0 overflow-hidden bg-charcoal-soft ${className}`}>
+    <figure className={`w-full shrink-0 overflow-hidden bg-stone ${className}`}>
       <img
         src={item.src}
         alt={item.alt[lang]}
         width={item.width}
         height={item.height}
-        loading="lazy"
+        loading="eager"
         decoding="async"
         className="h-full w-full object-cover"
         style={{ objectPosition: item.position }}
@@ -73,7 +73,7 @@ export function SelectedWork() {
           </div>
         </Reveal>
 
-        <div className="hidden h-[112svh] min-h-[820px] max-h-[1180px] grid-cols-12 gap-5 overflow-hidden lg:col-span-9 lg:grid" aria-label={copy.label}>
+        <div className="hidden h-[112svh] min-h-[820px] max-h-[1180px] grid-cols-12 gap-5 overflow-hidden lg:col-span-9 lg:grid" aria-label={copy.label} data-selected-work-layout="desktop">
           {SELECTED_WORK_DESKTOP_COLUMNS.map((frames, index) => (
             <div key={`desktop-${index}`} className={index === 1 ? "col-span-5 pt-[8svh]" : "col-span-3"}>
               <ScrollingColumn frames={frames} index={index} mode="desktop" />
@@ -81,7 +81,7 @@ export function SelectedWork() {
           ))}
         </div>
 
-        <div className="grid h-[760px] grid-cols-2 gap-3 overflow-hidden sm:h-[880px] lg:hidden" aria-label={copy.label}>
+        <div className="grid h-[760px] grid-cols-2 gap-3 overflow-hidden sm:h-[880px] lg:hidden" aria-label={copy.label} data-selected-work-layout="mobile">
           {SELECTED_WORK_MOBILE_COLUMNS.map((frames, index) => (
             <ScrollingColumn key={`mobile-${index}`} frames={frames} index={index} mode="mobile" />
           ))}
