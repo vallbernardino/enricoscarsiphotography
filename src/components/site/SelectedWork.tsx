@@ -60,7 +60,7 @@ export function SelectedWork() {
   const copy = selectedWorkCopy[lang];
 
   return (
-    <section id="selected-work" className="relative z-10 overflow-hidden bg-paper py-20 text-ink sm:py-24 lg:py-32">
+    <section id="selected-work" className="relative z-10 overflow-hidden bg-paper pb-20 pt-28 text-ink sm:py-24 lg:py-32">
       <div className="mx-auto grid max-w-[1440px] gap-12 px-6 lg:grid-cols-12 lg:gap-10 lg:px-10">
         <Reveal className="lg:col-span-3">
           <div className="lg:sticky lg:top-28">
