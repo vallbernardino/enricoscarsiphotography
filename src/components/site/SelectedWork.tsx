@@ -21,13 +21,13 @@ function WorkFrame({ itemKey, className }: { itemKey: SelectedWorkKey; className
   const item = SELECTED_WORK_ITEMS[itemKey];
 
   return (
-    <figure className={`w-full shrink-0 overflow-hidden bg-stone ${className}`}>
+    <figure className={`w-full shrink-0 overflow-hidden bg-paper ${className}`}>
       <img
         src={item.src}
         alt={item.alt[lang]}
         width={item.width}
         height={item.height}
-        loading="lazy"
+        loading="eager"
         decoding="async"
         className="h-full w-full object-cover"
         style={{ objectPosition: item.position }}
