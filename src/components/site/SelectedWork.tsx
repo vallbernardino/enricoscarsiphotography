@@ -27,7 +27,7 @@ function WorkFrame({ itemKey, className }: { itemKey: SelectedWorkKey; className
         alt={item.alt[lang]}
         width={item.width}
         height={item.height}
-        loading="eager"
+        loading="lazy"
         decoding="async"
         className="h-full w-full object-cover"
         style={{ objectPosition: item.position }}
