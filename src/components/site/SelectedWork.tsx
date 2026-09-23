@@ -37,10 +37,10 @@ function WorkFrame({ itemKey, className }: { itemKey: SelectedWorkKey; className
 }
 
 function ScrollingColumn({ frames, index, mode }: ColumnProps) {
-  const content = (
-    <div className="selected-work-sequence">
+  const renderSequence = (copyIndex: number) => (
+    <div className="selected-work-sequence" aria-hidden={copyIndex === 1}>
       {frames.map((frame) => (
-        <WorkFrame key={frame.key} itemKey={frame.key} className={frame.className} />
+        <WorkFrame key={`${copyIndex}-${frame.key}`} itemKey={frame.key} className={frame.className} />
       ))}
     </div>
   );
@@ -48,8 +48,8 @@ function ScrollingColumn({ frames, index, mode }: ColumnProps) {
   return (
     <div className={`selected-work-column selected-work-column-${mode}-${index} overflow-hidden`}>
       <div className="selected-work-track">
-        {content}
-        {content}
+        {renderSequence(0)}
+        {renderSequence(1)}
       </div>
     </div>
   );
@@ -65,7 +65,7 @@ export function SelectedWork() {
         <Reveal className="lg:col-span-3">
           <div className="lg:sticky lg:top-28">
             <p className="label-xs text-ink/45">{copy.label}</p>
-            <p className="mt-8 max-w-[24rem] text-sm leading-[1.9] text-ink/62">{copy.description}</p>
+            <p className="mt-8 max-w-[24rem] text-sm leading-[1.9] text-ink/60">{copy.description}</p>
             <Link to="/services" className="arrow-link label-xs mt-8 inline-flex border-b border-ink/25 pb-2 text-ink">
               {copy.view}
               <ArrowRight className="h-3.5 w-3.5" strokeWidth={1.5} />
