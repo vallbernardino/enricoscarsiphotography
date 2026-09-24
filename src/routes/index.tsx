@@ -13,6 +13,7 @@ import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { StickyCTA } from "@/components/site/StickyCTA";
 import { SelectedWork } from "@/components/site/SelectedWork";
+import { FilmSection } from "@/components/site/FilmSection";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -42,6 +43,7 @@ function Index() {
       <SiteNav overlay />
       <Hero />
       <SelectedWork />
+      <FilmSection />
       <ServicesSection />
       <InquiryForm />
       <ExperienceSection />
