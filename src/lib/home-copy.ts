@@ -217,7 +217,7 @@ const it: HomeCopy = {
   },
   experience: {
     label: "DAL 1989",
-    heading: ["Oltre 35 anni dietro", "la macchina fotografica."],
+    heading: ["Oltre 35 anni dietro la macchina fotografica."],
     body: [
       "L'esperienza insegna ad anticipare i momenti, a capire le persone e a mantenere la discrezione quando serve.",
       "Significa anche saper lavorare con calma in situazioni molto diverse — una piazza affollata, una luce difficile, una famiglia a disagio davanti all'obiettivo — perché è qualcosa che si è già fatto molte volte.",

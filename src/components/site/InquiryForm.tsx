@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { useLang } from "@/lib/lang";
 import { homeCopy } from "@/lib/home-copy";
@@ -46,6 +46,10 @@ export function InquiryForm() {
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  useEffect(() => {
+    setType(t.types[0] ?? "");
+  }, [lang, t.types]);
+
   const resumeEditing = () => {
     if (status === "sent" || status === "error") setStatus("idle");
   };
