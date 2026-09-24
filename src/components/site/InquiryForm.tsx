@@ -62,17 +62,17 @@ export function InquiryForm() {
       ? { title: "NUOVA RICHIESTA FOTOGRAFICA", name: "Nome", email: "Email", phone: "Telefono", service: "Servizio", contact: "Contatto preferito", message: "Messaggio" }
       : { title: "NEW PHOTOGRAPHY INQUIRY", name: "Name", email: "Email", phone: "Phone", service: "Service", contact: "Preferred contact", message: "Message" };
     const details = [
-      name.trim() && `${labels.name}: ${name.trim()}`,
-      email.trim() && `${labels.email}: ${email.trim()}`,
-      phone.trim() && `${labels.phone}: ${phone.trim()}`,
-      type.trim() && `${labels.service}: ${type.trim()}`,
+      name.trim() && `${labels.name}: ${name}`,
+      email.trim() && `${labels.email}: ${email}`,
+      phone.trim() && `${labels.phone}: ${phone}`,
+      type.trim() && `${labels.service}: ${type}`,
       t.continueOptions[channel] && `${labels.contact}: ${t.continueOptions[channel]}`,
     ].filter(Boolean);
     const body = [
       labels.title,
       "",
       ...details,
-      ...(message.trim() ? ["", `${labels.message}:`, message.trim()] : []),
+      ...(message.trim() ? ["", `${labels.message}:`, message] : []),
     ].join("\n");
 
     try {
