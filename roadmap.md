@@ -4,4 +4,4 @@
 - [ ] Apply the exact Italian homepage photographer copy while preserving English and layout
 - [ ] Add the supplied logo plus compact Email and WhatsApp actions to the existing navigation
 - [ ] Send the unchanged inquiry form through pre-filled WhatsApp with validation and duplicate prevention
-- [ ] Verify desktop, mobile, language switching, video, links, Call CTA, overflow, and diagnostics
+- [ ] Verify desktop/mobile order and playback, exact IT/EN copy, logo and contact links, Call/WhatsApp numbers, encoded form message, overflow, and diagnostics
