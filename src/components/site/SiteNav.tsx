@@ -2,6 +2,8 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState, type MouseEvent } from "react";
 import { useLang } from "@/lib/lang";
 import { BRAND, homeCopy } from "@/lib/home-copy";
+import { CONTACT } from "@/lib/site-content";
+import logoAsset from "@/assets/enrico-scarsi-logo.png.asset.json";
 
 export function LangToggle({ tone = "dark" }: { tone?: "dark" | "light" }) {
   const { lang, setLang } = useLang();
@@ -61,12 +63,15 @@ export function SiteNav({ overlay = false }: { overlay?: boolean }) {
       }`}
     >
       <div className="mx-auto flex max-w-[1440px] items-center gap-8 px-6 py-5 lg:px-10">
-        <Link to="/" className="mr-auto block leading-none">
-          <span className="display-editorial text-[0.9rem] tracking-[0.2em] text-cream">
-            {BRAND.name}
-          </span>
+        <Link to="/" className="mr-auto flex min-w-0 items-center gap-2.5 leading-none">
+          <img src={logoAsset.url} alt="" width={30} height={30} className="h-[30px] w-[30px] shrink-0 object-contain" />
+          <span className="min-w-0">
+            <span className="display-editorial block text-[0.9rem] tracking-[0.2em] text-cream">
+              {BRAND.name}
+            </span>
           <span className="label-xs mt-1.5 block text-cream/45">
             {lang === "it" ? BRAND.kicker : BRAND.kickerEn}
+          </span>
           </span>
         </Link>
 
@@ -87,6 +92,20 @@ export function SiteNav({ overlay = false }: { overlay?: boolean }) {
 
         <div className="hidden lg:block">
           <LangToggle />
+        </div>
+
+        <div className="hidden items-center gap-1.5 lg:flex">
+          <a href={`mailto:${CONTACT.email}`} className="header-contact label-xs px-3 py-2 text-charcoal">
+            Email
+          </a>
+          <a
+            href={`https://wa.me/${CONTACT.whatsapp.replace(/\D/g, "")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="header-contact label-xs px-3 py-2 text-charcoal"
+          >
+            WhatsApp
+          </a>
         </div>
 
         <button
@@ -121,6 +140,19 @@ export function SiteNav({ overlay = false }: { overlay?: boolean }) {
           </nav>
           <div className="mt-7">
             <LangToggle />
+          </div>
+          <div className="mt-7 flex flex-wrap gap-2">
+            <a href={`mailto:${CONTACT.email}`} className="header-contact label-xs px-4 py-3 text-charcoal">
+              Email
+            </a>
+            <a
+              href={`https://wa.me/${CONTACT.whatsapp.replace(/\D/g, "")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="header-contact label-xs px-4 py-3 text-charcoal"
+            >
+              WhatsApp
+            </a>
           </div>
         </div>
       )}

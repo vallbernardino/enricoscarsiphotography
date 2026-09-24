@@ -216,14 +216,14 @@ const it: HomeCopy = {
     soon: "Pagina di servizio in arrivo — nel frattempo scrivici o telefona allo studio.",
   },
   experience: {
-    label: "Dal 1989",
-    heading: ["Oltre 35 anni", "dietro la macchina."],
+    label: "DAL 1989",
+    heading: ["Oltre 35 anni dietro", "la macchina fotografica."],
     body: [
-      "L'esperienza insegna ad anticipare i momenti, a capire le persone e a restare discreti quando serve.",
-      "Significa anche saper lavorare in situazioni diverse — una piazza affollata, una luce difficile, una famiglia intimidita dall'obiettivo — con la calma di chi lo ha già fatto molte volte.",
+      "L'esperienza insegna ad anticipare i momenti, a capire le persone e a mantenere la discrezione quando serve.",
+      "Significa anche saper lavorare con calma in situazioni molto diverse — una piazza affollata, una luce difficile, una famiglia a disagio davanti all'obiettivo — perché è qualcosa che si è già fatto molte volte.",
       "Il risultato non è una posa perfetta: è una fotografia che continua a significare qualcosa anche molti anni dopo.",
     ],
-    cta: "Conosci il fotografo",
+    cta: "CONOSCI IL FOTOGRAFO",
     caption: "Il fotografo al lavoro",
   },
   torino: {

@@ -54,29 +54,30 @@ export function InquiryForm() {
     e.preventDefault();
     if (status === "sending" || status === "sent") return;
     setStatus("sending");
+    const labels = lang === "it"
+      ? { title: "NUOVA RICHIESTA FOTOGRAFICA", name: "Nome", email: "Email", phone: "Telefono", service: "Servizio", contact: "Contatto preferito", message: "Messaggio" }
+      : { title: "NEW PHOTOGRAPHY INQUIRY", name: "Name", email: "Email", phone: "Phone", service: "Service", contact: "Preferred contact", message: "Message" };
+    const details = [
+      name.trim() && `${labels.name}: ${name.trim()}`,
+      email.trim() && `${labels.email}: ${email.trim()}`,
+      phone.trim() && `${labels.phone}: ${phone.trim()}`,
+      type.trim() && `${labels.service}: ${type.trim()}`,
+      t.continueOptions[channel] && `${labels.contact}: ${t.continueOptions[channel]}`,
+    ].filter(Boolean);
     const body = [
-      `${t.typeLabel}: ${type}`,
-      `${t.name}: ${name}`,
-      `${t.email}: ${email}`,
-      `${t.whatsapp}: ${phone}`,
-      `${t.continueLabel} ${t.continueOptions[channel]}`,
+      labels.title,
       "",
-      message,
+      ...details,
+      ...(message.trim() ? ["", `${labels.message}:`, message.trim()] : []),
     ].join("\n");
 
     try {
-      if (channel === 1) {
-        const win = window.open(
-          `https://wa.me/${CONTACT.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(body)}`,
-          "_blank",
-          "noopener",
-        );
-        if (!win) throw new Error("popup blocked");
-      } else {
-        window.location.href = `mailto:${CONTACT.email}?subject=${encodeURIComponent(
-          `${t.label} — ${type}`,
-        )}&body=${encodeURIComponent(body)}`;
-      }
+      const win = window.open(
+        `https://wa.me/${CONTACT.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(body)}`,
+        "_blank",
+        "noopener",
+      );
+      if (!win) throw new Error("popup blocked");
       setStatus("sent");
     } catch {
       setStatus("error");
@@ -86,17 +87,11 @@ export function InquiryForm() {
   const statusCopy =
     lang === "it"
       ? {
-          sent:
-            channel === 1
-              ? "WhatsApp è stato aperto con il messaggio pronto: premi invio per completare la richiesta."
-              : "Il tuo programma di posta è stato aperto con il messaggio pronto: premi invio per completare la richiesta.",
+          sent: "WhatsApp è stato aperto con il messaggio pronto: premi invio per completare la richiesta.",
           error: `Non è stato possibile aprire il messaggio. Scrivi direttamente a ${CONTACT.email} o chiama ${CONTACT.phone1}.`,
         }
       : {
-          sent:
-            channel === 1
-              ? "WhatsApp opened with your message ready — press send to complete the inquiry."
-              : "Your email client opened with the message ready — press send to complete the inquiry.",
+          sent: "WhatsApp opened with your message ready — press send to complete the inquiry.",
           error: `We couldn't open the message. Please write to ${CONTACT.email} or call ${CONTACT.phone1}.`,
         };
 

@@ -26,6 +26,7 @@
   --color-cream: var(--cream);
   --color-muted-warm: var(--muted-warm);
   --color-champagne: var(--champagne);
+  --color-logo-yellow: var(--logo-yellow);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -68,6 +69,7 @@
   --cream: #f4f1eb;
   --muted-warm: #b3ada4;
   --champagne: #cdb9a6;
+  --logo-yellow: #f7c725;
 
   --background: var(--charcoal);
   --foreground: var(--cream);
@@ -144,6 +146,16 @@
 }
 
 @layer utilities {
+  .header-contact {
+    background: linear-gradient(115deg, var(--cream) 0%, var(--logo-yellow) 58%, var(--champagne) 100%);
+    background-size: 160% 100%;
+    transition: background-position 400ms ease, color 400ms ease;
+  }
+
+  .header-contact:hover {
+    background-position: 100% 0;
+  }
+
   /* Quiet opacity-only entrance for hero typography */
   .soft-in {
     opacity: 0;
