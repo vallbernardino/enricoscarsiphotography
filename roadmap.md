@@ -1,5 +1,5 @@
-- [ ] Inspect official website content, service hierarchy, internal links, and page relationships.
-- [ ] Plan internal-page migration while keeping the current homepage locked.
-- [ ] Implement approved internal pages and navigation links without homepage redesign.
-- [ ] Add session-only language entry and performance-safe media handling.
-- [ ] Verify routes, links, mobile layout, build status, and homepage preservation.
+- [x] Inspect official website content, service hierarchy, internal links, and page relationships.
+- [x] Plan internal-page migration while keeping the current homepage locked.
+- [x] Implement approved internal pages and navigation links without homepage redesign.
+- [x] Add session-only language entry and performance-safe media handling.
+- [x] Verify routes, links, mobile layout, build status, and homepage preservation.

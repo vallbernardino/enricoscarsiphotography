@@ -8,3 +8,4 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+- Keep migrated official-site service content in `src/lib/service-pages.ts` and render details through `/services/$slug`; this preserves homepage content while centralizing source-truth service pages.

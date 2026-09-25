@@ -10,7 +10,7 @@ type Ctx = {
 
 const LangContext = createContext<Ctx>({ lang: "it", setLang: () => {}, chosen: true });
 
-const STORAGE_KEY = "es-lang";
+const STORAGE_KEY = "es-lang-session";
 
 export function LangProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>("it");
@@ -20,7 +20,7 @@ export function LangProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     setHydrated(true);
     try {
-      const stored = window.localStorage.getItem(STORAGE_KEY);
+      const stored = window.sessionStorage.getItem(STORAGE_KEY);
       if (stored === "it" || stored === "en") {
         setLangState(stored);
         setChosen(true);
@@ -36,7 +36,7 @@ export function LangProvider({ children }: { children: ReactNode }) {
     setLangState(l);
     setChosen(true);
     try {
-      window.localStorage.setItem(STORAGE_KEY, l);
+      window.sessionStorage.setItem(STORAGE_KEY, l);
     } catch {
       /* in-memory fallback */
     }

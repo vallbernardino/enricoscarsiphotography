@@ -4,6 +4,7 @@ import { PageSection, PageShell } from "@/components/site/PageShell";
 import { Reveal } from "@/components/site/Reveal";
 import { useLang } from "@/lib/lang";
 import { homeCopy } from "@/lib/home-copy";
+import { getServiceSlugForLabel, serviceGroupsForArchive } from "@/lib/service-pages";
 
 export const Route = createFileRoute("/services/")({
   head: () => ({
@@ -44,19 +45,40 @@ function ServicesIndexPage() {
             <Reveal key={g.title} delay={i * 90}>
               <div className="service-category-rule relative border-b border-ink/20 pb-5"><h3 className="label-xs text-ink/70">{g.title}</h3></div>
               <ul>
-                {g.items.map((item) => (
-                  <li key={item}>
-                    <Link to={item === t.advertisingItem ? "/services/advertising" : "/contact"} className="group flex min-h-16 items-center justify-between gap-4 border-b border-ink/12 py-4 text-[0.9rem] leading-snug text-ink/75 transition-colors hover:text-ink">
-                      <span className="transition-transform duration-300 group-hover:translate-x-1">{item}</span>
+                {g.items.map((item) => {
+                  const slug = getServiceSlugForLabel(item, lang);
+                  return (
+                    <li key={item}>
+                      {slug ? (
+                        <Link to="/services/$slug" params={{ slug }} className="group flex min-h-16 items-center justify-between gap-4 border-b border-ink/12 py-4 text-[0.9rem] leading-snug text-ink/75 transition-colors hover:text-ink">
+                          <span className="transition-transform duration-300 group-hover:translate-x-1">{item}</span>
+                          <ArrowRight className="h-3.5 w-3.5 shrink-0 text-ink/30 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-ink" strokeWidth={1.5} />
+                        </Link>
+                      ) : null}
+                    </li>
+                  );
+                })}
+              </ul>
+            </Reveal>
+          ))}
+        </div>
+        <div className="mt-20 grid gap-x-12 gap-y-14 border-t border-ink/12 pt-14 lg:grid-cols-2">
+          {serviceGroupsForArchive.map((group) => (
+            <div key={group.title[lang]}>
+              <h3 className="label-xs text-ink/45">{group.title[lang]}</h3>
+              <ul className="mt-5">
+                {group.items.map((item) => (
+                  <li key={item.slug}>
+                    <Link to="/services/$slug" params={{ slug: item.slug }} className="group flex min-h-14 items-center justify-between gap-4 border-b border-ink/12 py-3 text-[0.88rem] leading-snug text-ink/65 transition-colors hover:text-ink">
+                      <span className="transition-transform duration-300 group-hover:translate-x-1">{item.label[lang]}</span>
                       <ArrowRight className="h-3.5 w-3.5 shrink-0 text-ink/30 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-ink" strokeWidth={1.5} />
                     </Link>
                   </li>
                 ))}
               </ul>
-            </Reveal>
+            </div>
           ))}
         </div>
-        <p className="mt-16 max-w-xl text-sm leading-relaxed text-ink/45">{t.soon}</p>
       </PageSection>
     </PageShell>
   );

@@ -16,6 +16,7 @@ import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 import { Route as ServicesAdvertisingRouteImport } from './routes/services.advertising'
 
 const IndexRoute = IndexRouteImport.update({
@@ -53,6 +54,11 @@ const ServicesIndexRoute = ServicesIndexRouteImport.update({
   path: '/',
   getParentRoute: () => ServicesRoute,
 } as any)
+const ServicesSlugRoute = ServicesSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ServicesRoute,
+} as any)
 const ServicesAdvertisingRoute = ServicesAdvertisingRouteImport.update({
   id: '/advertising',
   path: '/advertising',
@@ -66,6 +72,7 @@ export interface FileRoutesByFullPath {
   '/privacy': typeof PrivacyRoute
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/services/$slug': typeof ServicesSlugRoute
   '/services/advertising': typeof ServicesAdvertisingRoute
   '/services/': typeof ServicesIndexRoute
 }
@@ -75,6 +82,7 @@ export interface FileRoutesByTo {
   '/photographer': typeof PhotographerRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/services/$slug': typeof ServicesSlugRoute
   '/services/advertising': typeof ServicesAdvertisingRoute
   '/services': typeof ServicesIndexRoute
 }
@@ -86,6 +94,7 @@ export interface FileRoutesById {
   '/privacy': typeof PrivacyRoute
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/services/$slug': typeof ServicesSlugRoute
   '/services/advertising': typeof ServicesAdvertisingRoute
   '/services/': typeof ServicesIndexRoute
 }
@@ -98,6 +107,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/services'
     | '/sitemap.xml'
+    | '/services/$slug'
     | '/services/advertising'
     | '/services/'
   fileRoutesByTo: FileRoutesByTo
@@ -107,6 +117,7 @@ export interface FileRouteTypes {
     | '/photographer'
     | '/privacy'
     | '/sitemap.xml'
+    | '/services/$slug'
     | '/services/advertising'
     | '/services'
   id:
@@ -117,6 +128,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/services'
     | '/sitemap.xml'
+    | '/services/$slug'
     | '/services/advertising'
     | '/services/'
   fileRoutesById: FileRoutesById
@@ -181,6 +193,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesIndexRouteImport
       parentRoute: typeof ServicesRoute
     }
+    '/services/$slug': {
+      id: '/services/$slug'
+      path: '/$slug'
+      fullPath: '/services/$slug'
+      preLoaderRoute: typeof ServicesSlugRouteImport
+      parentRoute: typeof ServicesRoute
+    }
     '/services/advertising': {
       id: '/services/advertising'
       path: '/advertising'
@@ -192,11 +211,13 @@ declare module '@tanstack/react-router' {
 }
 
 interface ServicesRouteChildren {
+  ServicesSlugRoute: typeof ServicesSlugRoute
   ServicesAdvertisingRoute: typeof ServicesAdvertisingRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
 const ServicesRouteChildren: ServicesRouteChildren = {
+  ServicesSlugRoute: ServicesSlugRoute,
   ServicesAdvertisingRoute: ServicesAdvertisingRoute,
   ServicesIndexRoute: ServicesIndexRoute,
 }
