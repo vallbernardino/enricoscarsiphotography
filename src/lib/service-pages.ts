@@ -774,7 +774,7 @@ export const servicePages: ServicePage[] = [
             bullets: ["Products and catalogs.", "Advertising campaigns and brand imagery.", "Architecture, interiors and hospitality.", "Holiday homes for Booking and Airbnb.", "Restaurants, food and delivery platforms.", "E-commerce clothing and product sets."],
           },
         ],
-        facts: ["Advertising Photography remains one unified offering; industrial, interiors, holiday homes and product/catalog are applications within it."],
+        facts: ["Advertising Photography remains one unified offering; industrial, interiors, holiday homes and product/catalog are applications within it.", "Hospitality applications include hotels, resorts, restaurants, B&Bs and holiday homes for websites, Instagram, Booking and Airbnb.", "E-commerce applications include clothing, product photography, neutral or customized backgrounds, optional models, and on-site set setup for larger collections."],
       },
       it: {
         title: "Fotografia pubblicitaria",
@@ -819,7 +819,7 @@ export const servicePages: ServicePage[] = [
             bullets: ["Prodotti e cataloghi.", "Campagne pubblicitarie e immagini di marca.", "Architettura, interni e hospitality.", "Case vacanza per Booking e Airbnb.", "Ristoranti, food e piattaforme delivery.", "Set per abbigliamento e prodotti e-commerce."],
           },
         ],
-        facts: ["La Fotografia pubblicitaria resta un'unica offerta: industriale, interni, case vacanza e prodotto/catalogo sono applicazioni al suo interno."],
+        facts: ["La Fotografia pubblicitaria resta un'unica offerta: industriale, interni, case vacanza e prodotto/catalogo sono applicazioni al suo interno.", "Le applicazioni hospitality includono hotel, resort, ristoranti, B&B e case vacanza per siti web, Instagram, Booking e Airbnb.", "Le applicazioni e-commerce includono abbigliamento, fotografia prodotto, sfondi neutri o personalizzati, modelli quando richiesti e allestimento del set presso il cliente per collezioni ampie."],
       },
     },
   },
@@ -1120,5 +1120,30 @@ export function getServiceTitle(slug: ServiceSlug, lang: Lang) {
   const page = getServicePage(slug);
   return page?.copy[lang].title ?? slug;
 }
+
+
+export const serviceRouteAliases: Record<string, ServiceSlug> = {
+  advertising: "advertising",
+  industrial: "advertising",
+  architecture: "advertising",
+  interiors: "advertising",
+  "holiday-homes": "advertising",
+  products: "advertising",
+  portrait: "portrait",
+  "corporate-portrait": "corporate-portrait",
+  "model-portfolio": "model-portfolio",
+  casting: "casting",
+  family: "family",
+  "children-ceremonies": "children-ceremonies",
+  wedding: "wedding",
+  couple: "couple",
+  "birthdays-anniversaries": "birthdays-anniversaries",
+  "luxury-photo-tour-turin": "luxury-photo-tour-turin",
+  "passport-visa-photos": "passport-visa-photos",
+  "gift-vouchers": "gift-vouchers",
+  events: "events",
+  video: "video",
+  "photography-courses": "photography-courses",
+};
 
 export const serviceSlugs = servicePages.map((service) => service.slug);

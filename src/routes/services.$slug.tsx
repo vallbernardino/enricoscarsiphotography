@@ -1,10 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ServiceDetailBySlug } from "@/components/site/ServiceDetailPage";
-import { getServicePage } from "@/lib/service-pages";
+import { getServicePage, serviceRouteAliases } from "@/lib/service-pages";
 
 export const Route = createFileRoute("/services/$slug")({
   head: ({ params }) => {
-    const service = getServicePage(params.slug);
+    const resolvedSlug = serviceRouteAliases[params.slug] ?? params.slug;
+    const service = getServicePage(resolvedSlug);
     const title = service ? `${service.copy.en.title} — Enrico Scarsi` : "Service — Enrico Scarsi";
     const description = service?.copy.en.intro ?? "Detailed photography services by Enrico Scarsi in Turin.";
     return {
@@ -23,5 +24,5 @@ export const Route = createFileRoute("/services/$slug")({
 
 function ServiceSlugPage() {
   const { slug } = Route.useParams();
-  return <ServiceDetailBySlug slug={slug} />;
+  return <ServiceDetailBySlug slug={serviceRouteAliases[slug] ?? slug} />;
 }

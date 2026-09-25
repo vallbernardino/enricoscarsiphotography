@@ -55,7 +55,7 @@ export function ServiceDetailPage({ service }: { service: ServicePage }) {
 
           <aside className="lg:col-span-4 lg:col-start-9">
             <Reveal delay={90}>
-              <div className="sticky top-28 space-y-10 border-t border-ink/15 pt-7">
+              <div className="space-y-10 border-t border-ink/15 pt-7 lg:sticky lg:top-28">
                 {copy.pricing?.length ? (
                   <div>
                     <h3 className="label-xs text-ink/45">{copy.pricingLabel}</h3>
@@ -80,6 +80,19 @@ export function ServiceDetailPage({ service }: { service: ServicePage }) {
 
                 <div>
                   <ContactLink>{copy.cta}</ContactLink>
+                </div>
+
+                <div>
+                  <h3 className="label-xs text-ink/45">{copy.sourceLabel}</h3>
+                  <ul className="mt-5 space-y-2 text-xs leading-relaxed text-ink/45">
+                    {service.sourceUrls.map((url) => (
+                      <li key={url}>
+                        <a href={url} target="_blank" rel="noopener noreferrer" className="link-draw break-all">
+                          {url.replace("https://www.fotografico.it/", "fotografico.it/")}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </Reveal>
