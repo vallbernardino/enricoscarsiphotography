@@ -82,18 +82,6 @@ export function ServiceDetailPage({ service }: { service: ServicePage }) {
                   <ContactLink>{copy.cta}</ContactLink>
                 </div>
 
-                <div>
-                  <h3 className="label-xs text-ink/45">{copy.sourceLabel}</h3>
-                  <ul className="mt-5 space-y-2 text-xs leading-relaxed text-ink/45">
-                    {service.sourceUrls.map((url) => (
-                      <li key={url}>
-                        <a href={url} target="_blank" rel="noopener noreferrer" className="link-draw break-all">
-                          {url.replace("https://www.fotografico.it/", "fotografico.it/")}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
               </div>
             </Reveal>
           </aside>
