@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { serviceSlugs } from "@/lib/service-pages";
 
-const PATHS = ["/", "/services", "/services/advertising", "/photographer", "/contact", "/privacy"];
+const STATIC_PATHS = ["/", "/services", "/photographer", "/contact", "/privacy"];
 
 export const Route = createFileRoute("/sitemap.xml")({
   server: {
@@ -8,7 +9,8 @@ export const Route = createFileRoute("/sitemap.xml")({
       GET: ({ request }) => {
         const origin = new URL(request.url).origin;
         const today = new Date().toISOString().slice(0, 10);
-        const urls = PATHS.map(
+        const paths = [...STATIC_PATHS, ...serviceSlugs.map((slug) => `/services/${slug}`)];
+        const urls = paths.map(
           (p) => `  <url>
     <loc>${origin}${p}</loc>
     <lastmod>${today}</lastmod>
