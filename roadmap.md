@@ -3,3 +3,6 @@
 - [x] Implement approved internal pages and navigation links without homepage redesign.
 - [x] Add session-only language entry and performance-safe media handling.
 - [x] Verify routes, links, mobile layout, build status, and homepage preservation.
+- [ ] Audit every migrated service page against the current official website.
+- [ ] Correct or remove unsupported copy, prices, numbers, and relationships without changing the design or homepage.
+- [ ] Re-verify all internal service pages, mobile layout, and project diagnostics.
