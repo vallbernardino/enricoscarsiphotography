@@ -97,7 +97,7 @@ export const servicePages: ServicePage[] = [
           "CV/resume photo: €60; includes several studio photographs on a neutral background and 2–3 selected, optimized final images.",
           "LinkedIn/social network portrait: €120; includes two styles, two sets and clothing changes, over 10 selected and retouched final photographs, plus delivery of all photographs via WeTransfer.",
           "Urban & Business dating session in Turin: €200; over 200 photographs, up to four outfit changes, and 15–20 selected and retouched images in high resolution and app-optimized versions. Premium and Glamour sessions outside Turin are quoted individually.",
-          "A 50% deposit is required to confirm either service.",
+          "A 50% deposit is required to confirm the selected service.",
         ],
         facts: ["Studio in Turin, Via Oropa 54B.", "Services can be adapted for private and professional use."],
       },
@@ -770,7 +770,7 @@ export const servicePages: ServicePage[] = [
           {
             heading: "Restaurants, food, product and e-commerce",
             body: [
-              "Restaurant photography is described as a way to show dishes, atmosphere and brand care on Instagram, delivery platforms and websites. The official page recommends working with professional cameras and lighting, ideally with enough time and space to create images without interfering with service.",
+              "Restaurant photography shows dishes, atmosphere and brand care on Instagram, delivery platforms and websites. Professional cameras and lighting are used, ideally with enough time and space to create images without interfering with service.",
               "E-commerce photography covers clothing and products made in the Turin studio, with neutral or customized backgrounds and optional models. Accurate reproduction of paintings and artworks is also available for artists, galleries, museums and collectors.",
             ],
             bullets: ["Products and catalogs.", "Advertising campaigns and brand imagery.", "Hotels, interiors and hospitality.", "Holiday homes for Booking, Airbnb, Wimdu and TripAdvisor.", "Restaurants, food and delivery platforms.", "E-commerce clothing and product sets.", "Accurate reproduction of paintings and artworks."],
@@ -815,7 +815,7 @@ export const servicePages: ServicePage[] = [
           {
             heading: "Ristoranti, food, prodotto ed e-commerce",
             body: [
-              "La fotografia per ristoranti viene descritta come un modo per mostrare piatti, atmosfera e cura del brand su Instagram, piattaforme delivery e siti web. La pagina ufficiale consiglia di lavorare con fotocamere e illuminazione professionali, idealmente con tempi e spazi adeguati per creare immagini senza interferire con il servizio.",
+              "La fotografia per ristoranti mostra piatti, atmosfera e cura del brand su Instagram, piattaforme delivery e siti web. Si lavora con fotocamere e illuminazione professionali, idealmente con tempi e spazi adeguati per creare immagini senza interferire con il servizio.",
               "La fotografia e-commerce comprende abbigliamento e prodotti realizzati nello studio di Torino, con sfondo neutro o personalizzato e modelli quando richiesti. È disponibile anche la riproduzione fedele di quadri e opere d'arte per artisti, gallerie, musei e collezionisti.",
             ],
             bullets: ["Prodotti e cataloghi.", "Campagne pubblicitarie e immagini di marca.", "Hotel, interni e hospitality.", "Case vacanza per Booking, Airbnb, Wimdu e TripAdvisor.", "Ristoranti, food e piattaforme delivery.", "Set per abbigliamento e prodotti e-commerce.", "Riproduzione fedele di quadri e opere d'arte."],
