@@ -96,6 +96,7 @@ export const servicePages: ServicePage[] = [
         pricing: [
           "CV/resume photo: €60; includes several studio photographs on a neutral background and 2–3 selected, optimized final images.",
           "LinkedIn/social network portrait: €120; includes two styles, two sets and clothing changes, over 10 selected and retouched final photographs, plus delivery of all photographs via WeTransfer.",
+          "Urban & Business dating session in Turin: €200; over 200 photographs, up to four outfit changes, and 15–20 selected and retouched images in high resolution and app-optimized versions. Premium and Glamour sessions outside Turin are quoted individually.",
           "A 50% deposit is required to confirm either service.",
         ],
         facts: ["Studio in Turin, Via Oropa 54B.", "Services can be adapted for private and professional use."],
@@ -137,7 +138,8 @@ export const servicePages: ServicePage[] = [
         pricing: [
           "Foto curriculum: €60; comprende diversi scatti in studio su fondo neutro e 2–3 fotografie finali selezionate e ottimizzate.",
           "Ritratto LinkedIn/social network: €120; comprende due stili, due set e cambi di abbigliamento, oltre 10 fotografie finali selezionate e post-prodotte, più la consegna di tutti gli scatti via WeTransfer.",
-          "Per confermare uno dei due servizi è richiesto un anticipo del 50%.",
+          "Sessione dating Urban & Business a Torino: €200; oltre 200 scatti, fino a quattro cambi d'abito e 15–20 immagini selezionate e post-prodotte, consegnate in alta risoluzione e in versione ottimizzata per le app. Le sessioni Premium e Glamour fuori Torino vengono preventivate singolarmente.",
+          "Per confermare il servizio scelto è richiesto un anticipo del 50%.",
         ],
         facts: ["Studio a Torino, Via Oropa 54B.", "Servizi adattabili a esigenze private e professionali."],
       },
@@ -683,7 +685,7 @@ export const servicePages: ServicePage[] = [
         sourceLabel: "Source page: regalo donna / gift voucher.",
         overviewLabel: "Gift idea",
         detailsLabel: "How it works",
-        pricingLabel: "Pricing found on the official site",
+        pricingLabel: "Voucher options",
         relatedLabel: "Continue with",
         allServicesLabel: "All services",
         cta: "Ask for a gift voucher",
@@ -691,12 +693,13 @@ export const servicePages: ServicePage[] = [
           {
             heading: "A personal gift, not another object",
             body: [
-              "The official gift page presents the voucher as a way to offer someone a portrait, family or couple experience. The person receiving it can agree the date and the exact type of session with the studio.",
+              "A voucher can offer an individual or family portrait, a couple session, a fashion or creative portfolio, photography lessons, or another personalized photographic experience. The recipient can agree the date and exact type of session with the studio.",
               "It is suitable for birthdays, anniversaries, personal milestones or moments when a memory is more meaningful than a physical object.",
             ],
+            bullets: ["Valid for 12 months.", "Delivered by email or collected from the Turin studio.", "Content, duration and type of service can be personalized."],
           },
         ],
-        pricing: ["Gift voucher options found on the official site include €120 and €180."],
+        pricing: ["Social Network portrait voucher: €120.", "Casting photography voucher: €180.", "Women’s model portfolio voucher: €400.", "Other personalized vouchers are available without a published fixed price."],
       },
       it: {
         title: "Buoni regalo",
@@ -706,7 +709,7 @@ export const servicePages: ServicePage[] = [
         sourceLabel: "Pagina fonte: regalo donna / buono regalo.",
         overviewLabel: "Idea regalo",
         detailsLabel: "Come funziona",
-        pricingLabel: "Prezzi trovati sul sito ufficiale",
+        pricingLabel: "Opzioni dei buoni",
         relatedLabel: "Continua con",
         allServicesLabel: "Tutti i servizi",
         cta: "Richiedi un buono regalo",
@@ -714,19 +717,20 @@ export const servicePages: ServicePage[] = [
           {
             heading: "Un regalo personale, non un altro oggetto",
             body: [
-              "La pagina ufficiale del buono regalo lo presenta come un modo per offrire a qualcuno un ritratto, un servizio di famiglia o una sessione di coppia. La persona che lo riceve può concordare con lo studio la data e il tipo preciso di servizio.",
+              "Un buono può offrire un ritratto individuale o di famiglia, una sessione di coppia, un book moda o creativo, lezioni di fotografia oppure un'altra esperienza fotografica personalizzata. La persona che lo riceve può concordare con lo studio la data e il tipo preciso di servizio.",
               "È indicato per compleanni, anniversari, passaggi personali o momenti in cui un ricordo ha più valore di un oggetto fisico.",
             ],
+            bullets: ["Validità di 12 mesi.", "Invio via email oppure ritiro nello studio di Torino.", "Contenuto, durata e tipologia del servizio possono essere personalizzati."],
           },
         ],
-        pricing: ["Tra le opzioni di buono regalo trovate sul sito ufficiale compaiono €120 e €180."],
+        pricing: ["Buono ritratto Social Network: €120.", "Buono servizio fotografico Casting: €180.", "Buono Book fotografico donna: €400.", "Sono disponibili altri buoni personalizzati senza un prezzo fisso pubblicato."],
       },
     },
   },
   {
     slug: "advertising",
     category: "business",
-    sourceUrls: [source("pubblicita.htm"), source("fotografiaindustriale.htm"), source("architettura.htm"), source("hotel.html"), source("ristoranti.html"), source("ecommerce.html")],
+    sourceUrls: [source("pubblicita.htm"), source("fotografiaindustriale.htm"), source("architettura.htm"), source("hotel.html"), source("ristoranti.html"), source("ecommerce.html"), source("quadri.html")],
     related: ["events", "video", "corporate-portrait"],
     copy: {
       en: {
@@ -737,7 +741,7 @@ export const servicePages: ServicePage[] = [
         sourceLabel: "Source pages: pubblicità, industriale, architettura, hotel, ristoranti and ecommerce.",
         overviewLabel: "Advertising photography: how to make your brand visible?",
         detailsLabel: "Professional applications",
-        pricingLabel: "Notes from the official site",
+        pricingLabel: "Service notes",
         relatedLabel: "Continue with",
         allServicesLabel: "All services",
         cta: "Plan advertising photography",
@@ -745,21 +749,21 @@ export const servicePages: ServicePage[] = [
           {
             heading: "Images that help a brand be seen clearly",
             body: [
-              "The official advertising page describes photography for companies, professionals and e-commerce businesses that want to stand out online and offline. A well-crafted image can attract, engage and increase a brand’s visibility when it is built around a clear brief and a coherent visual story.",
+              "Advertising photography serves companies, professionals and e-commerce businesses that want to stand out online and offline. A well-crafted image can attract, engage and increase a brand’s visibility when it is built around a clear brief and a coherent visual story.",
               "The workflow is practical: analysis of the brief, planning of the shoot, photography in the studio or on location, and post-production. The result is a set of images for websites, social channels, catalogs, campaigns, booking portals and sales platforms.",
             ],
           },
           {
             heading: "Industrial photography and production environments",
             body: [
-              "The industrial page presents photography and video as strategic tools for communicating solidity, competence and quality. The work can document people, production processes, machinery, products and company spaces inside the client’s facilities.",
-              "The source text stresses that industrial environments require experience, attention to detail and the ability to turn complex spaces into clear, ordered and visually strong content.",
+              "Photography and video are strategic tools for communicating solidity, competence and quality. The work can document people, production processes, machinery, products and company spaces inside the client’s facilities.",
+              "Industrial environments require experience, attention to detail and the ability to turn complex spaces into clear, ordered and visually strong content.",
             ],
           },
           {
-            heading: "Architecture, interiors, hotels and holiday homes",
+            heading: "Hotels, interiors and holiday homes",
             body: [
-              "The architecture and hospitality pages explain that images are often the first contact between a potential guest and a property. Professional photographs for hotels, resorts, restaurants, B&Bs and holiday homes help communicate comfort, cleanliness, attention to detail and atmosphere on websites, Booking, Airbnb and social channels.",
+              "Images are often the first contact between a potential guest and a property. Professional photographs for hotels, resorts, restaurants, B&Bs and holiday homes help communicate comfort, cleanliness, attention to detail and atmosphere on websites, Booking, Airbnb, Wimdu, TripAdvisor and social channels.",
               "For hotels the content frames professional imagery as a strategic investment that supports brand perception and bookings. For holiday homes it highlights the importance of clear, bright photographs that make a property trustworthy and inviting in a competitive market.",
             ],
           },
@@ -767,12 +771,12 @@ export const servicePages: ServicePage[] = [
             heading: "Restaurants, food, product and e-commerce",
             body: [
               "Restaurant photography is described as a way to show dishes, atmosphere and brand care on Instagram, delivery platforms and websites. The official page recommends working with professional cameras and lighting, ideally with enough time and space to create images without interfering with service.",
-              "The e-commerce page focuses on clothing and product photography in studio, with neutral or customized backgrounds, optional models and the possibility of setting up a professional set at the client’s location for larger collections or ongoing production.",
+              "E-commerce photography covers clothing and products made in the Turin studio, with neutral or customized backgrounds and optional models. Accurate reproduction of paintings and artworks is also available for artists, galleries, museums and collectors.",
             ],
-            bullets: ["Products and catalogs.", "Advertising campaigns and brand imagery.", "Architecture, interiors and hospitality.", "Holiday homes for Booking and Airbnb.", "Restaurants, food and delivery platforms.", "E-commerce clothing and product sets."],
+            bullets: ["Products and catalogs.", "Advertising campaigns and brand imagery.", "Hotels, interiors and hospitality.", "Holiday homes for Booking, Airbnb, Wimdu and TripAdvisor.", "Restaurants, food and delivery platforms.", "E-commerce clothing and product sets.", "Accurate reproduction of paintings and artworks."],
           },
         ],
-        facts: ["Advertising Photography remains one unified offering; industrial, interiors, holiday homes and product/catalog are applications within it.", "Hospitality applications include hotels, resorts, restaurants, B&Bs and holiday homes for websites, Instagram, Booking and Airbnb.", "E-commerce applications include clothing, product photography, neutral or customized backgrounds, optional models, and on-site set setup for larger collections."],
+        facts: ["Advertising Photography remains one unified offering; industrial, interiors, holiday homes and product/catalog are applications within it.", "Available in Turin and, on request, in Cuneo, Asti, Biella, Alessandria, Novara and Vercelli provinces, Valle d'Aosta and Liguria.", "No fixed advertising-service prices are published; each project is planned around its requirements."],
       },
       it: {
         title: "Fotografia pubblicitaria",
@@ -782,7 +786,7 @@ export const servicePages: ServicePage[] = [
         sourceLabel: "Pagine fonte: pubblicità, industriale, architettura, hotel, ristoranti ed ecommerce.",
         overviewLabel: "Fotografia pubblicitaria: come rendere visibile il tuo brand?",
         detailsLabel: "Applicazioni professionali",
-        pricingLabel: "Note dal sito ufficiale",
+        pricingLabel: "Note sul servizio",
         relatedLabel: "Continua con",
         allServicesLabel: "Tutti i servizi",
         cta: "Organizza un servizio pubblicitario",
@@ -790,21 +794,21 @@ export const servicePages: ServicePage[] = [
           {
             heading: "Immagini che aiutano un brand a farsi vedere con chiarezza",
             body: [
-              "La pagina ufficiale dedicata alla pubblicità descrive servizi fotografici per aziende, professionisti ed e-commerce che desiderano distinguersi online e offline. Un'immagine costruita con cura può attrarre, coinvolgere e aumentare la visibilità del brand quando nasce da un brief chiaro e da una narrazione visiva coerente.",
+              "La fotografia pubblicitaria è rivolta ad aziende, professionisti ed e-commerce che desiderano distinguersi online e offline. Un'immagine costruita con cura può attrarre, coinvolgere e aumentare la visibilità del brand quando nasce da un brief chiaro e da una narrazione visiva coerente.",
               "Il flusso di lavoro è concreto: analisi del brief, pianificazione dello shooting, servizio in studio o in location e post-produzione. Il risultato è una serie di immagini per siti web, social, cataloghi, campagne, portali di prenotazione e piattaforme di vendita.",
             ],
           },
           {
             heading: "Fotografia industriale e ambienti produttivi",
             body: [
-              "La pagina industriale presenta fotografia e video come strumenti strategici per comunicare solidità, competenza e qualità. Il lavoro può documentare persone, processi produttivi, macchinari, prodotti e spazi aziendali direttamente presso il cliente.",
-              "Il testo fonte sottolinea che gli ambienti industriali richiedono esperienza, attenzione ai dettagli e capacità di trasformare spazi complessi in contenuti chiari, ordinati e di forte impatto visivo.",
+              "Fotografia e video sono strumenti strategici per comunicare solidità, competenza e qualità. Il lavoro può documentare persone, processi produttivi, macchinari, prodotti e spazi aziendali direttamente presso il cliente.",
+              "Gli ambienti industriali richiedono esperienza, attenzione ai dettagli e capacità di trasformare spazi complessi in contenuti chiari, ordinati e di forte impatto visivo.",
             ],
           },
           {
-            heading: "Architettura, interni, hotel e case vacanza",
+            heading: "Hotel, interni e case vacanza",
             body: [
-              "Le pagine dedicate ad architettura e hospitality spiegano che le immagini sono spesso il primo contatto tra un potenziale ospite e una struttura. Fotografie professionali per hotel, resort, ristoranti, B&B e case vacanza aiutano a comunicare comfort, pulizia, cura dei dettagli e atmosfera su siti web, Booking, Airbnb e social.",
+              "Le immagini sono spesso il primo contatto tra un potenziale ospite e una struttura. Fotografie professionali per hotel, resort, ristoranti, B&B e case vacanza aiutano a comunicare comfort, pulizia, cura dei dettagli e atmosfera su siti web, Booking, Airbnb, Wimdu, TripAdvisor e social.",
               "Per gli hotel il contenuto presenta l'immagine professionale come investimento strategico a supporto del brand e delle prenotazioni. Per le case vacanza evidenzia l'importanza di fotografie chiare e luminose che rendano la struttura affidabile e desiderabile in un mercato competitivo.",
             ],
           },
@@ -812,12 +816,12 @@ export const servicePages: ServicePage[] = [
             heading: "Ristoranti, food, prodotto ed e-commerce",
             body: [
               "La fotografia per ristoranti viene descritta come un modo per mostrare piatti, atmosfera e cura del brand su Instagram, piattaforme delivery e siti web. La pagina ufficiale consiglia di lavorare con fotocamere e illuminazione professionali, idealmente con tempi e spazi adeguati per creare immagini senza interferire con il servizio.",
-              "La pagina e-commerce si concentra sulla fotografia di abbigliamento e prodotto in studio, con sfondo neutro o personalizzato, modelli quando richiesti e possibilità di allestire un set professionale presso il cliente per collezioni ampie o produzioni continuative.",
+              "La fotografia e-commerce comprende abbigliamento e prodotti realizzati nello studio di Torino, con sfondo neutro o personalizzato e modelli quando richiesti. È disponibile anche la riproduzione fedele di quadri e opere d'arte per artisti, gallerie, musei e collezionisti.",
             ],
-            bullets: ["Prodotti e cataloghi.", "Campagne pubblicitarie e immagini di marca.", "Architettura, interni e hospitality.", "Case vacanza per Booking e Airbnb.", "Ristoranti, food e piattaforme delivery.", "Set per abbigliamento e prodotti e-commerce."],
+            bullets: ["Prodotti e cataloghi.", "Campagne pubblicitarie e immagini di marca.", "Hotel, interni e hospitality.", "Case vacanza per Booking, Airbnb, Wimdu e TripAdvisor.", "Ristoranti, food e piattaforme delivery.", "Set per abbigliamento e prodotti e-commerce.", "Riproduzione fedele di quadri e opere d'arte."],
           },
         ],
-        facts: ["La Fotografia pubblicitaria resta un'unica offerta: industriale, interni, case vacanza e prodotto/catalogo sono applicazioni al suo interno.", "Le applicazioni hospitality includono hotel, resort, ristoranti, B&B e case vacanza per siti web, Instagram, Booking e Airbnb.", "Le applicazioni e-commerce includono abbigliamento, fotografia prodotto, sfondi neutri o personalizzati, modelli quando richiesti e allestimento del set presso il cliente per collezioni ampie."],
+        facts: ["La Fotografia pubblicitaria resta un'unica offerta: industriale, interni, case vacanza e prodotto/catalogo sono applicazioni al suo interno.", "Disponibile a Torino e, su richiesta, nelle province di Cuneo, Asti, Biella, Alessandria, Novara e Vercelli, in Valle d'Aosta e Liguria.", "Non sono pubblicati prezzi fissi per la fotografia pubblicitaria: ogni progetto viene pianificato in base alle sue esigenze."],
       },
     },
   },
