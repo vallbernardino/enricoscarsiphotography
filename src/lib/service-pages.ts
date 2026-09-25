@@ -67,7 +67,7 @@ export const servicePages: ServicePage[] = [
         sourceLabel: "Source pages: ritratto, social, curriculum and dating photography.",
         overviewLabel: "What the service is for",
         detailsLabel: "Service details",
-        pricingLabel: "Pricing found on the official site",
+        pricingLabel: "Prices and booking",
         relatedLabel: "Continue with",
         allServicesLabel: "All services",
         cta: "Plan a portrait session",
@@ -75,7 +75,7 @@ export const servicePages: ServicePage[] = [
           {
             heading: "A portrait that communicates who you are",
             body: [
-              "The official studio content describes portrait photography as the first step in communicating professionalism, trust and authority. A good portrait is not an improvised profile picture: it is a visual presentation of personality, style and professional credibility.",
+              "A carefully made portrait is the first step in communicating professionalism, trust and authority. It is more than an improvised profile picture: it presents personality, style and professional credibility.",
               "The service is suitable for LinkedIn profiles, CVs, personal websites, company pages, team pages, pitch decks, presentations, conferences, press articles, interviews and personal branding. It can be created in the studio or on location, depending on the intended use and the atmosphere required.",
             ],
             bullets: [
@@ -88,14 +88,15 @@ export const servicePages: ServicePage[] = [
           {
             heading: "Social, dating and curriculum photographs",
             body: [
-              "The source site separates several practical uses of portrait photography: a simple CV image, a more complete LinkedIn/social profile service, and portraits for dating platforms. In each case the message is the same: the photograph should look credible, natural and current, not artificial or excessively retouched.",
-              "For dating profiles the old site specifically warns against fake-looking images and AI-style retouching. The goal is to present the person in a confident but believable way, with natural expression, clean light and a sense of real presence.",
+              "Portrait photography covers several practical uses: a simple CV image, a more complete LinkedIn/social profile service, and portraits for dating platforms. In each case the photograph should look credible, natural and current, not artificial or excessively retouched.",
+              "For dating profiles, the goal is to avoid fake-looking images and AI-style retouching, presenting the person confidently and credibly through natural expression, clean light and a sense of real presence.",
             ],
           },
         ],
         pricing: [
-          "CV/resume photo: €60, as listed on the official curriculum page.",
-          "LinkedIn/social network portrait: €120, as listed on the official social portrait page.",
+          "CV/resume photo: €60; includes several studio photographs on a neutral background and 2–3 selected, optimized final images.",
+          "LinkedIn/social network portrait: €120; includes two styles, two sets and clothing changes, over 10 selected and retouched final photographs, plus delivery of all photographs via WeTransfer.",
+          "A 50% deposit is required to confirm either service.",
         ],
         facts: ["Studio in Turin, Via Oropa 54B.", "Services can be adapted for private and professional use."],
       },
@@ -107,7 +108,7 @@ export const servicePages: ServicePage[] = [
         sourceLabel: "Pagine fonte: ritratto, social, curriculum e fotografie dating.",
         overviewLabel: "A cosa serve",
         detailsLabel: "Dettagli del servizio",
-        pricingLabel: "Prezzi trovati sul sito ufficiale",
+        pricingLabel: "Prezzi e prenotazione",
         relatedLabel: "Continua con",
         allServicesLabel: "Tutti i servizi",
         cta: "Organizza un ritratto",
@@ -115,7 +116,7 @@ export const servicePages: ServicePage[] = [
           {
             heading: "Un ritratto che comunica chi sei",
             body: [
-              "Il contenuto ufficiale dello studio presenta il ritratto come il primo passo per comunicare professionalità, affidabilità e autorevolezza. Un buon ritratto non è una foto improvvisata per il profilo: è una presentazione visiva della personalità, dello stile e della credibilità professionale.",
+              "Un ritratto curato è il primo passo per comunicare professionalità, affidabilità e autorevolezza. Non è una foto improvvisata per il profilo: presenta personalità, stile e credibilità professionale.",
               "Il servizio è indicato per profili LinkedIn, curriculum, siti personali, pagine aziendali, team page, presentazioni, conferenze, articoli, interviste e personal branding. Può essere realizzato in studio o in location, secondo l'uso finale e l'atmosfera richiesta.",
             ],
             bullets: [
@@ -128,14 +129,15 @@ export const servicePages: ServicePage[] = [
           {
             heading: "Fotografie per social, dating e curriculum",
             body: [
-              "Il sito fonte distingue diversi utilizzi pratici del ritratto: una foto semplice per il curriculum, un servizio più completo per LinkedIn e social network, e ritratti per piattaforme di dating. In tutti i casi il messaggio è lo stesso: la fotografia deve essere credibile, naturale e attuale, non artificiale o eccessivamente ritoccata.",
-              "Per i profili dating il vecchio sito mette in guardia dalle immagini finte e dai ritocchi in stile AI. L'obiettivo è presentare la persona in modo sicuro ma credibile, con espressione naturale, luce pulita e presenza reale.",
+              "Il ritratto risponde a diversi utilizzi pratici: una foto semplice per il curriculum, un servizio più completo per LinkedIn e social network, e ritratti per piattaforme di dating. In tutti i casi la fotografia deve essere credibile, naturale e attuale, non artificiale o eccessivamente ritoccata.",
+              "Per i profili dating, l'obiettivo è evitare immagini finte e ritocchi in stile AI, presentando la persona in modo sicuro ma credibile, con espressione naturale, luce pulita e presenza reale.",
             ],
           },
         ],
         pricing: [
-          "Foto curriculum: €60, come indicato nella pagina ufficiale dedicata al curriculum.",
-          "Ritratto LinkedIn/social network: €120, come indicato nella pagina ufficiale dedicata ai social.",
+          "Foto curriculum: €60; comprende diversi scatti in studio su fondo neutro e 2–3 fotografie finali selezionate e ottimizzate.",
+          "Ritratto LinkedIn/social network: €120; comprende due stili, due set e cambi di abbigliamento, oltre 10 fotografie finali selezionate e post-prodotte, più la consegna di tutti gli scatti via WeTransfer.",
+          "Per confermare uno dei due servizi è richiesto un anticipo del 50%.",
         ],
         facts: ["Studio a Torino, Via Oropa 54B.", "Servizi adattabili a esigenze private e professionali."],
       },
@@ -155,7 +157,7 @@ export const servicePages: ServicePage[] = [
         sourceLabel: "Source pages: modelle, book donna, book uomo and serious model agencies.",
         overviewLabel: "Studio approach",
         detailsLabel: "What is included",
-        pricingLabel: "Pricing found on the official site",
+        pricingLabel: "Price and booking",
         relatedLabel: "Continue with",
         allServicesLabel: "All services",
         cta: "Request portfolio information",
@@ -163,14 +165,14 @@ export const servicePages: ServicePage[] = [
           {
             heading: "Credible photographs for agency presentation",
             body: [
-              "The original website gives extensive advice to aspiring models: a modern phone, a bedroom window and a social-media filter are not enough for serious agency presentation. Agencies evaluate faces, posture, proportions, versatility and credibility through photographs, and low-quality or distorted images can cause a candidate to be rejected immediately.",
+              "Serious agency presentation requires more than a modern phone, a bedroom window and a social-media filter. Agencies evaluate faces, posture, proportions, versatility and credibility through photographs, and low-quality or distorted images can cause a candidate to be rejected immediately.",
               "The studio positions the portfolio as a careful, professional set of images that shows presence, photogenic quality and attention to detail. It is designed to present the person with a coherent and solid image, not with provocative or improvised photographs.",
             ],
           },
           {
             heading: "Safety and serious agencies",
             body: [
-              "The source content also explains how to recognize serious fashion agencies. Serious agencies do not oblige candidates to use only their own photographer, do not pressure young people into unsuitable photographs, and do not replace professional selection with vague promises. For minors, a parent should be present.",
+              "It is also important to recognize serious fashion agencies. Reliable agencies do not oblige candidates to use only their own photographer, pressure young people into unsuitable photographs, or replace professional selection with vague promises. For minors, a parent should be present.",
               "The service is built around a professional studio environment, guidance during the shoot, and photographs that can be used with agencies, casting opportunities and personal promotional channels.",
             ],
             bullets: [
@@ -181,7 +183,7 @@ export const servicePages: ServicePage[] = [
             ],
           },
         ],
-        pricing: ["Full model portfolio/book: €400, as listed on the official book donna page."],
+        pricing: ["Women’s model portfolio: €400; approximately four hours, professional makeup throughout, 5–6 clothing and set changes, about 250 photographs supplied in high and low resolution, including 30 post-produced images.", "A €200 deposit is required to reserve the date."],
       },
       it: {
         title: "Book per modelle, modelli e attori",
@@ -191,7 +193,7 @@ export const servicePages: ServicePage[] = [
         sourceLabel: "Pagine fonte: modelle, book donna, book uomo e agenzie di moda serie.",
         overviewLabel: "Approccio dello studio",
         detailsLabel: "Cosa comprende",
-        pricingLabel: "Prezzi trovati sul sito ufficiale",
+        pricingLabel: "Prezzo e prenotazione",
         relatedLabel: "Continua con",
         allServicesLabel: "Tutti i servizi",
         cta: "Richiedi informazioni sul book",
@@ -199,14 +201,14 @@ export const servicePages: ServicePage[] = [
           {
             heading: "Fotografie credibili per presentarsi alle agenzie",
             body: [
-              "Il sito originale dedica molto spazio ai consigli per chi vuole proporsi come modella o modello: un telefono recente, una luce in camera e un filtro social non bastano per presentarsi a un'agenzia seria. Le agenzie valutano volto, postura, proporzioni, versatilità e credibilità attraverso le fotografie, e immagini scadenti o distorte possono portare a essere scartati subito.",
+              "Per presentarsi a un'agenzia seria non bastano un telefono recente, una luce in camera e un filtro social. Le agenzie valutano volto, postura, proporzioni, versatilità e credibilità attraverso le fotografie, e immagini scadenti o distorte possono portare a essere scartati subito.",
               "Lo studio presenta il book come una serie di immagini curata e professionale, capace di mostrare presenza scenica, fotogenia e attenzione ai dettagli. L'obiettivo è proporre la persona con un'immagine coerente e solida, non con fotografie provocanti o improvvisate.",
             ],
           },
           {
             heading: "Sicurezza e agenzie serie",
             body: [
-              "Il contenuto fonte spiega anche come riconoscere le agenzie di moda serie. Le agenzie affidabili non obbligano a usare un loro fotografo, non fanno pressione per fotografie inadatte e non sostituiscono una selezione professionale con promesse generiche. Per i minorenni è importante la presenza di un genitore.",
+              "È importante anche riconoscere le agenzie di moda serie. Le agenzie affidabili non obbligano a usare un loro fotografo, non fanno pressione per fotografie inadatte e non sostituiscono una selezione professionale con promesse generiche. Per i minorenni è importante la presenza di un genitore.",
               "Il servizio si fonda su un ambiente di studio professionale, sulla guida durante lo shooting e su fotografie utilizzabili per agenzie, casting e canali promozionali personali.",
             ],
             bullets: [
@@ -217,7 +219,7 @@ export const servicePages: ServicePage[] = [
             ],
           },
         ],
-        pricing: ["Book fotografico completo per modelle: €400, come indicato nella pagina ufficiale book donna."],
+        pricing: ["Book fotografico donna: €400; circa quattro ore, make-up professionale per tutta la durata, 5–6 cambi di abbigliamento e set, circa 250 fotografie in alta e bassa definizione, di cui 30 post-prodotte.", "Per fissare la data è richiesto un anticipo di €200."],
       },
     },
   },
@@ -235,7 +237,7 @@ export const servicePages: ServicePage[] = [
         sourceLabel: "Source pages: casting, polaroid and model portfolio.",
         overviewLabel: "Purpose",
         detailsLabel: "Service details",
-        pricingLabel: "Pricing found on the official site",
+        pricingLabel: "Prices and booking",
         relatedLabel: "Continue with",
         allServicesLabel: "All services",
         cta: "Prepare casting photographs",
@@ -249,7 +251,7 @@ export const servicePages: ServicePage[] = [
             bullets: ["Casting photographs for actors and extras.", "Polaroid/digitals for modeling agencies.", "Straightforward image selection for professional submission."],
           },
         ],
-        pricing: ["Casting service: €180.", "Polaroid/digitals service: €60."],
+        pricing: ["Casting service: €180; about two hours, over 120 photographs delivered, including 15 post-produced images. Makeup is not included and can be added for €70.", "Polaroid/digitals service: €60.", "A 50% deposit is required to reserve the date."],
       },
       it: {
         title: "Casting e polaroid",
@@ -259,7 +261,7 @@ export const servicePages: ServicePage[] = [
         sourceLabel: "Pagine fonte: casting, polaroid e book fotografico.",
         overviewLabel: "Obiettivo",
         detailsLabel: "Dettagli del servizio",
-        pricingLabel: "Prezzi trovati sul sito ufficiale",
+        pricingLabel: "Prezzi e prenotazione",
         relatedLabel: "Continua con",
         allServicesLabel: "Tutti i servizi",
         cta: "Prepara le foto per il casting",
@@ -273,7 +275,7 @@ export const servicePages: ServicePage[] = [
             bullets: ["Fotografie per casting attori e comparse.", "Polaroid/digitals per agenzie di moda.", "Selezione ordinata delle immagini per candidature professionali."],
           },
         ],
-        pricing: ["Servizio fotografico casting: €180.", "Servizio polaroid/digitals: €60."],
+        pricing: ["Servizio fotografico casting: €180; circa due ore, oltre 120 fotografie consegnate, di cui 15 post-prodotte. Il make-up non è incluso e può essere aggiunto con un sovrapprezzo di €70.", "Servizio polaroid/digitals: €60.", "Per fissare la data è richiesto un anticipo del 50%."],
       },
     },
   },
