@@ -88,12 +88,13 @@ export function Hero() {
         </div>
 
         <h1
-          className="display-editorial soft-in mt-6 text-[1.45rem] leading-[1.16] text-cream sm:text-[1.95rem] lg:text-[2.6rem]"
+          className="display-editorial soft-in mt-6 text-[1.3rem] leading-[1.22] text-logo-yellow sm:text-[1.75rem] lg:text-[2.25rem]"
           style={{ animationDelay: "260ms" }}
         >
-          <span className="block">{t.line1}</span>
-          <span className="block">{t.line2}</span>
-          <span className="block italic normal-case">{t.line3}</span>
+          <span className="block uppercase">{lang === "en" ? "Photography" : "Fotografia"}</span>
+          <span className="block italic normal-case">
+            {lang === "en" ? "for moments that matter." : "per i momenti che contano."}
+          </span>
         </h1>
 
         <p

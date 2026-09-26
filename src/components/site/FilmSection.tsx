@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import desktopShowreel from "@/assets/enrico-video-showreel-desktop.mp4.asset.json";
-import mobileShowreel from "@/assets/enrico-video-showreel-mobile.mp4.asset.json";
+import desktopShowreel from "@/assets/enrico-video-showreel-desktop-refined.mp4.asset.json";
+import mobileShowreel from "@/assets/enrico-video-showreel-mobile-refined.mp4.asset.json";
 import showreelPoster from "@/assets/enrico-video-showreel-poster.jpg.asset.json";
 import { useLang } from "@/lib/lang";
 

@@ -16,7 +16,8 @@ export type ServiceSlug =
   | "corporate-portrait"
   | "events"
   | "video"
-  | "photography-courses";
+  | "photography-courses"
+  | "studio-rental";
 
 type ServiceSection = {
   heading: string;
@@ -1047,6 +1048,42 @@ export const servicePages: ServicePage[] = [
       },
     },
   },
+  {
+    slug: "studio-rental",
+    category: "other",
+    sourceUrls: [source("blog-noleggio-studio-fotografico.html")],
+    related: ["photography-courses", "portrait", "advertising"],
+    copy: {
+      en: {
+        title: "Photography studio rental in Turin",
+        eyebrow: "Professional studio, lighting and backgrounds",
+        intro: "A fully equipped photography studio in Turin for photographers, advanced amateurs, companies and creatives.",
+        sourceLabel: "Photography studio rental",
+        overviewLabel: "The studio",
+        detailsLabel: "Details",
+        pricingLabel: "Price",
+        relatedLabel: "Continue with",
+        allServicesLabel: "All services",
+        cta: "Ask about studio availability",
+        sections: [{ heading: "A flexible, equipped workspace", body: ["Renting a photography studio in Turin is a practical solution for people working with images who want a professional space without the costs and restrictions of owning a studio.", "The studio adapts to different needs: advanced amateurs can experiment with professional lighting; freelance photographers can receive clients in a carefully prepared space; visiting photographers have a reliable operational base; and companies can produce portraits, products and communication content in a controlled environment."], bullets: ["Professional flash lighting and backgrounds.", "Suitable for portraits, products, tests and creative sets.", "Technical support can be arranged according to the project."] }],
+        facts: ["The official page does not publish a fixed rental price. Contact the studio for availability and a quotation."],
+      },
+      it: {
+        title: "Noleggio Studio Fotografico a Torino Professionale con Attrezzatura Illuminazione Flash e Fondali per Fotografi Fotoamatori e Aziende",
+        eyebrow: "Studio professionale, illuminazione e fondali",
+        intro: "Il noleggio di uno studio fotografico a Torino rappresenta oggi una soluzione concreta e intelligente per chi lavora con l’immagine o desidera farlo in modo più professionale.",
+        sourceLabel: "Noleggio studio fotografico",
+        overviewLabel: "Lo studio",
+        detailsLabel: "Dettagli",
+        pricingLabel: "Prezzo",
+        relatedLabel: "Continua con",
+        allServicesLabel: "Tutti i servizi",
+        cta: "Chiedi la disponibilità dello studio",
+        sections: [{ heading: "Uno spazio attrezzato e flessibile", body: ["In un contesto creativo sempre più dinamico avere a disposizione uno spazio attrezzato consente di concentrarsi sulla qualità del lavoro senza dover affrontare i costi e i vincoli di uno studio personale. Torino è una città viva dal punto di vista fotografico e ospita fotografi professionisti fotoamatori evoluti aziende e creativi provenienti anche da fuori regione che cercano un luogo affidabile in cui realizzare i propri progetti.", "Uno studio fotografico a noleggio è pensato per adattarsi a esigenze diverse. Il fotoamatore trova un ambiente ideale per sperimentare con la luce e con i set professionali migliorando le proprie competenze tecniche. Il fotografo freelance senza studio può offrire ai propri clienti un servizio di livello superiore lavorando in uno spazio curato e funzionale. I fotografi fuori sede che arrivano a Torino per un incarico possono contare su una base operativa pronta all’uso mentre aziende agenzie e creativi possono realizzare ritratti prodotti cataloghi contenuti pubblicitari e immagini per la comunicazione digitale."], bullets: ["Attrezzatura professionale, illuminazione flash e fondali.", "Adatto a ritratti, prodotti, test e set creativi.", "Supporto tecnico concordabile in base al progetto."] }],
+        facts: ["La pagina ufficiale non pubblica un prezzo fisso di noleggio. Contattare lo studio per disponibilità e preventivo."],
+      },
+    },
+  },
 ];
 
 export const additionalServiceLinks: ServiceLink[] = [
@@ -1069,6 +1106,7 @@ export const serviceGroupsForArchive: { title: Record<Lang, string>; items: Serv
     items: [
       { slug: "children-ceremonies", label: { en: "Children and ceremonies", it: "Bambini e cerimonie" } },
       { slug: "birthdays-anniversaries", label: { en: "Birthdays and anniversaries", it: "Compleanni e anniversari" } },
+      { slug: "studio-rental", label: { en: "Photography studio rental", it: "Noleggio studio fotografico" } },
     ],
   },
 ];
@@ -1091,6 +1129,7 @@ const labelToSlug: Record<Lang, Record<string, ServiceSlug>> = {
     "Product and catalog": "advertising",
     "Video footage": "video",
     "Photography courses": "photography-courses",
+    "Photography studio rental": "studio-rental",
   },
   it: {
     Ritratto: "portrait",
@@ -1109,6 +1148,7 @@ const labelToSlug: Record<Lang, Record<string, ServiceSlug>> = {
     "Prodotto e catalogo": "advertising",
     "Riprese video": "video",
     "Corsi di fotografia": "photography-courses",
+    "Noleggio studio fotografico": "studio-rental",
   },
 };
 
@@ -1148,6 +1188,7 @@ export const serviceRouteAliases: Record<string, ServiceSlug> = {
   events: "events",
   video: "video",
   "photography-courses": "photography-courses",
+  "studio-rental": "studio-rental",
 };
 
 export const serviceSlugs = servicePages.map((service) => service.slug);
