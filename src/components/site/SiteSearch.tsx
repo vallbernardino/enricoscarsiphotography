@@ -30,9 +30,9 @@ export function SiteSearch({ mobile = false, onNavigate }: { mobile?: boolean; o
   return (
     <div className={mobile ? "relative" : "absolute inset-x-0 top-full border-t border-cream/10 bg-charcoal/95 px-6 py-4 backdrop-blur-md"}>
       <div className={mobile ? "relative" : "relative mx-auto max-w-[1440px]"}>
-        <Search className="absolute left-0 top-1/2 h-4 w-4 -translate-y-1/2 text-cream/45" strokeWidth={1.5} />
+        <Search className="absolute left-0 top-[22px] h-4 w-4 -translate-y-1/2 text-cream/45" strokeWidth={1.5} />
         <input ref={inputRef} value={query} onChange={(event) => setQuery(event.target.value)} onKeyDown={(event) => { if (event.key === "Escape") close(); }} placeholder={placeholder} className="h-11 w-full border-b border-cream/20 bg-transparent pl-7 pr-10 text-sm text-cream outline-none placeholder:text-cream/35 focus:border-logo-yellow" />
-        <button type="button" onClick={close} className="absolute right-0 top-1/2 -translate-y-1/2 p-2 text-cream/55 hover:text-cream" aria-label={lang === "it" ? "Chiudi ricerca" : "Close search"}><X className="h-4 w-4" /></button>
+        <button type="button" onClick={close} className="absolute right-0 top-[22px] -translate-y-1/2 p-2 text-cream/55 hover:text-cream" aria-label={lang === "it" ? "Chiudi ricerca" : "Close search"}><X className="h-4 w-4" /></button>
         {query.trim() ? (
           <div className={`z-50 mt-3 max-h-[65vh] overflow-y-auto border border-cream/10 bg-charcoal shadow-2xl ${mobile ? "" : "absolute left-0 right-0"}`}>
             {results.length ? results.map((result) => (

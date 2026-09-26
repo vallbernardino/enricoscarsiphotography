@@ -25,7 +25,7 @@ export function ServiceDetailPage({ service }: { service: ServicePage }) {
   const officialPages = getOfficialPagesForService(service.slug);
 
   return (
-    <PageShell title={copy.title} intro={copy.intro} back={{ label: copy.allServicesLabel, to: "/services" }}>
+    <PageShell title={copy.title} intro={service.slug === "advertising" ? copy.intro : ""} back={{ label: copy.allServicesLabel, to: "/services" }}>
       <PageSection tone="light" label={copy.eyebrow} heading={copy.overviewLabel}>
         <div className="grid gap-16 lg:grid-cols-12">
           <Reveal className="lg:col-span-7">
