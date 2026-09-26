@@ -81,9 +81,9 @@ export function ServiceDetailPage({ service }: { service: ServicePage }) {
                 {copy.pricing?.length ? (
                   <div>
                     <h3 className="label-xs text-ink/45">{copy.pricingLabel}</h3>
-                    <ul className="mt-5 space-y-3 text-sm leading-relaxed text-ink/68">
+                    <ul className="mt-5 divide-y divide-ink/10 border-y border-ink/10 text-sm leading-relaxed text-ink">
                       {copy.pricing.map((item) => (
-                        <li key={item}>{item}</li>
+                        <li key={item} className="py-4 font-medium">{item}</li>
                       ))}
                     </ul>
                   </div>
