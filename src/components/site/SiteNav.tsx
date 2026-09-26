@@ -4,6 +4,7 @@ import { useLang } from "@/lib/lang";
 import { BRAND, homeCopy } from "@/lib/home-copy";
 import { CONTACT } from "@/lib/site-content";
 import logoAsset from "@/assets/enrico-scarsi-logo.png.asset.json";
+import { SiteSearch } from "./SiteSearch";
 
 export function LangToggle({ tone = "dark" }: { tone?: "dark" | "light" }) {
   const { lang, setLang } = useLang();
@@ -76,9 +77,9 @@ export function SiteNav({ overlay = false }: { overlay?: boolean }) {
         </Link>
 
         <nav className="hidden items-center gap-9 lg:flex">
-          {t.nav.map((n) => (
+          {t.nav.map((n, index) => (
+            <span key={n.to} className="contents">
             <Link
-              key={n.to}
               to={n.to}
               resetScroll
               {...(n.to === "/" ? { onClick: homeScroll } : {})}
@@ -87,6 +88,8 @@ export function SiteNav({ overlay = false }: { overlay?: boolean }) {
             >
               {n.label}
             </Link>
+            {index === 0 ? <SiteSearch /> : null}
+            </span>
           ))}
         </nav>
 
@@ -138,6 +141,7 @@ export function SiteNav({ overlay = false }: { overlay?: boolean }) {
               </Link>
             ))}
           </nav>
+          <div className="mt-6 border-t border-cream/10 pt-5"><SiteSearch mobile onNavigate={() => setOpen(false)} /></div>
           <div className="mt-7">
             <LangToggle />
           </div>

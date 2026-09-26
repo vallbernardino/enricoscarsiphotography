@@ -15,7 +15,7 @@ export function PageShell({
   title: string;
   intro: string;
   /** Minimal, unobtrusive return path to the parent page. */
-  back?: { label: string; to: "/" | "/services" | "/photographer" | "/contact" };
+  back?: { label: string; to: "/" | "/services" | "/journal" | "/photographer" | "/contact" };
   children: ReactNode;
 }) {
   return (

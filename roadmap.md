@@ -11,3 +11,6 @@
 - [ ] Add a compact bilingual navigation search backed by actual local page content and real routes.
 - [ ] Present verified pricing and complete source content editorially without changing the homepage or approved sections.
 - [ ] Verify desktop/mobile navigation, search, routes, media, reduced motion, privacy, and diagnostics.
+- [ ] Preserve complete official wording and full bilingual translations without paraphrase.
+- [ ] Add missing official articles and studio-rental material to real internal routes and search.
+- [ ] Keep prices immediately discoverable in a restrained editorial treatment.
