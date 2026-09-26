@@ -22,7 +22,7 @@ function ContactLink({ children }: { children: string }) {
 export function ServiceDetailPage({ service }: { service: ServicePage }) {
   const { lang } = useLang();
   const copy = service.copy[lang];
-  const officialPages = lang === "it" ? getOfficialPagesForService(service.slug) : [];
+  const officialPages = getOfficialPagesForService(service.slug);
 
   return (
     <PageShell title={copy.title} intro={copy.intro} back={{ label: copy.allServicesLabel, to: "/services" }}>
@@ -55,7 +55,7 @@ export function ServiceDetailPage({ service }: { service: ServicePage }) {
               {officialPages.map((page) => (
                 <article key={page.slug} className="border-t border-ink/12 pt-10 first:border-t-0 first:pt-0">
                   <div className="space-y-6 text-[0.98rem] leading-[1.95] text-ink/68">
-                    {page.blocks.map((block, index) =>
+                    {(lang === "it" ? page.blocks : page.blocksEn).map((block, index) =>
                       block.kind === "heading" ? (
                         <h2 key={`${page.slug}-${index}`} className="pt-4 font-display text-[1.45rem] leading-[1.22] text-ink first:pt-0 sm:text-[1.75rem]">
                           {block.text}
