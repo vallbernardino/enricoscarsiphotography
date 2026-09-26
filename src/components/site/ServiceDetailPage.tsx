@@ -5,6 +5,7 @@ import { Reveal } from "@/components/site/Reveal";
 import { useLang } from "@/lib/lang";
 import { getServicePage, getServiceTitle, type ServicePage } from "@/lib/service-pages";
 import { CONTACT } from "@/lib/site-content";
+import { getOfficialPagesForService } from "@/lib/official-content";
 
 function ContactLink({ children }: { children: string }) {
   return (
@@ -21,6 +22,7 @@ function ContactLink({ children }: { children: string }) {
 export function ServiceDetailPage({ service }: { service: ServicePage }) {
   const { lang } = useLang();
   const copy = service.copy[lang];
+  const officialPages = lang === "it" ? getOfficialPagesForService(service.slug) : [];
 
   return (
     <PageShell title={copy.title} intro={copy.intro} back={{ label: copy.allServicesLabel, to: "/services" }}>
@@ -28,7 +30,7 @@ export function ServiceDetailPage({ service }: { service: ServicePage }) {
         <div className="grid gap-16 lg:grid-cols-12">
           <Reveal className="lg:col-span-7">
             <div className="space-y-10">
-              {copy.sections.map((section) => (
+              {(officialPages.length ? [] : copy.sections).map((section) => (
                 <section key={section.heading} className="border-t border-ink/12 pt-8 first:border-t-0 first:pt-0">
                   <h2 className="font-display text-[1.45rem] leading-[1.22] text-ink sm:text-[1.75rem]">
                     {section.heading}
@@ -49,6 +51,26 @@ export function ServiceDetailPage({ service }: { service: ServicePage }) {
                     </ul>
                   ) : null}
                 </section>
+              ))}
+              {officialPages.map((page) => (
+                <article key={page.slug} className="border-t border-ink/12 pt-10 first:border-t-0 first:pt-0">
+                  <div className="space-y-6 text-[0.98rem] leading-[1.95] text-ink/68">
+                    {page.blocks.map((block, index) =>
+                      block.kind === "heading" ? (
+                        <h2 key={`${page.slug}-${index}`} className="pt-4 font-display text-[1.45rem] leading-[1.22] text-ink first:pt-0 sm:text-[1.75rem]">
+                          {block.text}
+                        </h2>
+                      ) : block.kind === "list" ? (
+                        <div key={`${page.slug}-${index}`} className="flex gap-5 border-b border-ink/10 py-3 text-sm">
+                          <span className="mt-3 h-px w-8 shrink-0 bg-champagne" />
+                          <span>{block.text}</span>
+                        </div>
+                      ) : (
+                        <p key={`${page.slug}-${index}`}>{block.text}</p>
+                      ),
+                    )}
+                  </div>
+                </article>
               ))}
             </div>
           </Reveal>
