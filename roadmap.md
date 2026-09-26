@@ -6,3 +6,8 @@
 - [x] Audit every migrated service page against the current official website.
 - [x] Correct or remove unsupported copy, prices, numbers, and relationships without changing the design or homepage.
 - [x] Re-verify all internal service pages, mobile layout, and project diagnostics.
+- [ ] Audit full official-site wording, pricing, packages, conditions, CTAs, and related-service links against every migrated page.
+- [ ] Refine only the approved hero typography and shorten only the first showreel segment.
+- [ ] Add a compact bilingual navigation search backed by actual local page content and real routes.
+- [ ] Present verified pricing and complete source content editorially without changing the homepage or approved sections.
+- [ ] Verify desktop/mobile navigation, search, routes, media, reduced motion, privacy, and diagnostics.
