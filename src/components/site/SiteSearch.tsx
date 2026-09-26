@@ -2,20 +2,34 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight, Search, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { useLang } from "@/lib/lang";
-import { searchSite } from "@/lib/search-index";
+import type { SearchEntry } from "@/lib/search-index";
 
 export function SiteSearch({ mobile = false, onNavigate }: { mobile?: boolean; onNavigate?: () => void }) {
   const { lang } = useLang();
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
+  const [results, setResults] = useState<SearchEntry[]>([]);
   const inputRef = useRef<HTMLInputElement | null>(null);
-  const results = query.trim() ? searchSite(query, lang) : [];
   const label = lang === "it" ? "CERCA" : "SEARCH";
   const placeholder = lang === "it" ? "Cerca servizi, prezzi, blog, video e altro..." : "Search services, prices, blog, video and more...";
 
   useEffect(() => {
     if (open) inputRef.current?.focus();
   }, [open]);
+
+  useEffect(() => {
+    let current = true;
+    if (!query.trim()) {
+      setResults([]);
+      return () => { current = false; };
+    }
+    const timer = window.setTimeout(() => {
+      import("@/lib/search-index").then(({ searchSite }) => {
+        if (current) setResults(searchSite(query, lang));
+      });
+    }, 90);
+    return () => { current = false; window.clearTimeout(timer); };
+  }, [query, lang]);
 
   const close = () => { setOpen(false); setQuery(""); };
 
