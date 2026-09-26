@@ -5851,7 +5851,7 @@ const serviceSourceMap: Record<string, string[]> = {
   "luxury-photo-tour-turin": ["tour"],
   "passport-visa-photos": ["visa", "eta"],
   "gift-vouchers": ["regalo-donna"],
-  advertising: ["pubblicita", "fotografiaindustriale", "architettura", "hotel", "ristoranti", "ecommerce", "quadri", "blog-fotografie-case-vacanza-torino", "blog-fotografie-ristoranti-torino", "blog-fotografie-interni-torino", "blog-fotografie-e-commerce", "blog-restauro-foto", "blog-holiday-home", "blog-fotografo-industriale-torino"],
+  advertising: ["pubblicita", "fotografiaindustriale", "architettura", "hotel", "ristoranti", "ecommerce", "quadri", "blog-fotografie-case-vacanza-torino", "blog-fotografie-ristoranti-torino", "blog-fotografie-interni-torino", "blog-fotografie-e-commerce", "blog-restauro-foto", "blog-holiday-20-home", "blog-fotografo-industriale-torino"],
   "corporate-portrait": ["ritratto", "social", "curriculum", "blog-ritratto-professionale", "blog-fotografo-personal-branding"],
   events: ["eventi", "blog-fotografia-congresso", "blog-fotografie-eventi-aperto", "blog-fotografo-eventi-aziendali", "blog-mice", "convegno-nazionale-aiic-2026-a-torino"],
   video: ["video"],
