@@ -3083,3 +3083,34 @@ export const officialContentPages: OfficialContentPage[] = [
     ]
   }
 ];
+
+
+const serviceSourceMap: Record<string, string[]> = {
+  portrait: ["ritratto", "social", "curriculum", "dating"],
+  "model-portfolio": ["modelle", "book-donna", "book-uomo-torino", "agenzie-moda-serie-torino"],
+  casting: ["casting", "polaroid"],
+  family: ["family", "bambini", "blog-fotografie-famiglia-torino"],
+  "children-ceremonies": ["bambini", "battesimo"],
+  wedding: ["fotografo-matrimonio-torino", "matrimonio-torino", "matrimonio-civile-torino", "fotografo-matrimonio-religioso-torino", "fotografo-matrimonio-simbolico-torino", "blog-prezzo-giusto-per-matrimonio"],
+  couple: ["foto-coppie", "proposta-matrimonio"],
+  "birthdays-anniversaries": ["compleanno", "blog-fotografie-diciottesimo-torino"],
+  "luxury-photo-tour-turin": ["tour"],
+  "passport-visa-photos": ["visa", "eta"],
+  "gift-vouchers": ["regalo-donna"],
+  advertising: ["pubblicita", "fotografiaindustriale", "architettura", "hotel", "ristoranti", "ecommerce", "quadri", "blog-fotografie-case-vacanza-torino", "blog-fotografie-ristoranti-torino", "blog-fotografie-interni-torino", "blog-fotografie-e-commerce", "blog-restauro-foto", "blog-holiday-home", "blog-fotografo-industriale-torino"],
+  "corporate-portrait": ["ritratto", "social", "curriculum", "blog-ritratto-professionale", "blog-fotografo-personal-branding"],
+  events: ["eventi", "blog-fotografia-congresso", "blog-fotografie-eventi-aperto", "blog-fotografo-eventi-aziendali", "blog-mice", "convegno-nazionale-aiic-2026-a-torino"],
+  video: ["video"],
+  "photography-courses": ["corso", "blog-corso-fotografia-torino"],
+  "studio-rental": ["blog-noleggio-studio-fotografico"],
+};
+
+export function getOfficialPagesForService(slug: string) {
+  const sourceSlugs = serviceSourceMap[slug] ?? [];
+  return sourceSlugs.flatMap((sourceSlug) => {
+    const page = officialContentPages.find((candidate) => candidate.slug === sourceSlug);
+    return page ? [page] : [];
+  });
+}
+
+export const officialArticlePages = officialContentPages.filter((page) => page.type === "article");
