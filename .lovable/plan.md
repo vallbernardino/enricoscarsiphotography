@@ -1,7 +1,7 @@
 # Service detail page refinement
 
 ## Scope
-Refine only individual service pages, direct homepage service links, the existing Call button color, first-showreel timing verification, and search relevance. Preserve every locked homepage section and the site-wide visual system.
+Refine only individual service pages, direct homepage service links, the existing Call button color, removal of the specified meeting-room showreel clip, and search relevance. Preserve every locked homepage section and the site-wide visual system.
 
 ## Implementation
 
@@ -34,11 +34,11 @@ Refine only individual service pages, direct homepage service links, the existin
 6. **Apply the explicitly requested supporting changes**
    - Map every homepage service label directly to its existing detail route while leaving the Services navigation item unchanged.
    - Change only the existing Call button and ripple color to the current warm logo-gold family; preserve geometry, placement, type, motion, and phone number.
-   - Keep the current five-clip showreel and refined first-clip rendition; verify that clip two arrives sooner without unnatural speed or changing the other clips.
+   - Rebuild the existing desktop/mobile showreel renditions without only the meeting-room/whiteboard clip; preserve every other clip, their timing, sequence, natural motion, section design, and playback behavior.
    - Improve the existing bilingual static search through normalization, partial-word matching, category/keyword aliases tied to real services, weighted title/body/price matches, and relevance-first ranking—without changing its UI or position.
 
 7. **Verification**
-   - Check all service routes in Italian and English, verified pricing visibility, complete source text, gallery slot counts, direct related/homepage links, inquiry and call actions, Search results, and five-clip video playback.
+   - Check all service routes in Italian and English, verified pricing visibility, complete source text, gallery slot counts, direct related/homepage links, inquiry and call actions, Search results, and the remaining video sequence without gaps or stale requests.
    - Test desktop and mobile for readable content, stable layouts, easy actions, and no horizontal overflow.
    - Confirm locked sections remain unchanged and review build, runtime, console, asset, route, and network diagnostics.
 
