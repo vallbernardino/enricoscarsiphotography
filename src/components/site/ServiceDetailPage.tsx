@@ -74,7 +74,7 @@ export function ServiceDetailPage({ service }: { service: ServicePage }) {
 
       <PageSection tone="light">
         <div className="grid grid-cols-1 gap-5 md:grid-cols-12 md:gap-7">
-          {galleryShapes.map((shape, index) => <div key={index} className={shape}><PhotoFrame aspect="h-full" tone="light" /></div>)}
+          {galleryShapes.map((shape, index) => <div key={index} className={`${shape} bg-ink/[0.045]`} aria-hidden="true" />)}
         </div>
       </PageSection>
 

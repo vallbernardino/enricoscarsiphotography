@@ -711,7 +711,7 @@ export function searchSite(query: string, lang: Lang) {
       const content = normalize(entry.content);
       const alias = normalize(aliases[entry.path] ?? "");
       let score = title === phrase ? 1000 : title.startsWith(phrase) ? 500 : title.includes(phrase) ? 260 : 0;
-      for (const word of words) score += wordScore(word, title, 50) + wordScore(word, excerpt, 12) + wordScore(word, content, 3) + wordScore(word, alias, 8);
+      for (const word of words) score += wordScore(word, title, 50) + wordScore(word, excerpt, 12) + wordScore(word, content, 3) + wordScore(word, alias, 70);
       if (entry.type === "service" && score > 0) score += 20;
       return { entry, score };
     })
