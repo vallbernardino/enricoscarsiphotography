@@ -20,4 +20,4 @@
 - [x] Change only the existing Call button and ripple to the logo-gold color family.
 - [x] Remove only the meeting-room/whiteboard clip from both showreel renditions.
 - [x] Improve bilingual static search relevance without changing its interface or position.
-- [ ] Verify official pricing/content, all routes, video sequence, desktop/mobile layout, and diagnostics.
+- [x] Verify official pricing/content, all routes, video sequence, desktop/mobile layout, and diagnostics.
