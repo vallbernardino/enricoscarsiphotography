@@ -96,7 +96,7 @@ export const servicePages: ServicePage[] = [
         ],
         pricing: [
           "CV/resume photo: €60; includes several studio photographs on a neutral background and 2–3 selected, optimized final images.",
-          "LinkedIn/social network portrait: €120; includes two styles, two sets and clothing changes, over 10 selected and retouched final photographs, plus delivery of all photographs via WeTransfer.",
+          "LinkedIn/social network portrait: €120; includes two styles, two sets and clothing changes, about 10 selected and retouched final photographs, plus delivery of all photographs via WeTransfer.",
           "Urban & Business dating session in Turin: €200; over 200 photographs, up to four outfit changes, and 15–20 selected and retouched images in high resolution and app-optimized versions. Premium and Glamour sessions outside Turin are quoted individually.",
           "A 50% deposit is required to confirm the selected service.",
         ],
@@ -186,7 +186,7 @@ export const servicePages: ServicePage[] = [
             ],
           },
         ],
-        pricing: ["Women’s model portfolio: €400; approximately four hours, professional makeup throughout, 5–6 clothing and set changes, about 250 photographs supplied in high and low resolution, including 30 post-produced images.", "A €200 deposit is required to reserve the date."],
+        pricing: ["Women’s model portfolio: €400; approximately four hours, professional makeup throughout, 5–6 clothing and set changes, about 250 photographs supplied in high and low resolution.", "The current official service page states 30 post-produced images; the current gift-voucher page states 25.", "A €200 deposit is required to reserve the date."],
       },
       it: {
         title: "Book per modelle, modelli e attori",
@@ -254,7 +254,7 @@ export const servicePages: ServicePage[] = [
             bullets: ["Casting photographs for actors and extras.", "Polaroid/digitals for modeling agencies.", "Straightforward image selection for professional submission."],
           },
         ],
-        pricing: ["Casting service: €180; about two hours, over 120 photographs delivered, including 15 post-produced images. Makeup is not included and can be added for €70.", "Polaroid/digitals service: €60.", "A 50% deposit is required to reserve the date."],
+        pricing: ["Casting service: €180; about two hours, with 15–20 selected and post-produced images. Makeup is not included and can be added for €70.", "Polaroid/digitals service: €60.", "A 50% deposit is required to reserve the date."],
       },
       it: {
         title: "Casting e polaroid",
@@ -278,7 +278,7 @@ export const servicePages: ServicePage[] = [
             bullets: ["Fotografie per casting attori e comparse.", "Polaroid/digitals per agenzie di moda.", "Selezione ordinata delle immagini per candidature professionali."],
           },
         ],
-        pricing: ["Servizio fotografico casting: €180; circa due ore, oltre 120 fotografie consegnate, di cui 15 post-prodotte. Il make-up non è incluso e può essere aggiunto con un sovrapprezzo di €70.", "Servizio polaroid/digitals: €60.", "Per fissare la data è richiesto un anticipo del 50%."],
+        pricing: ["Servizio fotografico casting: €180; circa due ore, con 15–20 immagini selezionate e post-prodotte. Il make-up non è incluso e può essere aggiunto con un sovrapprezzo di €70.", "Servizio polaroid/digitals: €60.", "Per fissare la data è richiesto un anticipo del 50%."],
       },
     },
   },

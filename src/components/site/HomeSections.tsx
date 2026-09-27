@@ -3,6 +3,7 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { useLang } from "@/lib/lang";
 import { homeCopy } from "@/lib/home-copy";
+import { getServiceSlugForLabel } from "@/lib/service-pages";
 import { CONTACT } from "@/lib/site-content";
 import { getReviews, REVIEW_PLATFORMS, REVIEW_SOURCE } from "@/lib/reviews";
 import trustpilotLogo from "@/assets/trustpilot.svg";
@@ -76,14 +77,15 @@ export function ServicesSection() {
             <Reveal key={g.title} delay={240 + i * 70}>
               <div className="service-category-rule relative border-b border-ink/20 pb-5"><h3 className="label-xs text-ink/70">{g.title}</h3></div>
               <ul>
-                {g.items.map((item) => (
-                  <li key={item}>
-                    <Link to={item === t.advertisingItem ? "/services/advertising" : "/services"} className="group flex min-h-16 items-center justify-between gap-4 border-b border-ink/12 py-4 text-[0.9rem] leading-snug text-ink/75 transition-colors hover:text-ink">
+                {g.items.map((item) => {
+                  const slug = getServiceSlugForLabel(item, lang);
+                  return <li key={item}>
+                    <Link to="/services/$slug" params={{ slug: slug ?? "portrait" }} className="group flex min-h-16 items-center justify-between gap-4 border-b border-ink/12 py-4 text-[0.9rem] leading-snug text-ink/75 transition-colors hover:text-ink">
                       <span className="transition-transform duration-300 group-hover:translate-x-1">{item}</span>
                       <ArrowRight className="h-3.5 w-3.5 shrink-0 text-ink/30 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-ink" strokeWidth={1.5} />
                     </Link>
                   </li>
-                ))}
+                })}
               </ul>
             </Reveal>
           ))}

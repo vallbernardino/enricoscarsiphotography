@@ -1,7 +1,5 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import desktopShowreel from "@/assets/enrico-video-showreel-desktop-refined.mp4.asset.json";
-import mobileShowreel from "@/assets/enrico-video-showreel-mobile-refined.mp4.asset.json";
 import showreelPoster from "@/assets/enrico-video-showreel-poster.jpg.asset.json";
 import { useLang } from "@/lib/lang";
 
@@ -36,8 +34,8 @@ export function FilmSection() {
         poster={showreelPoster.url}
         aria-label={copy.aria}
       >
-        <source src={mobileShowreel.url} media="(max-width: 767px)" type="video/mp4" />
-        <source src={desktopShowreel.url} type="video/mp4" />
+        <source src="/media/enrico-video-showreel-mobile-refined.mp4" media="(max-width: 767px)" type="video/mp4" />
+        <source src="/media/enrico-video-showreel-desktop-refined.mp4" type="video/mp4" />
       </video>
       <span className="pointer-events-none absolute inset-0 bg-charcoal/20" />
       <span className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-charcoal/80 to-transparent" />

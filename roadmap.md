@@ -14,10 +14,10 @@
 - [x] Preserve complete official wording and full bilingual translations without paraphrase.
 - [x] Add missing official articles and studio-rental material to real internal routes and search.
 - [x] Keep prices immediately discoverable in a restrained editorial treatment.
-- [ ] Refine the reusable service-detail page structure without changing locked areas.
-- [ ] Add empty editorial work-gallery slots and content-driven pricing/details/related actions.
-- [ ] Route homepage service items directly to their service pages.
-- [ ] Change only the existing Call button and ripple to the logo-gold color family.
-- [ ] Remove only the meeting-room/whiteboard clip from both showreel renditions.
-- [ ] Improve bilingual static search relevance without changing its interface or position.
-- [ ] Verify official pricing/content, all routes, video sequence, desktop/mobile layout, and diagnostics.
+- [x] Refine the reusable service-detail page structure without changing locked areas.
+- [x] Add empty editorial work-gallery slots and content-driven pricing/details/related actions.
+- [x] Route homepage service items directly to their service pages.
+- [x] Change only the existing Call button and ripple to the logo-gold color family.
+- [x] Remove only the meeting-room/whiteboard clip from both showreel renditions.
+- [x] Improve bilingual static search relevance without changing its interface or position.
+- [x] Verify official pricing/content, all routes, video sequence, desktop/mobile layout, and diagnostics.

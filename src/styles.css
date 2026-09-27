@@ -196,7 +196,7 @@
     position: absolute;
     inset: 0;
     z-index: -1;
-    border: 1px solid color-mix(in oklab, var(--champagne) 70%, transparent);
+    border: 1px solid color-mix(in oklab, var(--logo-yellow) 70%, transparent);
     animation: call-ripple 3200ms cubic-bezier(0.16, 1, 0.3, 1) infinite;
     pointer-events: none;
   }
