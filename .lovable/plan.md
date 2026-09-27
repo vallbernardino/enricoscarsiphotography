@@ -1,55 +1,48 @@
-# Final content-completion and controlled refinement
+# Service detail page refinement
 
 ## Scope
-Preserve the approved homepage, visual system, routes, and interactions except for the three expressly requested changes: hero typography, compact site search, and a shorter first showreel segment. Complete the internal-page content from the live official Enrico Scarsi site without paraphrasing or inventing facts.
+Refine only individual service pages, direct homepage service links, the existing Call button color, first-showreel timing verification, and search relevance. Preserve every locked homepage section and the site-wide visual system.
 
 ## Implementation
 
-1. **Create an authoritative content inventory**
-   - Map every current official service, subservice, article, package, price, condition, location, CTA, and related-service link to a real internal route.
-   - Compare every existing catalog entry sentence-by-sentence with its corresponding official page.
-   - Replace current paraphrases and audit-style commentary with the complete source wording; remove unsupported statements and prices.
-   - Preserve all verified numeric distinctions, package names, inclusions, durations, deposits, variants, and conditions exactly.
-   - Include currently missing substantive material such as studio rental and relevant official articles, without exposing source/migration notes to visitors.
+1. **Verify source content before presentation changes**
+   - Recheck each displayed price, package, duration, quantity, condition, and service relationship against the corresponding current page on `fotografico.it`.
+   - Keep the existing complete official content; remove unsupported claims rather than guessing.
+   - Preserve Advertising Photography as one unified service.
 
-2. **Complete bilingual internal content**
-   - Keep the official Italian wording as published.
-   - Use the official English wording where an English page exists; otherwise provide a faithful full English translation without shortening or changing meaning.
-   - Keep the existing session-scoped IT/EN switch so language changes text only.
-   - Keep visitor-entered inquiry values untouched.
+2. **Recompose the service detail template**
+   - Keep the existing dark service-page hero treatment and add a stable large empty image slot using the current visual language.
+   - Show the service title, official introduction when appropriate, and verified pricing in the hero without making pricing dominant.
+   - Follow with the full source description directly, without an invented overview/about heading or an adjacent image.
+   - Retain source headings only where they genuinely belong to the original content.
 
-3. **Extend internal service and article routes**
-   - Reuse the existing `PageShell`, service-detail route, and editorial design components.
-   - Add only the routes needed to represent the official hierarchy and searchable content.
-   - Keep Advertising Photography as one unified page, preserve its approved English introduction exactly once, and present industrial, architecture/interiors, hospitality, restaurant, product/e-commerce, and artwork work as supported applications.
-   - Preserve official related/recommended links rather than generating recommendations.
+3. **Add an editorial work-slot gallery**
+   - Add 6–9 empty, stable image slots per service in an asymmetric editorial composition.
+   - Use no generated, stock, or temporary photographs and place no text or actions over the slots.
+   - Keep useful image sizes on mobile, natural stacking, and zero horizontal overflow.
 
-4. **Make pricing and long-form detail easy to scan**
-   - Retain full source paragraphs and original list structure.
-   - Present verified prices in a dedicated editorial pricing area with clear package/variant distinctions on desktop and mobile.
-   - Omit pricing where the official page states none; never infer “from” pricing or shared pricing.
-   - Keep non-priced services connected to the existing inquiry/contact path.
+4. **Organize prices, options, and factual details**
+   - Present only existing verified prices and package variants, with the number of columns/rows determined by actual options.
+   - Keep all associated inclusions, quantities, durations, deposits, conditions, locations, and booking notes.
+   - Omit empty sections and avoid generic cards, repeated labels, oversized prices, or fabricated structure.
 
-5. **Add compact bilingual navigation search**
-   - Place `SEARCH` immediately after `HOME` on desktop and integrate an equally usable control in the existing mobile menu.
-   - Expand within the navigation area with a close/clear action, Enter support, keyboard accessibility, and no external search provider.
-   - Build a lightweight static bilingual index from the authoritative local content: services, complete descriptions, prices, variants, photographer information, Video, Blog/articles, and other actual pages.
-   - Rank exact title/service/price matches first, show concise matching excerpts and thumbnails where available, and link only to valid internal routes.
+5. **Refine related services and final actions**
+   - Keep only existing catalog relationships and link every item directly to its service route.
+   - Use a light editorial row with a small empty image slot, service name, and subtle arrow.
+   - End every service page with bilingual `SEND AN INQUIRY →` linking to the existing homepage inquiry section and `CALL` using `+39 011 8998291`; add no new form or service.
 
-6. **Apply the two controlled homepage refinements**
-   - Preserve every Hero image, crop, overlay, height, slideshow interval, transition, and composition.
-   - Render the existing statement as centered warm-yellow `PHOTOGRAPHY` followed by italic lowercase `for moments that matter.`, at a slightly smaller scale; retain the eyebrow, experience line, and services action unchanged.
-   - Rebuild only the project-local desktop/mobile showreel renditions so the first of the five used clips reaches the second clip sooner, without speeding human motion unnaturally; preserve all five clips, current section markup, text, styling, crop behavior, autoplay/muted/loop/inline playback, and subtle transitions.
+6. **Apply the explicitly requested supporting changes**
+   - Map every homepage service label directly to its existing detail route while leaving the Services navigation item unchanged.
+   - Change only the existing Call button and ripple color to the current warm logo-gold family; preserve geometry, placement, type, motion, and phone number.
+   - Keep the current five-clip showreel and refined first-clip rendition; verify that clip two arrives sooner without unnatural speed or changing the other clips.
+   - Improve the existing bilingual static search through normalization, partial-word matching, category/keyword aliases tied to real services, weighted title/body/price matches, and relevance-first ranking—without changing its UI or position.
 
-7. **Protect locked work and verify production readiness**
-   - Do not edit Selected Work, Services overview, Photographer sections/images, Reviews, Blog presentation, Inquiry form, footer, Call CTA, or their responsive/animation behavior.
-   - Confirm Call still uses `+39 011 8998291`; Email, WhatsApp, and inquiry behavior remain unchanged.
-   - Test every route and search result in IT/EN, desktop and mobile navigation, price readability, reduced motion, showreel playback, Hero rendering, image/video loading, and zero horizontal overflow.
-   - Check build diagnostics, runtime/console errors, broken local assets, secrets, trackers, analytics, cookies, and new dependencies.
-   - Compare checksums for locked homepage files against the recorded baseline to prove they were not modified.
+7. **Verification**
+   - Check all service routes in Italian and English, verified pricing visibility, complete source text, gallery slot counts, direct related/homepage links, inquiry and call actions, Search results, and five-clip video playback.
+   - Test desktop and mobile for readable content, stable layouts, easy actions, and no horizontal overflow.
+   - Confirm locked sections remain unchanged and review build, runtime, console, asset, route, and network diagnostics.
 
 ## Technical details
-- Keep the content catalog as the single source for page rendering and search indexing; do not add a CMS, database, authentication, analytics, external search, or paid service.
-- Use project-local media and existing dependencies/components only.
-- Preserve lazy loading and stable media dimensions below the fold; do not alter Hero loading priority.
-- Items that cannot be established from the live official pages will be removed or listed for later review rather than guessed.
+- Reuse the existing TanStack routes, service catalog, official-content index, `PageShell`, `Reveal`, and semantic color tokens.
+- Keep the implementation frontend-only with no CMS, database, authentication, paid API, external search provider, new backend, generated imagery, or unnecessary dependency.
+- Maintain a single reusable service-detail component so every service receives the same hierarchy while optional sections remain content-driven.
