@@ -10,12 +10,16 @@ export function PageShell({
   title,
   intro,
   back,
+  heroDetails,
+  heroMedia,
   children,
 }: {
   title: string;
   intro: string;
   /** Minimal, unobtrusive return path to the parent page. */
   back?: { label: string; to: "/" | "/services" | "/journal" | "/photographer" | "/contact" };
+  heroDetails?: ReactNode;
+  heroMedia?: ReactNode;
   children: ReactNode;
 }) {
   return (
@@ -23,23 +27,27 @@ export function PageShell({
       <SiteNav />
       <header className="border-b border-cream/10 pt-40 lg:pt-52">
         <div className="mx-auto max-w-[1440px] px-6 pb-20 lg:px-10 lg:pb-28">
-          <Reveal>
-            {back && (
-              <Link
-                to={back.to}
-                className="arrow-link label-xs mb-10 inline-flex flex-row-reverse gap-2 text-cream/45 transition-colors hover:text-cream"
-              >
-                {back.label}
-                <ArrowLeft className="h-3 w-3" strokeWidth={1.5} />
-              </Link>
-            )}
-            <h1 className="display-editorial text-[1.6rem] text-cream sm:text-[2rem] lg:text-[2.4rem]">
-              {title}
-            </h1>
-            {intro ? (
-              <p className="mt-6 max-w-xl text-sm leading-relaxed text-muted-warm">{intro}</p>
-            ) : null}
-          </Reveal>
+          <div className={heroMedia ? "grid items-end gap-14 lg:grid-cols-12" : ""}>
+            <Reveal className={heroMedia ? "lg:col-span-6" : ""}>
+              {back && (
+                <Link
+                  to={back.to}
+                  className="arrow-link label-xs mb-10 inline-flex flex-row-reverse gap-2 text-cream/45 transition-colors hover:text-cream"
+                >
+                  {back.label}
+                  <ArrowLeft className="h-3 w-3" strokeWidth={1.5} />
+                </Link>
+              )}
+              <h1 className="display-editorial text-[1.6rem] text-cream sm:text-[2rem] lg:text-[2.4rem]">
+                {title}
+              </h1>
+              {intro ? (
+                <p className="mt-6 max-w-xl text-sm leading-relaxed text-muted-warm">{intro}</p>
+              ) : null}
+              {heroDetails}
+            </Reveal>
+            {heroMedia ? <Reveal delay={90} className="lg:col-span-5 lg:col-start-8">{heroMedia}</Reveal> : null}
+          </div>
         </div>
       </header>
       <main>{children}</main>

@@ -674,5 +674,49 @@ const entries: SearchEntry[] = [
   }
 ];
 export function getSearchEntries(lang: Lang) { return entries.map((entry) => lang === "en" ? ({...entry, title: entry.titleEn ?? entry.title, excerpt: entry.excerptEn ?? entry.excerpt, content: entry.contentEn ?? entry.content}) : entry); }
-function normalize(value: string) { return value.toLocaleLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); }
-export function searchSite(query: string, lang: Lang) { const words=normalize(query).trim().split(/\s+/).filter(Boolean); if(!words.length)return []; return getSearchEntries(lang).map((entry)=>{const title=normalize(entry.title),content=normalize(`${entry.excerpt} ${entry.content}`);const score=words.reduce((total,word)=>total+(title===word?18:title.startsWith(word)?12:title.includes(word)?8:content.includes(word)?2:0),0);return{entry,score};}).filter(({score})=>score>0).sort((a,b)=>b.score-a.score).slice(0,8).map(({entry})=>entry);}
+function normalize(value: string) { return value.toLocaleLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9€]+/g, " ").trim(); }
+
+const aliases: Record<string, string> = {
+  "/services/advertising": "advertising pubblicita industrial industriale architecture architettura interiors interni holiday vacation property case vacanza product prodotto catalog catalogo ecommerce e commerce",
+  "/services/portrait": "portrait ritratto portraits ritratti cv curriculum linkedin social dating tinder meetic",
+  "/services/model-portfolio": "model models modelle modelli actor actors attori book portfolio fashion moda",
+  "/services/casting": "casting digitals polaroid provino audizione",
+  "/services/family": "family famiglia families famiglie children bambini maternity maternita newborn neonati",
+  "/services/wedding": "wedding marriage matrimonio nozze sposi bride groom",
+  "/services/couple": "couple coppia couples coppie engagement fidanzamento proposal proposta",
+  "/services/events": "event events evento eventi corporate aziendale convention congress congresso",
+  "/services/gift-vouchers": "gift voucher vouchers regalo buono buoni",
+  "/services/photography-courses": "course courses corso corsi lesson lessons lezione lezioni photography fotografia",
+  "/services/passport-visa-photos": "passport visa document documents passaporto visto fototessera fototessere documenti",
+  "/services/video": "video film footage riprese produzione production",
+};
+
+function wordScore(needle: string, haystack: string, weight: number) {
+  if (!needle || !haystack) return 0;
+  if (haystack === needle) return weight * 5;
+  const words = haystack.split(" ");
+  if (words.includes(needle)) return weight * 3;
+  if (words.some((word) => word.startsWith(needle))) return weight * 2;
+  return haystack.includes(needle) ? weight : 0;
+}
+
+export function searchSite(query: string, lang: Lang) {
+  const phrase = normalize(query);
+  const words = phrase.split(/\s+/).filter(Boolean);
+  if (!words.length) return [];
+  return getSearchEntries(lang)
+    .map((entry) => {
+      const title = normalize(entry.title);
+      const excerpt = normalize(entry.excerpt);
+      const content = normalize(entry.content);
+      const alias = normalize(aliases[entry.path] ?? "");
+      let score = title === phrase ? 1000 : title.startsWith(phrase) ? 500 : title.includes(phrase) ? 260 : 0;
+      for (const word of words) score += wordScore(word, title, 50) + wordScore(word, excerpt, 12) + wordScore(word, content, 3) + wordScore(word, alias, 8);
+      if (entry.type === "service" && score > 0) score += 20;
+      return { entry, score };
+    })
+    .filter(({ score }) => score > 0)
+    .sort((a, b) => b.score - a.score || a.entry.title.localeCompare(b.entry.title))
+    .slice(0, 8)
+    .map(({ entry }) => entry);
+}
