@@ -167,10 +167,9 @@ const it: HomeCopy = {
     sent: "Grazie. Apri il tuo client per completare l'invio del messaggio.",
   },
   services: {
-    label: "I miei servizi",
-    heading: "Fotografia per ogni storia.",
-    intro:
-      "Uno studio fotografico a Torino aperto a esigenze molto diverse: persone, famiglie, eventi, imprese, prodotti e architettura. Ogni servizio nasce da un ascolto iniziale e da una pianificazione condivisa.",
+    label: "",
+    heading: "",
+    intro: "",
     view: "TUTTI I SERVIZI",
     categories: [
       { key: "weddings", title: "Matrimoni / Proposte" },
@@ -377,10 +376,9 @@ const en: HomeCopy = {
     sent: "Thank you. Your message app will open to finish sending.",
   },
   services: {
-    label: "My services",
-    heading: "Photography for every story.",
-    intro:
-      "A photography studio in Turin working across very different needs: people, families, events, companies, products and architecture. Every commission starts with listening and shared planning.",
+    label: "",
+    heading: "",
+    intro: "",
     view: "ALL SERVICES",
     categories: [
       { key: "weddings", title: "Weddings / Proposals" },
