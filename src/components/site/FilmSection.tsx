@@ -1,6 +1,5 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import showreelPoster from "@/assets/enrico-video-showreel-poster.jpg.asset.json";
 import { useLang } from "@/lib/lang";
 
 const filmCopy = {
@@ -31,7 +30,6 @@ export function FilmSection() {
         loop
         playsInline
         preload="metadata"
-        poster={showreelPoster.url}
         aria-label={copy.aria}
       >
         <source src="/media/enrico-video-showreel-mobile-refined.mp4" media="(max-width: 767px)" type="video/mp4" />
