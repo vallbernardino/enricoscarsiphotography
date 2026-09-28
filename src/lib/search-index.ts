@@ -732,7 +732,7 @@ export function searchSite(query: string, lang: Lang) {
   const phrase = normalize(query);
   const words = phrase.split(/\s+/).filter(Boolean);
   if (!words.length) return [];
-  return getSearchEntries(lang)
+  const ranked = getSearchEntries(lang)
     .map((entry) => {
       const title = normalize(entry.title);
       const excerpt = normalize(entry.excerpt);
@@ -744,7 +744,12 @@ export function searchSite(query: string, lang: Lang) {
       return { entry, score };
     })
     .filter(({ score }) => score > 0)
-    .sort((a, b) => b.score - a.score || a.entry.title.localeCompare(b.entry.title))
+    .sort((a, b) => b.score - a.score || a.entry.title.localeCompare(b.entry.title));
+  const uniqueByDestination = new Map<string, (typeof ranked)[number]>();
+  for (const result of ranked) {
+    if (!uniqueByDestination.has(result.entry.path)) uniqueByDestination.set(result.entry.path, result);
+  }
+  return [...uniqueByDestination.values()]
     .slice(0, 8)
     .map(({ entry }) => entry);
 }
