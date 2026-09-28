@@ -21,3 +21,9 @@
 - [x] Remove only the meeting-room/whiteboard clip from both showreel renditions.
 - [x] Improve bilingual static search relevance without changing its interface or position.
 - [x] Verify official pricing/content, all routes, video sequence, desktop/mobile layout, and diagnostics.
+- [ ] Reconcile the attached Content Master with service data and the shared detail template.
+- [ ] Repair service routes, homepage service links, and related-service destinations.
+- [ ] Repair bilingual search result types, aliases, ranking, and direct destinations.
+- [ ] Remove all wedding-video footage, files, posters, and stale references while preserving other video content.
+- [ ] Remove the specified Services introduction, strengthen ALL SERVICES, and update the exact portfolio sentence.
+- [ ] Verify every service route, language, action, search flow, video request, and responsive layout.
