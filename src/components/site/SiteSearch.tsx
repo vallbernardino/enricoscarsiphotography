@@ -32,6 +32,12 @@ export function SiteSearch({ mobile = false, onNavigate }: { mobile?: boolean; o
   }, [query, lang]);
 
   const close = () => { setOpen(false); setQuery(""); };
+  const typeLabel = (type: SearchEntry["type"]) => {
+    if (type === "article") return lang === "it" ? "ARTICOLO" : "ARTICLE";
+    if (type === "photographer") return lang === "it" ? "FOTOGRAFO" : "PHOTOGRAPHER";
+    if (type === "information") return lang === "it" ? "INFORMAZIONI" : "INFORMATION";
+    return lang === "it" ? "SERVIZIO" : "SERVICE";
+  };
 
   if (!open) {
     return (
@@ -51,7 +57,7 @@ export function SiteSearch({ mobile = false, onNavigate }: { mobile?: boolean; o
           <div className={`z-50 mt-3 max-h-[65vh] overflow-y-auto border border-cream/10 bg-charcoal shadow-2xl ${mobile ? "" : "absolute left-0 right-0"}`}>
             {results.length ? results.map((result) => (
               <Link key={result.id} to={result.path} onClick={() => { close(); onNavigate?.(); }} className="group grid gap-2 border-b border-cream/10 px-5 py-4 last:border-0 sm:grid-cols-[10rem_1fr_auto] sm:items-center">
-                <span className="label-xs text-logo-yellow">{result.type === "article" ? (lang === "it" ? "ARTICOLO" : "ARTICLE") : (lang === "it" ? "SERVIZIO" : "SERVICE")}</span>
+                <span className="label-xs text-logo-yellow">{typeLabel(result.type)}</span>
                 <span><strong className="block font-display text-base font-normal text-cream">{result.title}</strong><span className="mt-1 line-clamp-2 block text-xs leading-relaxed text-cream/50">{result.excerpt}</span></span>
                 <ArrowRight className="hidden h-4 w-4 text-cream/35 transition-transform group-hover:translate-x-1 sm:block" strokeWidth={1.5} />
               </Link>

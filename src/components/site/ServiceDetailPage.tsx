@@ -10,6 +10,10 @@ import { getOfficialPagesForService } from "@/lib/official-content";
 
 const galleryShapes = ["aspect-[4/5] md:col-span-7", "aspect-[3/2] md:col-span-5", "aspect-square md:col-span-4", "aspect-[4/5] md:col-span-4", "aspect-square md:col-span-4", "aspect-[3/2] md:col-span-5", "aspect-[4/5] md:col-span-7"];
 
+function isEditorialHeading(text: string) {
+  return text.length <= 120 && !/[.!?][”’"']?$/.test(text);
+}
+
 export function ServiceDetailPage({ service }: { service: ServicePage }) {
   const { lang } = useLang();
   const copy = service.copy[lang];
@@ -52,7 +56,7 @@ export function ServiceDetailPage({ service }: { service: ServicePage }) {
                 <article key={page.slug} className="space-y-6">
                   <div className="space-y-6 text-[0.98rem] leading-[1.95] text-ink/68">
                     {(lang === "it" ? page.blocks : page.blocksEn).map((block, index) =>
-                      block.kind === "heading" ? (
+                      block.kind === "heading" && isEditorialHeading(block.text) ? (
                         <h2 key={`${page.slug}-${index}`} className="pt-4 font-display text-[1.45rem] leading-[1.22] text-ink first:pt-0 sm:text-[1.75rem]">
                           {block.text}
                         </h2>
@@ -70,12 +74,6 @@ export function ServiceDetailPage({ service }: { service: ServicePage }) {
               ))}
           </div>
         </Reveal>
-      </PageSection>
-
-      <PageSection tone="light">
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-12 md:gap-7">
-          {galleryShapes.map((shape, index) => <div key={index} className={`${shape} bg-ink/[0.045]`} aria-hidden="true" />)}
-        </div>
       </PageSection>
 
       {copy.pricing?.length || copy.facts?.length ? (
@@ -100,6 +98,12 @@ export function ServiceDetailPage({ service }: { service: ServicePage }) {
           </div>
         </PageSection>
       ) : null}
+
+      <PageSection tone="light">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-12 md:gap-7">
+          {galleryShapes.map((shape, index) => <div key={index} className={`${shape} bg-ink/[0.045]`} aria-hidden="true" />)}
+        </div>
+      </PageSection>
 
       {service.related.length ? (
         <PageSection tone="dark" label={copy.relatedLabel}>

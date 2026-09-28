@@ -97,7 +97,6 @@ export const servicePages: ServicePage[] = [
         pricing: [
           "CV/resume photo: €60; includes several studio photographs on a neutral background and 2–3 selected, optimized final images.",
           "LinkedIn/social network portrait: €120; includes two styles, two sets and clothing changes, about 10 selected and retouched final photographs, plus delivery of all photographs via WeTransfer.",
-          "Urban & Business dating session in Turin: €200; over 200 photographs, up to four outfit changes, and 15–20 selected and retouched images in high resolution and app-optimized versions. Premium and Glamour sessions outside Turin are quoted individually.",
           "A 50% deposit is required to confirm the selected service.",
         ],
         facts: ["Studio in Turin, Via Oropa 54B.", "Services can be adapted for private and professional use."],
@@ -139,7 +138,6 @@ export const servicePages: ServicePage[] = [
         pricing: [
           "Foto curriculum: €60; comprende diversi scatti in studio su fondo neutro e 2–3 fotografie finali selezionate e ottimizzate.",
           "Ritratto LinkedIn/social network: €120; comprende due stili, due set e cambi di abbigliamento, oltre 10 fotografie finali selezionate e post-prodotte, più la consegna di tutti gli scatti via WeTransfer.",
-          "Sessione dating Urban & Business a Torino: €200; oltre 200 scatti, fino a quattro cambi d'abito e 15–20 immagini selezionate e post-prodotte, consegnate in alta risoluzione e in versione ottimizzata per le app. Le sessioni Premium e Glamour fuori Torino vengono preventivate singolarmente.",
           "Per confermare il servizio scelto è richiesto un anticipo del 50%.",
         ],
         facts: ["Studio a Torino, Via Oropa 54B.", "Servizi adattabili a esigenze private e professionali."],
@@ -186,7 +184,7 @@ export const servicePages: ServicePage[] = [
             ],
           },
         ],
-        pricing: ["Women’s model portfolio: €400; approximately four hours, professional makeup throughout, 5–6 clothing and set changes, about 250 photographs supplied in high and low resolution.", "The current official service page states 30 post-produced images; the current gift-voucher page states 25.", "A €200 deposit is required to reserve the date."],
+        pricing: ["Women’s model portfolio: €400; approximately four hours, professional makeup throughout, 5–6 clothing and set changes, about 250 photographs supplied in high and low resolution, including 30 post-produced images.", "A €200 deposit is required to reserve the date."],
       },
       it: {
         title: "Book per modelle, modelli e attori",
@@ -995,7 +993,7 @@ export const servicePages: ServicePage[] = [
   {
     slug: "photography-courses",
     category: "other",
-    sourceUrls: [source("corso.htm")],
+    sourceUrls: [source("corso.htm"), source("regalacorso.html")],
     related: ["portrait", "events"],
     copy: {
       en: {
@@ -1020,7 +1018,7 @@ export const servicePages: ServicePage[] = [
             bullets: ["Six individual lessons of two hours each.", "Practical work with DSLR or mirrorless cameras.", "A one-hour trial lesson can be booked.", "Adapted to the student’s level and photographic goals."],
           },
         ],
-        pricing: ["Six individual two-hour lessons: €300 total.", "A one-hour trial lesson can be booked; no price is published for the trial."],
+        pricing: ["Six individual two-hour lessons: €300 total.", "Photography-course gift voucher: €300 for the basic course of six individual two-hour lessons.", "A one-hour trial lesson can be booked; no price is published for the trial."],
       },
       it: {
         title: "Corsi di fotografia",
@@ -1044,7 +1042,7 @@ export const servicePages: ServicePage[] = [
             bullets: ["Sei lezioni individuali di due ore ciascuna.", "Lavoro pratico con reflex o mirrorless.", "Possibilità di prenotare una lezione di prova di un'ora.", "Percorso adattato al livello e agli obiettivi fotografici dello studente."],
           },
         ],
-        pricing: ["Sei lezioni individuali di due ore: €300 complessivi.", "È possibile prenotare una lezione di prova di un'ora; il prezzo della prova non è pubblicato."],
+        pricing: ["Sei lezioni individuali di due ore: €300 complessivi.", "Buono regalo per il corso di fotografia: €300 per il corso base di sei lezioni individuali da due ore.", "È possibile prenotare una lezione di prova di un'ora; il prezzo della prova non è pubblicato."],
       },
     },
   },

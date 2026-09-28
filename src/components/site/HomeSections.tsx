@@ -67,12 +67,14 @@ export function ServicesSection() {
   return (
     <section id="services" className="relative z-20 -mt-px bg-paper text-ink">
       <div className="mx-auto max-w-[1440px] px-6 py-28 lg:px-10 lg:py-48">
-        <Reveal><span className="label-xs text-ink/45">{t.label}</span></Reveal>
-        <Reveal delay={60}><h2 className="mt-7 max-w-2xl font-display text-[2rem] leading-[1.12] sm:text-[3rem]">{t.heading}</h2></Reveal>
-        <Reveal delay={120}><p className="mt-8 max-w-2xl text-[0.95rem] leading-[1.95] text-ink/60">{t.intro}</p></Reveal>
-        <Reveal delay={180} className="mt-10"><ArrowCta tone="light" to="/services">{t.view}</ArrowCta></Reveal>
+        <Reveal>
+          <Link to="/services" className="group inline-flex items-center gap-4 border-b border-ink/25 pb-3 text-ink transition-colors hover:border-logo-yellow">
+            <span className="font-display text-[2rem] leading-none sm:text-[2.6rem]">{t.view}</span>
+            <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" strokeWidth={1.25} />
+          </Link>
+        </Reveal>
 
-        <div className="mt-24 grid items-start gap-x-12 gap-y-16 lg:mt-36 lg:grid-cols-3">
+        <div className="mt-24 grid items-start gap-x-12 gap-y-16 lg:mt-32 lg:grid-cols-3">
           {t.groups.map((g, i) => (
             <Reveal key={g.title} delay={240 + i * 70}>
               <div className="service-category-rule relative border-b border-ink/20 pb-5"><h3 className="label-xs text-ink/70">{g.title}</h3></div>

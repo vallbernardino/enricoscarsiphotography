@@ -1,5 +1,6 @@
 import type { Lang } from "./lang";
-export type SearchEntry = { id: string; type: "service" | "article" | "page"; title: string; titleEn?: string; path: string; excerpt: string; excerptEn?: string; content: string; contentEn?: string };
+import { servicePages } from "./service-pages";
+export type SearchEntry = { id: string; type: "service" | "article" | "photographer" | "information"; title: string; titleEn?: string; path: string; excerpt: string; excerptEn?: string; content: string; contentEn?: string };
 const entries: SearchEntry[] = [
   {
     "id": "modelle",
@@ -465,7 +466,7 @@ const entries: SearchEntry[] = [
   },
   {
     "id": "blog-noleggio-studio-fotografico",
-    "type": "article",
+    "type": "service",
     "title": "Noleggio Studio Fotografico a Torino Professionale con Attrezzatura Illuminazione Flash e Fondali per Fotografi Fotoamatori e Aziende",
     "titleEn": "Professional Photo Studio Rental in Turin with Flash Lighting Equipment and Backdrops for Photographers, Photo Enthusiasts, and Companies",
     "path": "/services/studio-rental",
@@ -673,7 +674,29 @@ const entries: SearchEntry[] = [
     "contentEn": "Analysis of reviews for the photography studio Studio Fotografico Enrico Scarsi Fotografia On the Trustpilot platform, as of March 2026, the photography studio has collected more than 70 reviews with an average score of 4.8 out of 5, with 93% 5-star ratings and the remaining 7% 4-star ratings, with no significant negative reviews. https://it.trustpilot.com/review/fotografico.it The qualitative analysis of testimonials allows for the identification of several recurring elements that describe the customer experience and the studio's positioning. The photography studio as seen by customers: professionalism and human connection From the reviews, the figure of the photographer Enrico Scarsi emerges first and foremost, described as a competent professional, available, and capable of establishing a human connection with clients. Many users emphasize that the photo shoot is not perceived as a rigid or formal moment, but as a relaxed experience. Various comments highlight the photographer's ability to put even those unaccustomed to being in front of the camera at ease, guiding people during poses and explaining what to do during the photo session. Some clients report arriving at the shoot with a certain embarrassment or nervousness, only to discover that the experience was natural and pleasant. This relational aspect is one of the most recurring themes in the reviews: technical professionalism is often accompanied by kindness, humor, and attention to the client's needs. Quality of photographs and attention to detail The second most cited element concerns the quality of the images produced. Clients describe the photographs as: detailed professional capable of enhancing the person technically well-executed Some reviews particularly highlight the attention to the choice of lighting, poses, and locations, elements that contribute to creating more original and personalized shots. In some cases, photo services take place both in the studio and outdoors, for example, in the hills or in the center of Turin. Many users also emphasize the post-production work, which is considered fast and precise. Wide variety of photographic services The reviews show that the studio is not limited to just one type of photography but offers various services. Among those most cited by clients are: personal photo shoots photos for CVs and professional profiles private events (such as birthday parties or eighteenth birthdays) graduation photo services marriage proposal shoots professional passport photos individual photography lessons This variety of activities clearly emerges from the testimonials, which describe very different experiences, from simple document services to more complex or creative shoots. The experience of photography courses An interesting aspect highlighted by some reviews concerns individual photography lessons. Students emphasize that the individual format allows them to: receive personalized explanations delve into technical basics learn to use their camera correctly Those who participated in these courses report having finally learned to better use their SLR thanks to the opportunity to interact directly with the photographer. Speed of service and organization Another recurring element concerns work organization and service speed. For example: passport photos are delivered quickly image post-production is considered fast appointment management is flexible and accommodating to the client These aspects contribute to building an overall perception of professional and reliable service. The few reported critical issues Criticisms are very limited. The only significant negative observation concerns a 4-star review that points out room for improvement in the speed of work execution. However, even in this case, the client acknowledges the professionalism and good value for money of the service. The fact that there are no 3, 2, or 1-star reviews indicates a very high average satisfaction among clients. Conclusion The analysis of reviews on Trustpilot shows that Studio Fotografico Enrico Scarsi is perceived as a solid professional entity in the landscape of photographic services in Turin. The most evident strengths are: professionalism and technical competence ability to put clients at ease quality of photographs attention to detail personalized and varied services positive human connection during the shoot The few criticisms concern marginal aspects and do not affect the overall judgment, which remains extremely positive. Overall, the reviews reveal a photography studio that offers not just a technical service, but a complete photographic experience, capable of transforming personal or professional moments into refined and memorable images."
   }
 ];
-export function getSearchEntries(lang: Lang) { return entries.map((entry) => lang === "en" ? ({...entry, title: entry.titleEn ?? entry.title, excerpt: entry.excerptEn ?? entry.excerpt, content: entry.contentEn ?? entry.content}) : entry); }
+export function getSearchEntries(lang: Lang) {
+  const translatedEntries = entries.map((entry) => lang === "en" ? ({...entry, title: entry.titleEn ?? entry.title, excerpt: entry.excerptEn ?? entry.excerpt, content: entry.contentEn ?? entry.content}) : entry);
+  const catalogEntries: SearchEntry[] = servicePages.map((service) => {
+    const copy = service.copy[lang];
+    return {
+      id: `service-${service.slug}`,
+      type: "service",
+      title: copy.title,
+      path: `/services/${service.slug}`,
+      excerpt: copy.intro,
+      content: [copy.eyebrow, ...copy.sections.flatMap((section) => [section.heading, ...section.body, ...(section.bullets ?? [])]), ...(copy.pricing ?? []), ...(copy.facts ?? [])].join(" "),
+    };
+  });
+  const informationEntries: SearchEntry[] = [{
+    id: "photographer-information",
+    type: "photographer",
+    title: lang === "it" ? "Il fotografo" : "The photographer",
+    path: "/photographer",
+    excerpt: lang === "it" ? "Enrico Scarsi, fotografo professionista a Torino dal 1989." : "Enrico Scarsi, professional photographer in Turin since 1989.",
+    content: lang === "it" ? "fotografo studio esperienza Torino Via Oropa ritratto reportage" : "photographer studio experience Turin Via Oropa portrait reportage",
+  }];
+  return [...catalogEntries, ...informationEntries, ...translatedEntries];
+}
 function normalize(value: string) { return value.toLocaleLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9€]+/g, " ").trim(); }
 
 const aliases: Record<string, string> = {
@@ -689,6 +712,11 @@ const aliases: Record<string, string> = {
   "/services/photography-courses": "course courses corso corsi lesson lessons lezione lezioni photography fotografia",
   "/services/passport-visa-photos": "passport visa document documents passaporto visto fototessera fototessere documenti",
   "/services/video": "video film footage riprese produzione production",
+  "/services/children-ceremonies": "children kids bambini baptism battesimo communion comunione confirmation cresima ceremony cerimonia",
+  "/services/birthdays-anniversaries": "birthday birthdays compleanno compleanni eighteenth diciottesimo anniversary anniversaries anniversario festa celebration",
+  "/services/luxury-photo-tour-turin": "luxury photo tour torino turin private driver mercedes van proposal viaggio",
+  "/services/studio-rental": "studio rental hire rent noleggio affitto sala posa lighting flash fondali",
+  "/services/corporate-portrait": "corporate business professional portrait ritratto aziendale executive dirigente headshot linkedin curriculum cv",
 };
 
 function wordScore(needle: string, haystack: string, weight: number) {
@@ -704,7 +732,7 @@ export function searchSite(query: string, lang: Lang) {
   const phrase = normalize(query);
   const words = phrase.split(/\s+/).filter(Boolean);
   if (!words.length) return [];
-  return getSearchEntries(lang)
+  const ranked = getSearchEntries(lang)
     .map((entry) => {
       const title = normalize(entry.title);
       const excerpt = normalize(entry.excerpt);
@@ -716,7 +744,12 @@ export function searchSite(query: string, lang: Lang) {
       return { entry, score };
     })
     .filter(({ score }) => score > 0)
-    .sort((a, b) => b.score - a.score || a.entry.title.localeCompare(b.entry.title))
+    .sort((a, b) => b.score - a.score || a.entry.title.localeCompare(b.entry.title));
+  const uniqueByDestination = new Map<string, (typeof ranked)[number]>();
+  for (const result of ranked) {
+    if (!uniqueByDestination.has(result.entry.path)) uniqueByDestination.set(result.entry.path, result);
+  }
+  return [...uniqueByDestination.values()]
     .slice(0, 8)
     .map(({ entry }) => entry);
 }
