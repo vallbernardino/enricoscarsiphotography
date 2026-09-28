@@ -466,7 +466,7 @@ const entries: SearchEntry[] = [
   },
   {
     "id": "blog-noleggio-studio-fotografico",
-    "type": "article",
+    "type": "service",
     "title": "Noleggio Studio Fotografico a Torino Professionale con Attrezzatura Illuminazione Flash e Fondali per Fotografi Fotoamatori e Aziende",
     "titleEn": "Professional Photo Studio Rental in Turin with Flash Lighting Equipment and Backdrops for Photographers, Photo Enthusiasts, and Companies",
     "path": "/services/studio-rental",
