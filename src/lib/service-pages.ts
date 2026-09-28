@@ -993,7 +993,7 @@ export const servicePages: ServicePage[] = [
   {
     slug: "photography-courses",
     category: "other",
-    sourceUrls: [source("corso.htm")],
+    sourceUrls: [source("corso.htm"), source("regalacorso.html")],
     related: ["portrait", "events"],
     copy: {
       en: {
@@ -1018,7 +1018,7 @@ export const servicePages: ServicePage[] = [
             bullets: ["Six individual lessons of two hours each.", "Practical work with DSLR or mirrorless cameras.", "A one-hour trial lesson can be booked.", "Adapted to the student’s level and photographic goals."],
           },
         ],
-        pricing: ["Six individual two-hour lessons: €300 total.", "A one-hour trial lesson can be booked; no price is published for the trial."],
+        pricing: ["Six individual two-hour lessons: €300 total.", "Photography-course gift voucher: €300 for the basic course of six individual two-hour lessons.", "A one-hour trial lesson can be booked; no price is published for the trial."],
       },
       it: {
         title: "Corsi di fotografia",
@@ -1042,7 +1042,7 @@ export const servicePages: ServicePage[] = [
             bullets: ["Sei lezioni individuali di due ore ciascuna.", "Lavoro pratico con reflex o mirrorless.", "Possibilità di prenotare una lezione di prova di un'ora.", "Percorso adattato al livello e agli obiettivi fotografici dello studente."],
           },
         ],
-        pricing: ["Sei lezioni individuali di due ore: €300 complessivi.", "È possibile prenotare una lezione di prova di un'ora; il prezzo della prova non è pubblicato."],
+        pricing: ["Sei lezioni individuali di due ore: €300 complessivi.", "Buono regalo per il corso di fotografia: €300 per il corso base di sei lezioni individuali da due ore.", "È possibile prenotare una lezione di prova di un'ora; il prezzo della prova non è pubblicato."],
       },
     },
   },
