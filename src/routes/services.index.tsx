@@ -35,11 +35,7 @@ function ServicesIndexPage() {
 
   return (
     <PageShell title={h.pages.services.title} intro={h.pages.services.intro}>
-      <PageSection label={t.label} heading={t.heading} tone="light">
-        <p className="max-w-2xl text-[0.95rem] leading-[1.95] text-ink/60">{t.intro}</p>
-      </PageSection>
-
-      <PageSection label={t.indexLabel} heading={t.indexIntro} tone="light">
+      <PageSection heading={t.indexLabel} tone="light">
         <div className="grid items-start gap-x-12 gap-y-16 lg:grid-cols-3">
           {t.groups.map((g, i) => (
             <Reveal key={g.title} delay={i * 90}>

@@ -171,7 +171,7 @@ const it: HomeCopy = {
     heading: "Fotografia per ogni storia.",
     intro:
       "Uno studio fotografico a Torino aperto a esigenze molto diverse: persone, famiglie, eventi, imprese, prodotti e architettura. Ogni servizio nasce da un ascolto iniziale e da una pianificazione condivisa.",
-    view: "Scopri tutti i servizi",
+    view: "TUTTI I SERVIZI",
     categories: [
       { key: "weddings", title: "Matrimoni / Proposte" },
       { key: "families", title: "Famiglie" },
@@ -381,7 +381,7 @@ const en: HomeCopy = {
     heading: "Photography for every story.",
     intro:
       "A photography studio in Turin working across very different needs: people, families, events, companies, products and architecture. Every commission starts with listening and shared planning.",
-    view: "Explore all services",
+    view: "ALL SERVICES",
     categories: [
       { key: "weddings", title: "Weddings / Proposals" },
       { key: "families", title: "Families" },

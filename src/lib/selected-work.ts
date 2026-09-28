@@ -18,7 +18,7 @@ export const selectedWorkCopy: Record<Lang, { label: string; description: string
   en: {
     label: "SELECTED WORK",
     description:
-      "A moving portfolio across portraits, families, weddings, Turin stories, events, business imagery, interiors, industry, products and photography education.",
+      "Portfolio across portraits, families, weddings, Turin stories, events, business imagery, interiors, industry, products and photography education.",
     view: "VIEW ALL",
   },
   it: {
